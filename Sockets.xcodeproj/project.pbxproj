@@ -54,6 +54,8 @@
 		06B41A322B53145600211751 /* String+Number.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B41A312B53145600211751 /* String+Number.swift */; };
 		06B41A362B5314D000211751 /* StringExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B41A352B5314D000211751 /* StringExtensionsTests.swift */; };
 		06B41A392B53169E00211751 /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B41A382B53169E00211751 /* UIConstants.swift */; };
+		06B41A3C2B5320A100211751 /* CacheAsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B41A3B2B5320A100211751 /* CacheAsyncImage.swift */; };
+		06B41A3E2B5320D300211751 /* GravatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B41A3D2B5320D300211751 /* GravatarView.swift */; };
 		06C713142B5200D800FE2715 /* Callbacks+Aliases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C713132B5200D800FE2715 /* Callbacks+Aliases.swift */; };
 		06C713272B52083400FE2715 /* EncryptionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C713262B52083400FE2715 /* EncryptionTests.swift */; };
 /* End PBXBuildFile section */
@@ -116,6 +118,8 @@
 		06B41A312B53145600211751 /* String+Number.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Number.swift"; sourceTree = "<group>"; };
 		06B41A352B5314D000211751 /* StringExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensionsTests.swift; sourceTree = "<group>"; };
 		06B41A382B53169E00211751 /* UIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIConstants.swift; sourceTree = "<group>"; };
+		06B41A3B2B5320A100211751 /* CacheAsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheAsyncImage.swift; sourceTree = "<group>"; };
+		06B41A3D2B5320D300211751 /* GravatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GravatarView.swift; sourceTree = "<group>"; };
 		06C713132B5200D800FE2715 /* Callbacks+Aliases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Callbacks+Aliases.swift"; sourceTree = "<group>"; };
 		06C713192B5207F900FE2715 /* SocketsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SocketsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		06C713262B52083400FE2715 /* EncryptionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncryptionTests.swift; sourceTree = "<group>"; };
@@ -260,6 +264,7 @@
 		067724732B51BC4C00E3A41B /* views */ = {
 			isa = PBXGroup;
 			children = (
+				06B41A3A2B53209700211751 /* images */,
 				067724AD2B51E84B00E3A41B /* buttons */,
 			);
 			path = views;
@@ -525,6 +530,15 @@
 			path = constants;
 			sourceTree = "<group>";
 		};
+		06B41A3A2B53209700211751 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				06B41A3B2B5320A100211751 /* CacheAsyncImage.swift */,
+				06B41A3D2B5320D300211751 /* GravatarView.swift */,
+			);
+			path = images;
+			sourceTree = "<group>";
+		};
 		06C713122B5200CC00FE2715 /* aliases */ = {
 			isa = PBXGroup;
 			children = (
@@ -730,6 +744,7 @@
 				06B41A202B52F1C900211751 /* View+TextStyle.swift in Sources */,
 				0677245C2B51BBB900E3A41B /* SocketsApp.swift in Sources */,
 				067724AF2B51E86100E3A41B /* BouncingButtonStyle.swift in Sources */,
+				06B41A3C2B5320A100211751 /* CacheAsyncImage.swift in Sources */,
 				06B41A132B52BB3800211751 /* CoreGraphics+Init.swift in Sources */,
 				06B41A2B2B530AEA00211751 /* MessageView.swift in Sources */,
 				067724922B51DB3700E3A41B /* ChatSceneFactory.swift in Sources */,
@@ -741,6 +756,7 @@
 				06B41A322B53145600211751 /* String+Number.swift in Sources */,
 				06B419FB2B52B18200211751 /* AccessSceneFactory.swift in Sources */,
 				067724842B51D25300E3A41B /* MessageModel.swift in Sources */,
+				06B41A3E2B5320D300211751 /* GravatarView.swift in Sources */,
 				067724992B51E0DD00E3A41B /* AppEvents.swift in Sources */,
 				06B41A002B52B55000211751 /* Localizables.swift in Sources */,
 				06B41A0E2B52B89700211751 /* NgonShape.swift in Sources */,

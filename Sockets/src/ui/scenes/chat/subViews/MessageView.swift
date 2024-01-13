@@ -22,17 +22,11 @@ struct MessageView: View {
     }
     
     var body: some View {
-        HStack {
-            if isMine {
-                Spacer()
-            }
-            
+        HStack(alignment: .bottom, spacing: 4) {
+            avatarArea(true)
             messageContent
                 .padding(isMine ? .leading: .trailing, 32)
-            
-            if !isMine {
-                Spacer()
-            }
+            avatarArea(false)
         }
     }
 }
@@ -43,6 +37,19 @@ private extension MessageView {
         UI.Messages.colors [
             message.sender.number % UI.Messages.colors.count
         ]
+    }
+    
+    @ViewBuilder
+    func avatarArea(_ value: Bool) -> some View {
+        if isMine == value {
+            Spacer()
+        } else if isLast{
+            GravatarView(message.sender)
+                .frame(size: .s(24))
+        } else {
+            Spacer()
+                .frame(width: 24)
+        }
     }
     
     @ViewBuilder
