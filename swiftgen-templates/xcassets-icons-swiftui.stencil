@@ -1,0 +1,11 @@
+// Generated using SwiftGen — https://github.com/SwiftGen/SwiftGen
+
+import SwiftUI
+
+public extension Image {
+  {% for group in catalogs.first.assets %}
+    {% for icon in group.items %}
+      static let {{group.name}}{{icon.name|swiftIdentifier:"pretty"|escapeReservedKeywords}} = Self.init("{{ icon.name }}")
+    {% endfor %}
+  {% endfor %}
+}

@@ -9,40 +9,42 @@ import Foundation
 import Starscream
 
 protocol SocketsServiceProtocol {
-    func connect(action: @escaping DataCallback)
+    func connect(url: String, action: @escaping DataCallback)
+    func disconnect()
     func send(_ data: Data)
 }
 
-final class SocketsService: NSObject, SocketsServiceProtocol, WebSocketDelegate {
-    
-    private let socket: WebSocket
-    private var action: DataCallback?
+final class SocketsService: SocketsServiceProtocol, WebSocketDelegate {
 
-    init(_ url: String) {
-        let request = URLRequest(url: URL(string: url)!)
-        socket = WebSocket(request: request)
-        super.init()
-        socket.delegate = self
-    }
+    private var socket: WebSocket?
+    private var action: DataCallback?
     
-    func connect(action: @escaping (Data) -> ()) {
-        socket.connect()
+    func connect(url: String, action: @escaping DataCallback) {
+        let request = URLRequest(url: URL(string: url)!)
         self.action = action
+        socket = WebSocket(request: request)
+        socket?.delegate = self
+        socket?.connect()
     }
     
     func didReceive(event: Starscream.WebSocketEvent, client: Starscream.WebSocketClient) {
         switch event {
         case .disconnected, .peerClosed, .cancelled:
-            socket.connect()
+            socket?.connect()
         case .binary(let data):
             action?(data)
         default:
             print(event)
         }
     }
+
     func send(_ data: Data) {
-        self.socket.write(data: data) {
+        socket?.write(data: data) {
             self.action?(data)
         }
+    }
+    
+    func disconnect() {
+        socket?.disconnect()
     }
 }

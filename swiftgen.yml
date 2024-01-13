@@ -1,0 +1,18 @@
+input_dir: Sockets/res/
+output_dir: Sockets/res/
+strings:
+  inputs:
+    - localizables/en.lproj/Localizables.strings
+  outputs:
+    templateName: structured-swift5
+    output: localizables/Localizables.swift
+    params:
+        enumName: Ls
+        publicAccess: true
+xcassets:
+  inputs: 
+      - icons/Icons.xcassets
+  outputs:
+    templatePath: swiftgen-templates/xcassets-icons-swiftui.stencil
+    output: icons/Icons.swift
+

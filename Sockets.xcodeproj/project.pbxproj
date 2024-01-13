@@ -29,6 +29,26 @@
 		067724AC2B51E7DA00E3A41B /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 067724AA2B51E7DA00E3A41B /* Icons.xcassets */; };
 		067724AF2B51E86100E3A41B /* BouncingButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067724AE2B51E86100E3A41B /* BouncingButtonStyle.swift */; };
 		067724B12B51E89B00E3A41B /* IconCircularAppButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067724B02B51E89B00E3A41B /* IconCircularAppButton.swift */; };
+		06B419F52B52B0B800211751 /* AccessSceneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B419F42B52B0B800211751 /* AccessSceneView.swift */; };
+		06B419F72B52B16A00211751 /* AccessScenePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B419F62B52B16A00211751 /* AccessScenePresenter.swift */; };
+		06B419F92B52B17300211751 /* AccessSceneInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B419F82B52B17300211751 /* AccessSceneInteractor.swift */; };
+		06B419FB2B52B18200211751 /* AccessSceneFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B419FA2B52B18200211751 /* AccessSceneFactory.swift */; };
+		06B419FE2B52B2FB00211751 /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B419FD2B52B2FB00211751 /* StorageService.swift */; };
+		06B41A002B52B55000211751 /* Localizables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B419FF2B52B55000211751 /* Localizables.swift */; };
+		06B41A062B52B7BB00211751 /* Localizables.strings in Resources */ = {isa = PBXBuildFile; fileRef = 06B41A082B52B7BB00211751 /* Localizables.strings */; };
+		06B41A0B2B52B87100211751 /* LogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B41A0A2B52B87100211751 /* LogoView.swift */; };
+		06B41A0E2B52B89700211751 /* NgonShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B41A0D2B52B89700211751 /* NgonShape.swift */; };
+		06B41A112B52B8CC00211751 /* CoreGraphics+Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B41A102B52B8CC00211751 /* CoreGraphics+Operators.swift */; };
+		06B41A132B52BB3800211751 /* CoreGraphics+Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B41A122B52BB3800211751 /* CoreGraphics+Init.swift */; };
+		06B41A162B52BB6800211751 /* View+Frame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B41A152B52BB6800211751 /* View+Frame.swift */; };
+		06B41A1A2B52F15E00211751 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B41A172B52F15E00211751 /* Fonts.swift */; };
+		06B41A1B2B52F15E00211751 /* Montserrat.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 06B41A192B52F15E00211751 /* Montserrat.ttf */; };
+		06B41A1E2B52F18B00211751 /* TextStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B41A1D2B52F18B00211751 /* TextStyle.swift */; };
+		06B41A202B52F1C900211751 /* View+TextStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B41A1F2B52F1C900211751 /* View+TextStyle.swift */; };
+		06B41A222B52F3DF00211751 /* FieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B41A212B52F3DF00211751 /* FieldView.swift */; };
+		06B41A242B52FAA800211751 /* AppButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B41A232B52FAA800211751 /* AppButton.swift */; };
+		06B41A272B52FE4E00211751 /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 06B41A262B52FE4E00211751 /* KeychainSwift */; };
+		06B41A292B52FE9900211751 /* SessionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B41A282B52FE9900211751 /* SessionModel.swift */; };
 		06C713142B5200D800FE2715 /* Callbacks+Aliases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C713132B5200D800FE2715 /* Callbacks+Aliases.swift */; };
 		06C713272B52083400FE2715 /* EncryptionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C713262B52083400FE2715 /* EncryptionTests.swift */; };
 /* End PBXBuildFile section */
@@ -66,6 +86,25 @@
 		067724AA2B51E7DA00E3A41B /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icons.xcassets; sourceTree = "<group>"; };
 		067724AE2B51E86100E3A41B /* BouncingButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BouncingButtonStyle.swift; sourceTree = "<group>"; };
 		067724B02B51E89B00E3A41B /* IconCircularAppButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconCircularAppButton.swift; sourceTree = "<group>"; };
+		06B419F42B52B0B800211751 /* AccessSceneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessSceneView.swift; sourceTree = "<group>"; };
+		06B419F62B52B16A00211751 /* AccessScenePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessScenePresenter.swift; sourceTree = "<group>"; };
+		06B419F82B52B17300211751 /* AccessSceneInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessSceneInteractor.swift; sourceTree = "<group>"; };
+		06B419FA2B52B18200211751 /* AccessSceneFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessSceneFactory.swift; sourceTree = "<group>"; };
+		06B419FD2B52B2FB00211751 /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
+		06B419FF2B52B55000211751 /* Localizables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localizables.swift; sourceTree = "<group>"; };
+		06B41A072B52B7BB00211751 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizables.strings; sourceTree = "<group>"; };
+		06B41A0A2B52B87100211751 /* LogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoView.swift; sourceTree = "<group>"; };
+		06B41A0D2B52B89700211751 /* NgonShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NgonShape.swift; sourceTree = "<group>"; };
+		06B41A102B52B8CC00211751 /* CoreGraphics+Operators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreGraphics+Operators.swift"; sourceTree = "<group>"; };
+		06B41A122B52BB3800211751 /* CoreGraphics+Init.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreGraphics+Init.swift"; sourceTree = "<group>"; };
+		06B41A152B52BB6800211751 /* View+Frame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Frame.swift"; sourceTree = "<group>"; };
+		06B41A172B52F15E00211751 /* Fonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
+		06B41A192B52F15E00211751 /* Montserrat.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Montserrat.ttf; sourceTree = "<group>"; };
+		06B41A1D2B52F18B00211751 /* TextStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextStyle.swift; sourceTree = "<group>"; };
+		06B41A1F2B52F1C900211751 /* View+TextStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+TextStyle.swift"; sourceTree = "<group>"; };
+		06B41A212B52F3DF00211751 /* FieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldView.swift; sourceTree = "<group>"; };
+		06B41A232B52FAA800211751 /* AppButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppButton.swift; sourceTree = "<group>"; };
+		06B41A282B52FE9900211751 /* SessionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionModel.swift; sourceTree = "<group>"; };
 		06C713132B5200D800FE2715 /* Callbacks+Aliases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Callbacks+Aliases.swift"; sourceTree = "<group>"; };
 		06C713192B5207F900FE2715 /* SocketsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SocketsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		06C713262B52083400FE2715 /* EncryptionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncryptionTests.swift; sourceTree = "<group>"; };
@@ -76,6 +115,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06B41A272B52FE4E00211751 /* KeychainSwift in Frameworks */,
 				0677247C2B51BD8900E3A41B /* Starscream in Frameworks */,
 				067724872B51D68000E3A41B /* CryptoSwift in Frameworks */,
 			);
@@ -143,6 +183,8 @@
 		0677246B2B51BC4C00E3A41B /* localizables */ = {
 			isa = PBXGroup;
 			children = (
+				06B419FF2B52B55000211751 /* Localizables.swift */,
+				06B41A082B52B7BB00211751 /* Localizables.strings */,
 			);
 			path = localizables;
 			sourceTree = "<group>";
@@ -159,6 +201,8 @@
 		0677246E2B51BC4C00E3A41B /* fonts */ = {
 			isa = PBXGroup;
 			children = (
+				06B41A172B52F15E00211751 /* Fonts.swift */,
+				06B41A182B52F15E00211751 /* montserrat */,
 			);
 			path = fonts;
 			sourceTree = "<group>";
@@ -176,6 +220,7 @@
 			isa = PBXGroup;
 			children = (
 				0677245B2B51BBB900E3A41B /* SocketsApp.swift */,
+				06B41A0C2B52B88900211751 /* shapes */,
 				067724712B51BC4C00E3A41B /* scenes */,
 				067724722B51BC4C00E3A41B /* modifiers */,
 				067724732B51BC4C00E3A41B /* views */,
@@ -186,6 +231,7 @@
 		067724712B51BC4C00E3A41B /* scenes */ = {
 			isa = PBXGroup;
 			children = (
+				06B419F32B52B0AC00211751 /* access */,
 				0677248A2B51DAD000E3A41B /* chat */,
 			);
 			path = scenes;
@@ -228,6 +274,7 @@
 		067724762B51BC4C00E3A41B /* utils */ = {
 			isa = PBXGroup;
 			children = (
+				06B41A1C2B52F17B00211751 /* enums */,
 				06C713122B5200CC00FE2715 /* aliases */,
 				067724972B51E0D200E3A41B /* events */,
 				067724772B51BC4C00E3A41B /* services */,
@@ -238,6 +285,7 @@
 		067724772B51BC4C00E3A41B /* services */ = {
 			isa = PBXGroup;
 			children = (
+				06B419FC2B52B2EB00211751 /* storage */,
 				0677247E2B51D16C00E3A41B /* sockets */,
 				0677247D2B51D16500E3A41B /* encryption */,
 				067724932B51DBBA00E3A41B /* ServicesInjector.swift */,
@@ -248,6 +296,8 @@
 		067724782B51BC4C00E3A41B /* extensions */ = {
 			isa = PBXGroup;
 			children = (
+				06B41A142B52BB5800211751 /* view */,
+				06B41A0F2B52B8AC00211751 /* graphics */,
 				0677247F2B51D1FE00E3A41B /* codable */,
 			);
 			path = extensions;
@@ -289,6 +339,7 @@
 			isa = PBXGroup;
 			children = (
 				067724832B51D25300E3A41B /* MessageModel.swift */,
+				06B41A282B52FE9900211751 /* SessionModel.swift */,
 			);
 			path = messages;
 			sourceTree = "<group>";
@@ -342,8 +393,80 @@
 			children = (
 				067724AE2B51E86100E3A41B /* BouncingButtonStyle.swift */,
 				067724B02B51E89B00E3A41B /* IconCircularAppButton.swift */,
+				06B41A232B52FAA800211751 /* AppButton.swift */,
 			);
 			path = buttons;
+			sourceTree = "<group>";
+		};
+		06B419F32B52B0AC00211751 /* access */ = {
+			isa = PBXGroup;
+			children = (
+				06B41A092B52B85900211751 /* subViews */,
+				06B419F42B52B0B800211751 /* AccessSceneView.swift */,
+				06B419F82B52B17300211751 /* AccessSceneInteractor.swift */,
+				06B419F62B52B16A00211751 /* AccessScenePresenter.swift */,
+				06B419FA2B52B18200211751 /* AccessSceneFactory.swift */,
+			);
+			path = access;
+			sourceTree = "<group>";
+		};
+		06B419FC2B52B2EB00211751 /* storage */ = {
+			isa = PBXGroup;
+			children = (
+				06B419FD2B52B2FB00211751 /* StorageService.swift */,
+			);
+			path = storage;
+			sourceTree = "<group>";
+		};
+		06B41A092B52B85900211751 /* subViews */ = {
+			isa = PBXGroup;
+			children = (
+				06B41A0A2B52B87100211751 /* LogoView.swift */,
+				06B41A212B52F3DF00211751 /* FieldView.swift */,
+			);
+			path = subViews;
+			sourceTree = "<group>";
+		};
+		06B41A0C2B52B88900211751 /* shapes */ = {
+			isa = PBXGroup;
+			children = (
+				06B41A0D2B52B89700211751 /* NgonShape.swift */,
+			);
+			path = shapes;
+			sourceTree = "<group>";
+		};
+		06B41A0F2B52B8AC00211751 /* graphics */ = {
+			isa = PBXGroup;
+			children = (
+				06B41A102B52B8CC00211751 /* CoreGraphics+Operators.swift */,
+				06B41A122B52BB3800211751 /* CoreGraphics+Init.swift */,
+			);
+			path = graphics;
+			sourceTree = "<group>";
+		};
+		06B41A142B52BB5800211751 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				06B41A152B52BB6800211751 /* View+Frame.swift */,
+				06B41A1F2B52F1C900211751 /* View+TextStyle.swift */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		06B41A182B52F15E00211751 /* montserrat */ = {
+			isa = PBXGroup;
+			children = (
+				06B41A192B52F15E00211751 /* Montserrat.ttf */,
+			);
+			path = montserrat;
+			sourceTree = "<group>";
+		};
+		06B41A1C2B52F17B00211751 /* enums */ = {
+			isa = PBXGroup;
+			children = (
+				06B41A1D2B52F18B00211751 /* TextStyle.swift */,
+			);
+			path = enums;
 			sourceTree = "<group>";
 		};
 		06C713122B5200CC00FE2715 /* aliases */ = {
@@ -401,6 +524,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 067724672B51BBBB00E3A41B /* Build configuration list for PBXNativeTarget "Sockets" */;
 			buildPhases = (
+				06B41A032B52B5A100211751 /* SwiftGen */,
 				067724542B51BBB900E3A41B /* Sources */,
 				067724552B51BBB900E3A41B /* Frameworks */,
 				067724562B51BBB900E3A41B /* Resources */,
@@ -413,6 +537,7 @@
 			packageProductDependencies = (
 				0677247B2B51BD8900E3A41B /* Starscream */,
 				067724862B51D68000E3A41B /* CryptoSwift */,
+				06B41A262B52FE4E00211751 /* KeychainSwift */,
 			);
 			productName = Sockets;
 			productReference = 067724582B51BBB900E3A41B /* Sockets.app */;
@@ -467,6 +592,7 @@
 			packageReferences = (
 				0677247A2B51BD8900E3A41B /* XCRemoteSwiftPackageReference "Starscream" */,
 				067724852B51D67F00E3A41B /* XCRemoteSwiftPackageReference "CryptoSwift" */,
+				06B41A252B52FE4E00211751 /* XCRemoteSwiftPackageReference "keychain-swift" */,
 			);
 			productRefGroup = 067724592B51BBB900E3A41B /* Products */;
 			projectDirPath = "";
@@ -487,6 +613,8 @@
 				067724642B51BBBB00E3A41B /* Preview Assets.xcassets in Resources */,
 				067724AC2B51E7DA00E3A41B /* Icons.xcassets in Resources */,
 				067724602B51BBBB00E3A41B /* Assets.xcassets in Resources */,
+				06B41A062B52B7BB00211751 /* Localizables.strings in Resources */,
+				06B41A1B2B52F15E00211751 /* Montserrat.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -499,28 +627,66 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		06B41A032B52B5A100211751 /* SwiftGen */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftGen;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\n\nif which swiftgen; then\n    swiftgen\nelse\n  echo \"error: SwiftGen not installed, run 'brew install swiftgen'\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		067724542B51BBB900E3A41B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06B41A242B52FAA800211751 /* AppButton.swift in Sources */,
+				06B41A1E2B52F18B00211751 /* TextStyle.swift in Sources */,
 				067724AB2B51E7DA00E3A41B /* Icons.swift in Sources */,
 				067724B12B51E89B00E3A41B /* IconCircularAppButton.swift in Sources */,
 				0677249C2B51E14600E3A41B /* KeyboardPushedModifier.swift in Sources */,
 				06C713142B5200D800FE2715 /* Callbacks+Aliases.swift in Sources */,
 				067724A82B51E32800E3A41B /* InputView.swift in Sources */,
 				067724892B51DA7100E3A41B /* EncryptionService.swift in Sources */,
+				06B419F72B52B16A00211751 /* AccessScenePresenter.swift in Sources */,
 				0677248E2B51DAFB00E3A41B /* ChatScenePresenter.swift in Sources */,
+				06B41A222B52F3DF00211751 /* FieldView.swift in Sources */,
+				06B41A162B52BB6800211751 /* View+Frame.swift in Sources */,
+				06B41A1A2B52F15E00211751 /* Fonts.swift in Sources */,
 				067724812B51D20A00E3A41B /* Encodable+Dict.swift in Sources */,
+				06B419FE2B52B2FB00211751 /* StorageService.swift in Sources */,
+				06B41A202B52F1C900211751 /* View+TextStyle.swift in Sources */,
 				0677245C2B51BBB900E3A41B /* SocketsApp.swift in Sources */,
 				067724AF2B51E86100E3A41B /* BouncingButtonStyle.swift in Sources */,
+				06B41A132B52BB3800211751 /* CoreGraphics+Init.swift in Sources */,
 				067724922B51DB3700E3A41B /* ChatSceneFactory.swift in Sources */,
+				06B41A0B2B52B87100211751 /* LogoView.swift in Sources */,
 				067724902B51DB1800E3A41B /* ChatSceneInteractor.swift in Sources */,
+				06B419F92B52B17300211751 /* AccessSceneInteractor.swift in Sources */,
 				067724962B51DBE100E3A41B /* SocketsService.swift in Sources */,
+				06B41A112B52B8CC00211751 /* CoreGraphics+Operators.swift in Sources */,
+				06B419FB2B52B18200211751 /* AccessSceneFactory.swift in Sources */,
 				067724842B51D25300E3A41B /* MessageModel.swift in Sources */,
 				067724992B51E0DD00E3A41B /* AppEvents.swift in Sources */,
+				06B41A002B52B55000211751 /* Localizables.swift in Sources */,
+				06B41A0E2B52B89700211751 /* NgonShape.swift in Sources */,
 				0677248C2B51DADD00E3A41B /* ChatSceneView.swift in Sources */,
 				067724942B51DBBB00E3A41B /* ServicesInjector.swift in Sources */,
+				06B41A292B52FE9900211751 /* SessionModel.swift in Sources */,
+				06B419F52B52B0B800211751 /* AccessSceneView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -541,6 +707,17 @@
 			targetProxy = 06C7131D2B5207F900FE2715 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		06B41A082B52B7BB00211751 /* Localizables.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				06B41A072B52B7BB00211751 /* en */,
+			);
+			name = Localizables.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		067724652B51BBBB00E3A41B /* Debug */ = {
@@ -669,6 +846,7 @@
 				DEVELOPMENT_TEAM = Q8FQP27R5R;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
@@ -708,6 +886,7 @@
 				DEVELOPMENT_TEAM = Q8FQP27R5R;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
@@ -825,6 +1004,14 @@
 				minimumVersion = 1.8.1;
 			};
 		};
+		06B41A252B52FE4E00211751 /* XCRemoteSwiftPackageReference "keychain-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/evgenyneu/keychain-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 20.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -837,6 +1024,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 067724852B51D67F00E3A41B /* XCRemoteSwiftPackageReference "CryptoSwift" */;
 			productName = CryptoSwift;
+		};
+		06B41A262B52FE4E00211751 /* KeychainSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 06B41A252B52FE4E00211751 /* XCRemoteSwiftPackageReference "keychain-swift" */;
+			productName = KeychainSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

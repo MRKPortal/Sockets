@@ -21,13 +21,19 @@ struct SocketsApp: App {
 
 private struct ContentView: View {
 
-    private let factory: DetailSceneFactory
+    private let factory: ChatSceneFactory
     
     init(injector: ServicesInjectorProtocol) {
-        factory = DetailSceneFactory(injector)
+        factory = ChatSceneFactory(injector)
     }
     
     var body: some View {
-        factory.build()
+        ZStack {
+            Color
+                .base1
+                .ignoresSafeArea()
+            factory
+                .build()
+        }
     }
 }

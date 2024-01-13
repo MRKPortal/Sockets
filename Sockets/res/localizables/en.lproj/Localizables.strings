@@ -1,0 +1,19 @@
+/* 
+  Localizables.strings
+  Sockets
+
+  Created by Marc Flores on 13/1/24.
+  
+*/
+
+/* */
+"app_name" = "Sockets";
+
+/* */
+"access_username_placeholder" = "Username";
+
+/* */
+"access_server_placeholder" = "Server";
+
+/* */
+"action_connect" = "Connect";
