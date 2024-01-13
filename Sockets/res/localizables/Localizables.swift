@@ -11,6 +11,12 @@ import Foundation
 // swiftlint:disable nesting type_body_length type_name vertical_whitespace_opening_braces
 public enum Ls {
   /// 
+  public static let accessServerPlaceholder = Ls.tr("Localizables", "access_server_placeholder", fallback: "Server")
+  /// 
+  public static let accessUsernamePlaceholder = Ls.tr("Localizables", "access_username_placeholder", fallback: "Username")
+  /// 
+  public static let actionConnect = Ls.tr("Localizables", "action_connect", fallback: "Connect")
+  /// 
   public static let appName = Ls.tr("Localizables", "app_name", fallback: "Sockets")
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length

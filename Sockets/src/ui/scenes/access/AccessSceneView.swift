@@ -20,9 +20,30 @@ struct AccessSceneView<P: AccessScenePresenterProtocol>: View {
             Spacer()
             LogoView()
                 .frame(width: 200, height: 200)
-            Text(Ls.appName)
-                .foregroundStyle(.base2)
+            Text(Ls.appName.uppercased())
+                .applyTextStyle(.h1)
+            
+            VStack(spacing: 16) {
+                FieldView(
+                    placeholder: Ls.accessUsernamePlaceholder,
+                    value: $presenter.username
+                )
+
+                FieldView(
+                    placeholder: Ls.accessServerPlaceholder,
+                    value: $presenter.url
+                )
+            }
+            
             Spacer()
+            if !presenter.url.isEmpty, !presenter.username.isEmpty {
+                AppButton(Ls.actionConnect.uppercased()) {
+                    presenter.connect()
+                }
+                .transition(.move(edge: .bottom).combined(with: .opacity))
+            }
         }
+        .animation(.bouncy, value: !presenter.url.isEmpty && !presenter.username.isEmpty)
+        .padding(.horizontal, 32)
     }
 }
