@@ -28,6 +28,12 @@ private struct ContentView: View {
     }
     
     var body: some View {
-        factory.build()
+        ZStack {
+            Color
+                .base1
+                .ignoresSafeArea()
+            factory
+                .build()
+        }
     }
 }

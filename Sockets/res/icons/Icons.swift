@@ -3,5 +3,6 @@
 import SwiftUI
 
 public extension Image {
-    static let mailSend = Self.init("send")
+      static let iconsSend = Self.init("send")
+      static let iconsSocket = Self.init("socket")
 }

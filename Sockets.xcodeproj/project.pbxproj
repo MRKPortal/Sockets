@@ -34,6 +34,13 @@
 		06B419F92B52B17300211751 /* AccessSceneInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B419F82B52B17300211751 /* AccessSceneInteractor.swift */; };
 		06B419FB2B52B18200211751 /* AccessSceneFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B419FA2B52B18200211751 /* AccessSceneFactory.swift */; };
 		06B419FE2B52B2FB00211751 /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B419FD2B52B2FB00211751 /* StorageService.swift */; };
+		06B41A002B52B55000211751 /* Localizables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B419FF2B52B55000211751 /* Localizables.swift */; };
+		06B41A062B52B7BB00211751 /* Localizables.strings in Resources */ = {isa = PBXBuildFile; fileRef = 06B41A082B52B7BB00211751 /* Localizables.strings */; };
+		06B41A0B2B52B87100211751 /* LogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B41A0A2B52B87100211751 /* LogoView.swift */; };
+		06B41A0E2B52B89700211751 /* NgonShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B41A0D2B52B89700211751 /* NgonShape.swift */; };
+		06B41A112B52B8CC00211751 /* CoreGraphics+Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B41A102B52B8CC00211751 /* CoreGraphics+Operators.swift */; };
+		06B41A132B52BB3800211751 /* CoreGraphics+Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B41A122B52BB3800211751 /* CoreGraphics+Init.swift */; };
+		06B41A162B52BB6800211751 /* View+Frame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B41A152B52BB6800211751 /* View+Frame.swift */; };
 		06C713142B5200D800FE2715 /* Callbacks+Aliases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C713132B5200D800FE2715 /* Callbacks+Aliases.swift */; };
 		06C713272B52083400FE2715 /* EncryptionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C713262B52083400FE2715 /* EncryptionTests.swift */; };
 /* End PBXBuildFile section */
@@ -76,6 +83,13 @@
 		06B419F82B52B17300211751 /* AccessSceneInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessSceneInteractor.swift; sourceTree = "<group>"; };
 		06B419FA2B52B18200211751 /* AccessSceneFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessSceneFactory.swift; sourceTree = "<group>"; };
 		06B419FD2B52B2FB00211751 /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
+		06B419FF2B52B55000211751 /* Localizables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localizables.swift; sourceTree = "<group>"; };
+		06B41A072B52B7BB00211751 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizables.strings; sourceTree = "<group>"; };
+		06B41A0A2B52B87100211751 /* LogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoView.swift; sourceTree = "<group>"; };
+		06B41A0D2B52B89700211751 /* NgonShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NgonShape.swift; sourceTree = "<group>"; };
+		06B41A102B52B8CC00211751 /* CoreGraphics+Operators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreGraphics+Operators.swift"; sourceTree = "<group>"; };
+		06B41A122B52BB3800211751 /* CoreGraphics+Init.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreGraphics+Init.swift"; sourceTree = "<group>"; };
+		06B41A152B52BB6800211751 /* View+Frame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Frame.swift"; sourceTree = "<group>"; };
 		06C713132B5200D800FE2715 /* Callbacks+Aliases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Callbacks+Aliases.swift"; sourceTree = "<group>"; };
 		06C713192B5207F900FE2715 /* SocketsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SocketsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		06C713262B52083400FE2715 /* EncryptionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncryptionTests.swift; sourceTree = "<group>"; };
@@ -153,6 +167,8 @@
 		0677246B2B51BC4C00E3A41B /* localizables */ = {
 			isa = PBXGroup;
 			children = (
+				06B419FF2B52B55000211751 /* Localizables.swift */,
+				06B41A082B52B7BB00211751 /* Localizables.strings */,
 			);
 			path = localizables;
 			sourceTree = "<group>";
@@ -186,6 +202,7 @@
 			isa = PBXGroup;
 			children = (
 				0677245B2B51BBB900E3A41B /* SocketsApp.swift */,
+				06B41A0C2B52B88900211751 /* shapes */,
 				067724712B51BC4C00E3A41B /* scenes */,
 				067724722B51BC4C00E3A41B /* modifiers */,
 				067724732B51BC4C00E3A41B /* views */,
@@ -260,6 +277,8 @@
 		067724782B51BC4C00E3A41B /* extensions */ = {
 			isa = PBXGroup;
 			children = (
+				06B41A142B52BB5800211751 /* view */,
+				06B41A0F2B52B8AC00211751 /* graphics */,
 				0677247F2B51D1FE00E3A41B /* codable */,
 			);
 			path = extensions;
@@ -361,6 +380,7 @@
 		06B419F32B52B0AC00211751 /* access */ = {
 			isa = PBXGroup;
 			children = (
+				06B41A092B52B85900211751 /* subViews */,
 				06B419F42B52B0B800211751 /* AccessSceneView.swift */,
 				06B419F82B52B17300211751 /* AccessSceneInteractor.swift */,
 				06B419F62B52B16A00211751 /* AccessScenePresenter.swift */,
@@ -375,6 +395,39 @@
 				06B419FD2B52B2FB00211751 /* StorageService.swift */,
 			);
 			path = storage;
+			sourceTree = "<group>";
+		};
+		06B41A092B52B85900211751 /* subViews */ = {
+			isa = PBXGroup;
+			children = (
+				06B41A0A2B52B87100211751 /* LogoView.swift */,
+			);
+			path = subViews;
+			sourceTree = "<group>";
+		};
+		06B41A0C2B52B88900211751 /* shapes */ = {
+			isa = PBXGroup;
+			children = (
+				06B41A0D2B52B89700211751 /* NgonShape.swift */,
+			);
+			path = shapes;
+			sourceTree = "<group>";
+		};
+		06B41A0F2B52B8AC00211751 /* graphics */ = {
+			isa = PBXGroup;
+			children = (
+				06B41A102B52B8CC00211751 /* CoreGraphics+Operators.swift */,
+				06B41A122B52BB3800211751 /* CoreGraphics+Init.swift */,
+			);
+			path = graphics;
+			sourceTree = "<group>";
+		};
+		06B41A142B52BB5800211751 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				06B41A152B52BB6800211751 /* View+Frame.swift */,
+			);
+			path = view;
 			sourceTree = "<group>";
 		};
 		06C713122B5200CC00FE2715 /* aliases */ = {
@@ -432,6 +485,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 067724672B51BBBB00E3A41B /* Build configuration list for PBXNativeTarget "Sockets" */;
 			buildPhases = (
+				06B41A032B52B5A100211751 /* SwiftGen */,
 				067724542B51BBB900E3A41B /* Sources */,
 				067724552B51BBB900E3A41B /* Frameworks */,
 				067724562B51BBB900E3A41B /* Resources */,
@@ -518,6 +572,7 @@
 				067724642B51BBBB00E3A41B /* Preview Assets.xcassets in Resources */,
 				067724AC2B51E7DA00E3A41B /* Icons.xcassets in Resources */,
 				067724602B51BBBB00E3A41B /* Assets.xcassets in Resources */,
+				06B41A062B52B7BB00211751 /* Localizables.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -529,6 +584,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		06B41A032B52B5A100211751 /* SwiftGen */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftGen;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\n\nif which swiftgen; then\n    swiftgen\nelse\n  echo \"error: SwiftGen not installed, run 'brew install swiftgen'\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		067724542B51BBB900E3A41B /* Sources */ = {
@@ -543,17 +619,23 @@
 				067724892B51DA7100E3A41B /* EncryptionService.swift in Sources */,
 				06B419F72B52B16A00211751 /* AccessScenePresenter.swift in Sources */,
 				0677248E2B51DAFB00E3A41B /* ChatScenePresenter.swift in Sources */,
+				06B41A162B52BB6800211751 /* View+Frame.swift in Sources */,
 				067724812B51D20A00E3A41B /* Encodable+Dict.swift in Sources */,
 				06B419FE2B52B2FB00211751 /* StorageService.swift in Sources */,
 				0677245C2B51BBB900E3A41B /* SocketsApp.swift in Sources */,
 				067724AF2B51E86100E3A41B /* BouncingButtonStyle.swift in Sources */,
+				06B41A132B52BB3800211751 /* CoreGraphics+Init.swift in Sources */,
 				067724922B51DB3700E3A41B /* ChatSceneFactory.swift in Sources */,
+				06B41A0B2B52B87100211751 /* LogoView.swift in Sources */,
 				067724902B51DB1800E3A41B /* ChatSceneInteractor.swift in Sources */,
 				06B419F92B52B17300211751 /* AccessSceneInteractor.swift in Sources */,
 				067724962B51DBE100E3A41B /* SocketsService.swift in Sources */,
+				06B41A112B52B8CC00211751 /* CoreGraphics+Operators.swift in Sources */,
 				06B419FB2B52B18200211751 /* AccessSceneFactory.swift in Sources */,
 				067724842B51D25300E3A41B /* MessageModel.swift in Sources */,
 				067724992B51E0DD00E3A41B /* AppEvents.swift in Sources */,
+				06B41A002B52B55000211751 /* Localizables.swift in Sources */,
+				06B41A0E2B52B89700211751 /* NgonShape.swift in Sources */,
 				0677248C2B51DADD00E3A41B /* ChatSceneView.swift in Sources */,
 				067724942B51DBBB00E3A41B /* ServicesInjector.swift in Sources */,
 				06B419F52B52B0B800211751 /* AccessSceneView.swift in Sources */,
@@ -577,6 +659,17 @@
 			targetProxy = 06C7131D2B5207F900FE2715 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		06B41A082B52B7BB00211751 /* Localizables.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				06B41A072B52B7BB00211751 /* en */,
+			);
+			name = Localizables.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		067724652B51BBBB00E3A41B /* Debug */ = {
@@ -705,6 +798,7 @@
 				DEVELOPMENT_TEAM = Q8FQP27R5R;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
@@ -744,6 +838,7 @@
 				DEVELOPMENT_TEAM = Q8FQP27R5R;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;

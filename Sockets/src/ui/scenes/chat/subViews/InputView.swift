@@ -30,7 +30,7 @@ struct InputView: View {
                     }
                     .padding(.vertical, 8)
                 
-                IconCircularAppButton(.mailSend) {
+                IconCircularAppButton(.iconsSend) {
                     focused = false
                     sendAction()
                 }
