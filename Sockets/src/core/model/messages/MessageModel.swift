@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct MessageModel: Codable, Identifiable {
+struct MessageModel: Codable, Identifiable, Equatable {
     let id: String
     let alias: String
     let sender: String

@@ -17,22 +17,25 @@ struct ChatSceneView<P: ChatScenePresenterProtocol>: View {
     }
     
     var body: some View {
-        ZStack{
+        VStack {
             ScrollView {
                 ForEach(presenter.messages) { message in
                     HStack {
-                        Text(message.message)
-                            .multilineTextAlignment(.leading)
-                        Spacer()
+                        let id = presenter.messages.firstIndex(of: message) ?? -2
+                        MessageView(
+                            message: message,
+                            isFirst: presenter.messages[secured: id-1]?.sender != message.sender,
+                            isLast: presenter.messages[secured: id+1]?.sender != message.sender,
+                            isMine: message.sender == presenter.userId
+                        )
                     }
                 }
             }
-            VStack {
-                Spacer()
-                InputView(value: $text) {
-                    presenter.send(text)
-                    text = ""
-                }
+            .padding(.horizontal, 16)
+            
+            InputView(value: $text) {
+                presenter.send(text)
+                text = ""
             }
         }
         .onAppear {
