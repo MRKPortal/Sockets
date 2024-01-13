@@ -17,11 +17,22 @@ struct ChatSceneView<P: ChatScenePresenterProtocol>: View {
     }
     
     var body: some View {
-        VStack {
-            Spacer()
-            InputView(value: $text) {
-                presenter.send(text)
-                text = ""
+        ZStack{
+            ScrollView {
+                ForEach(presenter.messages) { message in
+                    HStack {
+                        Text(message.message)
+                            .multilineTextAlignment(.leading)
+                        Spacer()
+                    }
+                }
+            }
+            VStack {
+                Spacer()
+                InputView(value: $text) {
+                    presenter.send(text)
+                    text = ""
+                }
             }
         }
         .onAppear {
