@@ -29,6 +29,11 @@
 		067724AC2B51E7DA00E3A41B /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 067724AA2B51E7DA00E3A41B /* Icons.xcassets */; };
 		067724AF2B51E86100E3A41B /* BouncingButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067724AE2B51E86100E3A41B /* BouncingButtonStyle.swift */; };
 		067724B12B51E89B00E3A41B /* IconCircularAppButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067724B02B51E89B00E3A41B /* IconCircularAppButton.swift */; };
+		06B419F52B52B0B800211751 /* AccessSceneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B419F42B52B0B800211751 /* AccessSceneView.swift */; };
+		06B419F72B52B16A00211751 /* AccessScenePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B419F62B52B16A00211751 /* AccessScenePresenter.swift */; };
+		06B419F92B52B17300211751 /* AccessSceneInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B419F82B52B17300211751 /* AccessSceneInteractor.swift */; };
+		06B419FB2B52B18200211751 /* AccessSceneFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B419FA2B52B18200211751 /* AccessSceneFactory.swift */; };
+		06B419FE2B52B2FB00211751 /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B419FD2B52B2FB00211751 /* StorageService.swift */; };
 		06C713142B5200D800FE2715 /* Callbacks+Aliases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C713132B5200D800FE2715 /* Callbacks+Aliases.swift */; };
 		06C713272B52083400FE2715 /* EncryptionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C713262B52083400FE2715 /* EncryptionTests.swift */; };
 /* End PBXBuildFile section */
@@ -66,6 +71,11 @@
 		067724AA2B51E7DA00E3A41B /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icons.xcassets; sourceTree = "<group>"; };
 		067724AE2B51E86100E3A41B /* BouncingButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BouncingButtonStyle.swift; sourceTree = "<group>"; };
 		067724B02B51E89B00E3A41B /* IconCircularAppButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconCircularAppButton.swift; sourceTree = "<group>"; };
+		06B419F42B52B0B800211751 /* AccessSceneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessSceneView.swift; sourceTree = "<group>"; };
+		06B419F62B52B16A00211751 /* AccessScenePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessScenePresenter.swift; sourceTree = "<group>"; };
+		06B419F82B52B17300211751 /* AccessSceneInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessSceneInteractor.swift; sourceTree = "<group>"; };
+		06B419FA2B52B18200211751 /* AccessSceneFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessSceneFactory.swift; sourceTree = "<group>"; };
+		06B419FD2B52B2FB00211751 /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
 		06C713132B5200D800FE2715 /* Callbacks+Aliases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Callbacks+Aliases.swift"; sourceTree = "<group>"; };
 		06C713192B5207F900FE2715 /* SocketsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SocketsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		06C713262B52083400FE2715 /* EncryptionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncryptionTests.swift; sourceTree = "<group>"; };
@@ -186,6 +196,7 @@
 		067724712B51BC4C00E3A41B /* scenes */ = {
 			isa = PBXGroup;
 			children = (
+				06B419F32B52B0AC00211751 /* access */,
 				0677248A2B51DAD000E3A41B /* chat */,
 			);
 			path = scenes;
@@ -238,6 +249,7 @@
 		067724772B51BC4C00E3A41B /* services */ = {
 			isa = PBXGroup;
 			children = (
+				06B419FC2B52B2EB00211751 /* storage */,
 				0677247E2B51D16C00E3A41B /* sockets */,
 				0677247D2B51D16500E3A41B /* encryption */,
 				067724932B51DBBA00E3A41B /* ServicesInjector.swift */,
@@ -344,6 +356,25 @@
 				067724B02B51E89B00E3A41B /* IconCircularAppButton.swift */,
 			);
 			path = buttons;
+			sourceTree = "<group>";
+		};
+		06B419F32B52B0AC00211751 /* access */ = {
+			isa = PBXGroup;
+			children = (
+				06B419F42B52B0B800211751 /* AccessSceneView.swift */,
+				06B419F82B52B17300211751 /* AccessSceneInteractor.swift */,
+				06B419F62B52B16A00211751 /* AccessScenePresenter.swift */,
+				06B419FA2B52B18200211751 /* AccessSceneFactory.swift */,
+			);
+			path = access;
+			sourceTree = "<group>";
+		};
+		06B419FC2B52B2EB00211751 /* storage */ = {
+			isa = PBXGroup;
+			children = (
+				06B419FD2B52B2FB00211751 /* StorageService.swift */,
+			);
+			path = storage;
 			sourceTree = "<group>";
 		};
 		06C713122B5200CC00FE2715 /* aliases */ = {
@@ -510,17 +541,22 @@
 				06C713142B5200D800FE2715 /* Callbacks+Aliases.swift in Sources */,
 				067724A82B51E32800E3A41B /* InputView.swift in Sources */,
 				067724892B51DA7100E3A41B /* EncryptionService.swift in Sources */,
+				06B419F72B52B16A00211751 /* AccessScenePresenter.swift in Sources */,
 				0677248E2B51DAFB00E3A41B /* ChatScenePresenter.swift in Sources */,
 				067724812B51D20A00E3A41B /* Encodable+Dict.swift in Sources */,
+				06B419FE2B52B2FB00211751 /* StorageService.swift in Sources */,
 				0677245C2B51BBB900E3A41B /* SocketsApp.swift in Sources */,
 				067724AF2B51E86100E3A41B /* BouncingButtonStyle.swift in Sources */,
 				067724922B51DB3700E3A41B /* ChatSceneFactory.swift in Sources */,
 				067724902B51DB1800E3A41B /* ChatSceneInteractor.swift in Sources */,
+				06B419F92B52B17300211751 /* AccessSceneInteractor.swift in Sources */,
 				067724962B51DBE100E3A41B /* SocketsService.swift in Sources */,
+				06B419FB2B52B18200211751 /* AccessSceneFactory.swift in Sources */,
 				067724842B51D25300E3A41B /* MessageModel.swift in Sources */,
 				067724992B51E0DD00E3A41B /* AppEvents.swift in Sources */,
 				0677248C2B51DADD00E3A41B /* ChatSceneView.swift in Sources */,
 				067724942B51DBBB00E3A41B /* ServicesInjector.swift in Sources */,
+				06B419F52B52B0B800211751 /* AccessSceneView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
