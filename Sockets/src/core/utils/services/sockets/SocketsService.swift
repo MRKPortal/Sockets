@@ -9,14 +9,15 @@ import Foundation
 import Starscream
 
 protocol SocketsServiceProtocol {
-    func connect()
-    func send(_ message: MessageModel)
+    func connect(action: @escaping DataCallback)
+    func send(_ data: Data)
 }
 
 final class SocketsService: NSObject, SocketsServiceProtocol, WebSocketDelegate {
     
     private let socket: WebSocket
-    
+    private var action: DataCallback?
+
     init(_ url: String) {
         let request = URLRequest(url: URL(string: url)!)
         socket = WebSocket(request: request)
@@ -24,27 +25,24 @@ final class SocketsService: NSObject, SocketsServiceProtocol, WebSocketDelegate 
         socket.delegate = self
     }
     
-    func connect() {
+    func connect(action: @escaping (Data) -> ()) {
         socket.connect()
+        self.action = action
     }
-
+    
     func didReceive(event: Starscream.WebSocketEvent, client: Starscream.WebSocketClient) {
         switch event {
-        case .text(let message):
-            print("message", message)
         case .disconnected, .peerClosed, .cancelled:
             socket.connect()
         case .binary(let data):
-            print(try? JSONDecoder().decode(MessageModel.self, from: data))
+            action?(data)
         default:
             print(event)
         }
     }
-    
-    func send(_ message: MessageModel) {
-        let data = try! JSONEncoder().encode(message)
+    func send(_ data: Data) {
         self.socket.write(data: data) {
-            print("completed")
+            self.action?(data)
         }
     }
 }

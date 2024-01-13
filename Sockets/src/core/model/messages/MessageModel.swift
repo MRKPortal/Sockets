@@ -10,9 +10,11 @@ import Foundation
 struct MessageModel: Codable, Identifiable {
     let id: String
     let message: String
+    let date: Date
     
     init(_ message: String) {
         self.id = UUID().uuidString
         self.message = message
+        self.date = .now
     }
 }
