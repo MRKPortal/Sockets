@@ -47,6 +47,8 @@
 		06B41A202B52F1C900211751 /* View+TextStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B41A1F2B52F1C900211751 /* View+TextStyle.swift */; };
 		06B41A222B52F3DF00211751 /* FieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B41A212B52F3DF00211751 /* FieldView.swift */; };
 		06B41A242B52FAA800211751 /* AppButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B41A232B52FAA800211751 /* AppButton.swift */; };
+		06B41A272B52FE4E00211751 /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 06B41A262B52FE4E00211751 /* KeychainSwift */; };
+		06B41A292B52FE9900211751 /* SessionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B41A282B52FE9900211751 /* SessionModel.swift */; };
 		06C713142B5200D800FE2715 /* Callbacks+Aliases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C713132B5200D800FE2715 /* Callbacks+Aliases.swift */; };
 		06C713272B52083400FE2715 /* EncryptionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C713262B52083400FE2715 /* EncryptionTests.swift */; };
 /* End PBXBuildFile section */
@@ -102,6 +104,7 @@
 		06B41A1F2B52F1C900211751 /* View+TextStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+TextStyle.swift"; sourceTree = "<group>"; };
 		06B41A212B52F3DF00211751 /* FieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldView.swift; sourceTree = "<group>"; };
 		06B41A232B52FAA800211751 /* AppButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppButton.swift; sourceTree = "<group>"; };
+		06B41A282B52FE9900211751 /* SessionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionModel.swift; sourceTree = "<group>"; };
 		06C713132B5200D800FE2715 /* Callbacks+Aliases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Callbacks+Aliases.swift"; sourceTree = "<group>"; };
 		06C713192B5207F900FE2715 /* SocketsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SocketsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		06C713262B52083400FE2715 /* EncryptionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncryptionTests.swift; sourceTree = "<group>"; };
@@ -112,6 +115,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06B41A272B52FE4E00211751 /* KeychainSwift in Frameworks */,
 				0677247C2B51BD8900E3A41B /* Starscream in Frameworks */,
 				067724872B51D68000E3A41B /* CryptoSwift in Frameworks */,
 			);
@@ -335,6 +339,7 @@
 			isa = PBXGroup;
 			children = (
 				067724832B51D25300E3A41B /* MessageModel.swift */,
+				06B41A282B52FE9900211751 /* SessionModel.swift */,
 			);
 			path = messages;
 			sourceTree = "<group>";
@@ -532,6 +537,7 @@
 			packageProductDependencies = (
 				0677247B2B51BD8900E3A41B /* Starscream */,
 				067724862B51D68000E3A41B /* CryptoSwift */,
+				06B41A262B52FE4E00211751 /* KeychainSwift */,
 			);
 			productName = Sockets;
 			productReference = 067724582B51BBB900E3A41B /* Sockets.app */;
@@ -586,6 +592,7 @@
 			packageReferences = (
 				0677247A2B51BD8900E3A41B /* XCRemoteSwiftPackageReference "Starscream" */,
 				067724852B51D67F00E3A41B /* XCRemoteSwiftPackageReference "CryptoSwift" */,
+				06B41A252B52FE4E00211751 /* XCRemoteSwiftPackageReference "keychain-swift" */,
 			);
 			productRefGroup = 067724592B51BBB900E3A41B /* Products */;
 			projectDirPath = "";
@@ -678,6 +685,7 @@
 				06B41A0E2B52B89700211751 /* NgonShape.swift in Sources */,
 				0677248C2B51DADD00E3A41B /* ChatSceneView.swift in Sources */,
 				067724942B51DBBB00E3A41B /* ServicesInjector.swift in Sources */,
+				06B41A292B52FE9900211751 /* SessionModel.swift in Sources */,
 				06B419F52B52B0B800211751 /* AccessSceneView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -996,6 +1004,14 @@
 				minimumVersion = 1.8.1;
 			};
 		};
+		06B41A252B52FE4E00211751 /* XCRemoteSwiftPackageReference "keychain-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/evgenyneu/keychain-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 20.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1008,6 +1024,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 067724852B51D67F00E3A41B /* XCRemoteSwiftPackageReference "CryptoSwift" */;
 			productName = CryptoSwift;
+		};
+		06B41A262B52FE4E00211751 /* KeychainSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 06B41A252B52FE4E00211751 /* XCRemoteSwiftPackageReference "keychain-swift" */;
+			productName = KeychainSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

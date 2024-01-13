@@ -16,18 +16,22 @@ final class ChatSceneInteractor: ChatSceneInteractorProtocol {
     
     private let sockets: SocketsServiceProtocol
     private let encryption: EncryptionServiceProtocol
+    private let storage: StorageServiceProtocol
+    
+    
     private var observer: MessagesCallback?
     private var messages: [MessageModel] = []
     
     init(_ injector: ServicesInjectorProtocol) {
-        self.sockets = injector.socketsService
-        self.encryption = injector.encryptionService
+        self.sockets = injector.sockets
+        self.encryption = injector.encryption
+        self.storage = injector.storage
     }
 
     func connect(_ observer: @escaping MessagesCallback) throws {
         try self.encryption.configureKey("<roomName>")
         self.observer = observer
-        sockets.connect { [weak self] in
+        sockets.connect(url: try storage.getSession().url) { [weak self] in
             self?.decrypt($0)
         }
     }
@@ -37,6 +41,10 @@ final class ChatSceneInteractor: ChatSceneInteractorProtocol {
         let modelData = try JSONEncoder().encode(model)
         let encryptedModelData = try encryption.encrypt(data: modelData)
         sockets.send(encryptedModelData)
+    }
+    
+    func disconnect() {
+        sockets.disconnect()
     }
 }
 

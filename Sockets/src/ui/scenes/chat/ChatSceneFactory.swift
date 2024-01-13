@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-final class DetailSceneFactory {
+final class ChatSceneFactory {
 
     private let injector: ServicesInjectorProtocol
     

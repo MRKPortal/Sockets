@@ -8,11 +8,13 @@
 import Foundation
 
 protocol ServicesInjectorProtocol {
-    var encryptionService: EncryptionServiceProtocol { get }
-    var socketsService: SocketsServiceProtocol { get }
+    var storage: StorageServiceProtocol { get }
+    var encryption: EncryptionServiceProtocol { get }
+    var sockets: SocketsServiceProtocol { get }
 }
 
 final class ServicesInjector: ServicesInjectorProtocol {
-    var encryptionService: EncryptionServiceProtocol = EncryptionService()
-    var socketsService: SocketsServiceProtocol = SocketsService("wss://socketsbay.com/wss/v2/1/demo/")
+    var encryption: EncryptionServiceProtocol = EncryptionService()
+    var sockets: SocketsServiceProtocol = SocketsService()
+    var storage: StorageServiceProtocol = StorageService()
 }
