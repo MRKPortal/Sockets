@@ -21,10 +21,10 @@ struct SocketsApp: App {
 
 private struct ContentView: View {
 
-    private let factory: AccessSceneFactory
+    private let factory: ChatSceneFactory
     
     init(injector: ServicesInjectorProtocol) {
-        factory = AccessSceneFactory(injector)
+        factory = ChatSceneFactory(injector)
     }
     
     var body: some View {

@@ -37,7 +37,8 @@ final class ChatSceneInteractor: ChatSceneInteractorProtocol {
     }
     
     func sendMessage(_ message: String) throws {
-        let model: MessageModel = .init(message)
+        let session = try storage.getSession()
+        let model: MessageModel = .init(sender: session.id, alias: session.username, message: message)
         let modelData = try JSONEncoder().encode(model)
         let encryptedModelData = try encryption.encrypt(data: modelData)
         sockets.send(encryptedModelData)
