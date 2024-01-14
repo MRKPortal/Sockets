@@ -13,11 +13,13 @@ struct IconCircularAppButton: View {
 
     private let action: () -> Void
     private let icon: Image
+    private let padding: CGFloat
     private let generator = UIImpactFeedbackGenerator(style: .light)
 
-    init(_ icon: Image, action: @escaping () -> Void) {
+    init(_ icon: Image, padding: CGFloat = 8, action: @escaping () -> Void) {
         self.icon = icon
         self.action = action
+        self.padding = padding
     }
     
     var body: some View {
@@ -30,7 +32,7 @@ struct IconCircularAppButton: View {
                     .resizable()
                     .foregroundColor(.white)
                     .scaledToFit()
-                    .padding(reader.size.width/4)
+                    .padding(padding)
                     .background(background)
             }
         }
@@ -41,7 +43,7 @@ struct IconCircularAppButton: View {
 private extension IconCircularAppButton {
     @ViewBuilder
     var background: some View {
-        Color.blue1
+        Color.green3
             .opacity(isEnabled ? 1 : 0.25)
             .clipShape(Circle())
             .animation(.bouncy, value: isEnabled)

@@ -8,7 +8,7 @@
 import Foundation
 
 protocol ChatSceneInteractorProtocol {
-    var userId: String { get }
+    var session: SessionModel { get }
     func connect(_ observer: @escaping MessagesCallback) throws
     func sendMessage(_ message: String) throws
 }
@@ -22,14 +22,13 @@ final class ChatSceneInteractor: ChatSceneInteractorProtocol {
     private var observer: MessagesCallback?
     private var messages: [MessageModel] = []
     
-    var userId: String {
-        (try? storage.getSession().id) ?? ""
-    }
+    let session: SessionModel
     
     init(_ injector: ServicesInjectorProtocol) {
         self.sockets = injector.sockets
         self.encryption = injector.encryption
         self.storage = injector.storage
+        self.session = (try? injector.storage.getSession()) ?? .init(username: "", url: "")
     }
 
     func connect(_ observer: @escaping MessagesCallback) throws {
@@ -41,7 +40,6 @@ final class ChatSceneInteractor: ChatSceneInteractorProtocol {
     }
     
     func sendMessage(_ message: String) throws {
-        let session = try storage.getSession()
         let model: MessageModel = .init(sender: session.id, alias: session.username, message: message)
         let modelData = try JSONEncoder().encode(model)
         let encryptedModelData = try encryption.encrypt(data: modelData)

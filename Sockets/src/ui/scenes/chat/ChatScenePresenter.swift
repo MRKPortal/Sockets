@@ -9,24 +9,31 @@ import Foundation
 import SwiftUI
 
 protocol ChatScenePresenterProtocol: ObservableObject {
+    var title: String { get }
     var userId: String { get }
     var messages: [MessageModel] { get }
+
     func connect()
     func send(_ message: String)
+    func didTapBack()
+    func didTapCopyPrivate()
 }
 
 final class ChatScenePresenter: ChatScenePresenterProtocol {
 
-    let userId: String
-    
     private let interactor: ChatSceneInteractorProtocol
+
+    let userId: String
+    let title: String = "Super cool name for a group!"
 
     @Published var messages: [MessageModel] = []
     
     init(interactor: ChatSceneInteractorProtocol) {
-        self.userId = interactor.userId
         self.interactor = interactor
+        self.userId = interactor.session.id
     }
+    
+    //MARK: - ChatScenePresenterProtocol
     
     func connect() {
         try! interactor.connect { messages in
@@ -38,7 +45,17 @@ final class ChatScenePresenter: ChatScenePresenterProtocol {
     
     func send(_ message: String) {
         Task {
-            try! interactor.sendMessage(message)
+            try! interactor.sendMessage(
+                message.trimmingCharacters(in: .whitespacesAndNewlines)
+            )
         }
+    }
+    
+    func didTapBack() {
+        print("return to home")
+    }
+    
+    func didTapCopyPrivate() {
+        print("copied decryption key")
     }
 }

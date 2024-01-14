@@ -68,7 +68,7 @@ private extension MessageView {
         }
         .padding(8)
         .background (
-            (isMine ? Color.green5 : .gray4)
+            (isMine ? Color.green3 : .gray6)
                 .cornerRadius(8)
         )
         .padding(.top, isFirst ? 8 : 0)

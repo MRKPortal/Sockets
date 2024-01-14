@@ -29,6 +29,8 @@
 		067724AC2B51E7DA00E3A41B /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 067724AA2B51E7DA00E3A41B /* Icons.xcassets */; };
 		067724AF2B51E86100E3A41B /* BouncingButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067724AE2B51E86100E3A41B /* BouncingButtonStyle.swift */; };
 		067724B12B51E89B00E3A41B /* IconCircularAppButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067724B02B51E89B00E3A41B /* IconCircularAppButton.swift */; };
+		068393FD2B53FE98003A67F8 /* Date+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068393FC2B53FE98003A67F8 /* Date+String.swift */; };
+		068393FF2B540084003A67F8 /* ChatHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068393FE2B540084003A67F8 /* ChatHeaderView.swift */; };
 		06B419F52B52B0B800211751 /* AccessSceneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B419F42B52B0B800211751 /* AccessSceneView.swift */; };
 		06B419F72B52B16A00211751 /* AccessScenePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B419F62B52B16A00211751 /* AccessScenePresenter.swift */; };
 		06B419F92B52B17300211751 /* AccessSceneInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B419F82B52B17300211751 /* AccessSceneInteractor.swift */; };
@@ -93,6 +95,8 @@
 		067724AA2B51E7DA00E3A41B /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icons.xcassets; sourceTree = "<group>"; };
 		067724AE2B51E86100E3A41B /* BouncingButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BouncingButtonStyle.swift; sourceTree = "<group>"; };
 		067724B02B51E89B00E3A41B /* IconCircularAppButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconCircularAppButton.swift; sourceTree = "<group>"; };
+		068393FC2B53FE98003A67F8 /* Date+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+String.swift"; sourceTree = "<group>"; };
+		068393FE2B540084003A67F8 /* ChatHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatHeaderView.swift; sourceTree = "<group>"; };
 		06B419F42B52B0B800211751 /* AccessSceneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessSceneView.swift; sourceTree = "<group>"; };
 		06B419F62B52B16A00211751 /* AccessScenePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessScenePresenter.swift; sourceTree = "<group>"; };
 		06B419F82B52B17300211751 /* AccessSceneInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessSceneInteractor.swift; sourceTree = "<group>"; };
@@ -314,6 +318,7 @@
 		067724782B51BC4C00E3A41B /* extensions */ = {
 			isa = PBXGroup;
 			children = (
+				068393FB2B53FE8E003A67F8 /* date */,
 				06B41A302B53144C00211751 /* string */,
 				06B41A2C2B530CB300211751 /* array */,
 				06B41A142B52BB5800211751 /* view */,
@@ -405,6 +410,7 @@
 			children = (
 				067724A72B51E32800E3A41B /* InputView.swift */,
 				06B41A2A2B530AEA00211751 /* MessageView.swift */,
+				068393FE2B540084003A67F8 /* ChatHeaderView.swift */,
 			);
 			path = subViews;
 			sourceTree = "<group>";
@@ -417,6 +423,14 @@
 				06B41A232B52FAA800211751 /* AppButton.swift */,
 			);
 			path = buttons;
+			sourceTree = "<group>";
+		};
+		068393FB2B53FE8E003A67F8 /* date */ = {
+			isa = PBXGroup;
+			children = (
+				068393FC2B53FE98003A67F8 /* Date+String.swift */,
+			);
+			path = date;
 			sourceTree = "<group>";
 		};
 		06B419F32B52B0AC00211751 /* access */ = {
@@ -725,6 +739,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				06B41A242B52FAA800211751 /* AppButton.swift in Sources */,
+				068393FD2B53FE98003A67F8 /* Date+String.swift in Sources */,
 				06B41A1E2B52F18B00211751 /* TextStyle.swift in Sources */,
 				067724AB2B51E7DA00E3A41B /* Icons.swift in Sources */,
 				067724B12B51E89B00E3A41B /* IconCircularAppButton.swift in Sources */,
@@ -756,6 +771,7 @@
 				06B41A322B53145600211751 /* String+Number.swift in Sources */,
 				06B419FB2B52B18200211751 /* AccessSceneFactory.swift in Sources */,
 				067724842B51D25300E3A41B /* MessageModel.swift in Sources */,
+				068393FF2B540084003A67F8 /* ChatHeaderView.swift in Sources */,
 				06B41A3E2B5320D300211751 /* GravatarView.swift in Sources */,
 				067724992B51E0DD00E3A41B /* AppEvents.swift in Sources */,
 				06B41A002B52B55000211751 /* Localizables.swift in Sources */,
