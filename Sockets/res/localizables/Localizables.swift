@@ -22,6 +22,8 @@ public enum Ls {
   public static let chatBannerEncryption = Ls.tr("Localizables", "chat_banner_encryption", fallback: "All messages are encrypted")
   /// 
   public static let chatBannerInvite = Ls.tr("Localizables", "chat_banner_invite", fallback: "Hold on the group name to copy the invitation key and share it.")
+  /// 
+  public static let chatFeedbackKeyCopied = Ls.tr("Localizables", "chat_feedback_key_copied", fallback: "Private key copied to clipboard!")
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:enable nesting type_body_length type_name vertical_whitespace_opening_braces

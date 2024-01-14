@@ -9,6 +9,9 @@ import Foundation
 import SwiftUI
 
 protocol ChatScenePresenterProtocol: ObservableObject {
+    
+    var feedbackPublisher: StringPublisher { get }
+    
     var title: String { get }
     var userId: String { get }
     var messages: [MessageModel] { get }
@@ -22,14 +25,20 @@ protocol ChatScenePresenterProtocol: ObservableObject {
 final class ChatScenePresenter: ChatScenePresenterProtocol {
 
     private let interactor: ChatSceneInteractorProtocol
+    private let feedback: FeedbackSystemProtocol
 
     let userId: String
     let title: String
 
     @Published var messages: [MessageModel] = []
     
-    init(interactor: ChatSceneInteractorProtocol) {
+    var feedbackPublisher: StringPublisher {
+        feedback.messagePublisher
+    }
+    
+    init(interactor: ChatSceneInteractorProtocol, feedback: FeedbackSystemProtocol) {
         self.interactor = interactor
+        self.feedback = feedback
         self.userId = interactor.session.id
         self.title = interactor.room.name
     }
@@ -57,6 +66,7 @@ final class ChatScenePresenter: ChatScenePresenterProtocol {
     }
     
     func didTapCopyPrivate() {
-        print("copied decryption key", interactor.room.key)
+        UIPasteboard.general.string = interactor.room.key
+        feedback.displayToast(message: Ls.chatFeedbackKeyCopied)
     }
 }

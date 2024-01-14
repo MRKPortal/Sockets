@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		061994A32B5416C700DD19EE /* BannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061994A22B5416C700DD19EE /* BannerView.swift */; };
 		061994A52B5417B700DD19EE /* RoomModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061994A42B5417B700DD19EE /* RoomModel.swift */; };
+		061994A82B541D2500DD19EE /* FeedbackViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061994A72B541D2500DD19EE /* FeedbackViewModifier.swift */; };
+		061994AA2B54240500DD19EE /* Publishers+Aliases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061994A92B54240500DD19EE /* Publishers+Aliases.swift */; };
+		061994AC2B54246D00DD19EE /* FeedbackSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061994AB2B54246D00DD19EE /* FeedbackSystem.swift */; };
 		0677245C2B51BBB900E3A41B /* SocketsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0677245B2B51BBB900E3A41B /* SocketsApp.swift */; };
 		067724602B51BBBB00E3A41B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0677245F2B51BBBB00E3A41B /* Assets.xcassets */; };
 		067724642B51BBBB00E3A41B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 067724632B51BBBB00E3A41B /* Preview Assets.xcassets */; };
@@ -77,6 +80,9 @@
 /* Begin PBXFileReference section */
 		061994A22B5416C700DD19EE /* BannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerView.swift; sourceTree = "<group>"; };
 		061994A42B5417B700DD19EE /* RoomModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomModel.swift; sourceTree = "<group>"; };
+		061994A72B541D2500DD19EE /* FeedbackViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackViewModifier.swift; sourceTree = "<group>"; };
+		061994A92B54240500DD19EE /* Publishers+Aliases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publishers+Aliases.swift"; sourceTree = "<group>"; };
+		061994AB2B54246D00DD19EE /* FeedbackSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackSystem.swift; sourceTree = "<group>"; };
 		067724582B51BBB900E3A41B /* Sockets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sockets.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0677245B2B51BBB900E3A41B /* SocketsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketsApp.swift; sourceTree = "<group>"; };
 		0677245F2B51BBBB00E3A41B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -154,6 +160,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		061994A62B541D1800DD19EE /* feedback */ = {
+			isa = PBXGroup;
+			children = (
+				061994A72B541D2500DD19EE /* FeedbackViewModifier.swift */,
+				061994AB2B54246D00DD19EE /* FeedbackSystem.swift */,
+			);
+			path = feedback;
+			sourceTree = "<group>";
+		};
 		0677244F2B51BBB900E3A41B = {
 			isa = PBXGroup;
 			children = (
@@ -299,6 +314,7 @@
 		067724762B51BC4C00E3A41B /* utils */ = {
 			isa = PBXGroup;
 			children = (
+				061994A62B541D1800DD19EE /* feedback */,
 				06B41A372B53169400211751 /* constants */,
 				06B41A1C2B52F17B00211751 /* enums */,
 				06C713122B5200CC00FE2715 /* aliases */,
@@ -563,6 +579,7 @@
 			isa = PBXGroup;
 			children = (
 				06C713132B5200D800FE2715 /* Callbacks+Aliases.swift */,
+				061994A92B54240500DD19EE /* Publishers+Aliases.swift */,
 			);
 			path = aliases;
 			sourceTree = "<group>";
@@ -762,6 +779,7 @@
 				06B41A392B53169E00211751 /* UIConstants.swift in Sources */,
 				061994A52B5417B700DD19EE /* RoomModel.swift in Sources */,
 				06B41A1A2B52F15E00211751 /* Fonts.swift in Sources */,
+				061994AC2B54246D00DD19EE /* FeedbackSystem.swift in Sources */,
 				067724812B51D20A00E3A41B /* Encodable+Dict.swift in Sources */,
 				06B419FE2B52B2FB00211751 /* StorageService.swift in Sources */,
 				06B41A202B52F1C900211751 /* View+TextStyle.swift in Sources */,
@@ -775,9 +793,11 @@
 				067724902B51DB1800E3A41B /* ChatSceneInteractor.swift in Sources */,
 				06B419F92B52B17300211751 /* AccessSceneInteractor.swift in Sources */,
 				067724962B51DBE100E3A41B /* SocketsService.swift in Sources */,
+				061994A82B541D2500DD19EE /* FeedbackViewModifier.swift in Sources */,
 				06B41A112B52B8CC00211751 /* CoreGraphics+Operators.swift in Sources */,
 				06B41A322B53145600211751 /* String+Number.swift in Sources */,
 				06B419FB2B52B18200211751 /* AccessSceneFactory.swift in Sources */,
+				061994AA2B54240500DD19EE /* Publishers+Aliases.swift in Sources */,
 				067724842B51D25300E3A41B /* MessageModel.swift in Sources */,
 				068393FF2B540084003A67F8 /* ChatHeaderView.swift in Sources */,
 				06B41A3E2B5320D300211751 /* GravatarView.swift in Sources */,

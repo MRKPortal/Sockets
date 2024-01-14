@@ -71,6 +71,7 @@ struct ChatSceneView<P: ChatScenePresenterProtocol>: View {
                 text = ""
             }
         }
+        .feedbackSystem(presenter.feedbackPublisher)
         .onAppear {
             userId = presenter.userId
             presenter.connect()

@@ -23,3 +23,6 @@
 
 /* */
 "chat_banner_invite" = "Hold on the group name to copy the invitation key and share it.";
+
+/* */
+"chat_feedback_key_copied" = "Private key copied to clipboard!";
