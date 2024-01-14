@@ -9,9 +9,11 @@ import SwiftUI
 
 struct ChatSceneView<P: ChatScenePresenterProtocol>: View {
     
+    private let banners = [Ls.chatBannerEncryption, Ls.chatBannerInvite]
+    
     @State private var text: String = ""
     @State private var userId: String = ""
-
+    
     @ObservedObject private var presenter: P
     @Namespace private var bottom
     @Namespace private var cell
@@ -30,6 +32,16 @@ struct ChatSceneView<P: ChatScenePresenterProtocol>: View {
             
             ScrollViewReader { scroll in
                 ScrollView {
+                    //PADDING
+                    Spacer()
+                        .frame(height: 16)
+
+                    //BANNERS
+                    ForEach(banners, id: \.self) {
+                        BannerView($0)
+                    }
+
+                    //MESSAGES
                     ForEach(presenter.messages) { message in
                         HStack {
                             let id = presenter.messages.firstIndex(of: message) ?? -2

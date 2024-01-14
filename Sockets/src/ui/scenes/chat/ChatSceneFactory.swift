@@ -11,7 +11,7 @@ final class ChatSceneFactory {
 
     private let injector: ServicesInjectorProtocol
     
-    private lazy var interactor = ChatSceneInteractor(injector)
+    private lazy var interactor = ChatSceneInteractor(injector, room: .init(name: "Room#1", key: "<roomName>"))
     private lazy var presenter = ChatScenePresenter(interactor: interactor)
     
     init(_ injector: ServicesInjectorProtocol) {

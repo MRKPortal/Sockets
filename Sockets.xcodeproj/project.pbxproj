@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		061994A32B5416C700DD19EE /* BannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061994A22B5416C700DD19EE /* BannerView.swift */; };
+		061994A52B5417B700DD19EE /* RoomModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061994A42B5417B700DD19EE /* RoomModel.swift */; };
 		0677245C2B51BBB900E3A41B /* SocketsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0677245B2B51BBB900E3A41B /* SocketsApp.swift */; };
 		067724602B51BBBB00E3A41B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0677245F2B51BBBB00E3A41B /* Assets.xcassets */; };
 		067724642B51BBBB00E3A41B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 067724632B51BBBB00E3A41B /* Preview Assets.xcassets */; };
@@ -73,6 +75,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		061994A22B5416C700DD19EE /* BannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerView.swift; sourceTree = "<group>"; };
+		061994A42B5417B700DD19EE /* RoomModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomModel.swift; sourceTree = "<group>"; };
 		067724582B51BBB900E3A41B /* Sockets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sockets.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0677245B2B51BBB900E3A41B /* SocketsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketsApp.swift; sourceTree = "<group>"; };
 		0677245F2B51BBBB00E3A41B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -365,6 +369,7 @@
 			children = (
 				067724832B51D25300E3A41B /* MessageModel.swift */,
 				06B41A282B52FE9900211751 /* SessionModel.swift */,
+				061994A42B5417B700DD19EE /* RoomModel.swift */,
 			);
 			path = messages;
 			sourceTree = "<group>";
@@ -411,6 +416,7 @@
 				067724A72B51E32800E3A41B /* InputView.swift */,
 				06B41A2A2B530AEA00211751 /* MessageView.swift */,
 				068393FE2B540084003A67F8 /* ChatHeaderView.swift */,
+				061994A22B5416C700DD19EE /* BannerView.swift */,
 			);
 			path = subViews;
 			sourceTree = "<group>";
@@ -749,10 +755,12 @@
 				067724A82B51E32800E3A41B /* InputView.swift in Sources */,
 				067724892B51DA7100E3A41B /* EncryptionService.swift in Sources */,
 				06B419F72B52B16A00211751 /* AccessScenePresenter.swift in Sources */,
+				061994A32B5416C700DD19EE /* BannerView.swift in Sources */,
 				0677248E2B51DAFB00E3A41B /* ChatScenePresenter.swift in Sources */,
 				06B41A222B52F3DF00211751 /* FieldView.swift in Sources */,
 				06B41A162B52BB6800211751 /* View+Frame.swift in Sources */,
 				06B41A392B53169E00211751 /* UIConstants.swift in Sources */,
+				061994A52B5417B700DD19EE /* RoomModel.swift in Sources */,
 				06B41A1A2B52F15E00211751 /* Fonts.swift in Sources */,
 				067724812B51D20A00E3A41B /* Encodable+Dict.swift in Sources */,
 				06B419FE2B52B2FB00211751 /* StorageService.swift in Sources */,

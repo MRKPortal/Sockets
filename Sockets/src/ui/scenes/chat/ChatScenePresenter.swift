@@ -24,13 +24,14 @@ final class ChatScenePresenter: ChatScenePresenterProtocol {
     private let interactor: ChatSceneInteractorProtocol
 
     let userId: String
-    let title: String = "Super cool name for a group!"
+    let title: String
 
     @Published var messages: [MessageModel] = []
     
     init(interactor: ChatSceneInteractorProtocol) {
         self.interactor = interactor
         self.userId = interactor.session.id
+        self.title = interactor.room.name
     }
     
     //MARK: - ChatScenePresenterProtocol
@@ -56,6 +57,6 @@ final class ChatScenePresenter: ChatScenePresenterProtocol {
     }
     
     func didTapCopyPrivate() {
-        print("copied decryption key")
+        print("copied decryption key", interactor.room.key)
     }
 }

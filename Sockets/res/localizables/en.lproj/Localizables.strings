@@ -17,3 +17,9 @@
 
 /* */
 "action_connect" = "Connect";
+
+/* */
+"chat_banner_encryption" = "All messages are encrypted";
+
+/* */
+"chat_banner_invite" = "Hold on the group name to copy the invitation key and share it.";

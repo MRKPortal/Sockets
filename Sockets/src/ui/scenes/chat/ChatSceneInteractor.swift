@@ -9,6 +9,8 @@ import Foundation
 
 protocol ChatSceneInteractorProtocol {
     var session: SessionModel { get }
+    var room: RoomModel { get }
+
     func connect(_ observer: @escaping MessagesCallback) throws
     func sendMessage(_ message: String) throws
 }
@@ -23,16 +25,18 @@ final class ChatSceneInteractor: ChatSceneInteractorProtocol {
     private var messages: [MessageModel] = []
     
     let session: SessionModel
+    let room: RoomModel
     
-    init(_ injector: ServicesInjectorProtocol) {
+    init(_ injector: ServicesInjectorProtocol, room: RoomModel) {
         self.sockets = injector.sockets
         self.encryption = injector.encryption
         self.storage = injector.storage
         self.session = (try? injector.storage.getSession()) ?? .init(username: "", url: "")
+        self.room = room
     }
 
     func connect(_ observer: @escaping MessagesCallback) throws {
-        try self.encryption.configureKey("<roomName>")
+        try self.encryption.configureKey(room.key)
         self.observer = observer
         sockets.connect(url: try storage.getSession().url) { [weak self] in
             self?.decrypt($0)
