@@ -45,7 +45,6 @@ struct ChatHeaderView: View {
             .ignoresSafeArea(edges: .top)
             .frame(height: 48)
             .background(Color.green3)
-
         }
     }
 }

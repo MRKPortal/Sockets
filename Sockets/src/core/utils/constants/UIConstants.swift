@@ -8,6 +8,15 @@
 import SwiftUI
 
 enum UI {
+    enum Hive {
+        static let hiveElementWidth = 12
+
+        static let distributor = HiveDistributor(
+            horizontal: 2,
+            vertical: 2
+        )
+    }
+
     enum Messages {
         static let colors: [Color] = [
             .red5,
