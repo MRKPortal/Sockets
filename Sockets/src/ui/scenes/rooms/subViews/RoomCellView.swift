@@ -30,6 +30,13 @@ struct RoomCellView: View {
                     .base1
                     .clipShape(shape)
                     .padding(6)
+                
+                if let name = session?.name {
+                    Text(name)
+                        .applyTextStyle(.h4, tint: .green5)
+                        .multilineTextAlignment(.center)
+                        .padding(8)
+                }
             }
             .clipShape(shape)
             .onAppear {

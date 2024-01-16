@@ -9,8 +9,14 @@ import SwiftUI
 
 protocol RoomsScenePresenterProtocol: ObservableObject {
     var rooms: [RoomModel] { get }
+    
+    func didTapAdd()
 }
 
 final class RoomsScenePresenter: RoomsScenePresenterProtocol {
-    @Published var rooms: [RoomModel] = [.init(name: "Room 1", key: "---")]
+    @Published var rooms: [RoomModel] = [.init(name: "Lokitas", key: "---")]
+    
+    func didTapAdd() {
+        rooms.append(.init(name: "Lokitas", key: "---"))
+    }
 }

@@ -13,7 +13,7 @@ enum UI {
 
         static let distributor = HiveDistributor(
             horizontal: 2,
-            vertical: 2
+            vertical: 3
         )
     }
 

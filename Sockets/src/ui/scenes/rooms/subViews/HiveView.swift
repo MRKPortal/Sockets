@@ -18,7 +18,7 @@ struct HiveView<C: View>: View {
 
     var body: some View {
         GeometryReader { reader in
-            let side = reader.size.width / 3
+            let side = reader.size.width / 4
             ZStack {
                 Color.clear
                 ForEach(Array(distributor.positionGroups.enumerated()), id: \.offset) { radius, group in

@@ -34,13 +34,11 @@ extension HiveDistributor {
             evenVector.append(.p(width * dist, 0))
 
             //PAIR
-            pairVector.append(.p(1 - (dist + 1) * width, height))
-            pairVector.append(.p((dist + 1) * width - 1, height))
             pairVector.append(.p(1 - (dist + 1) * width, -height))
             pairVector.append(.p((dist + 1) * width - 1, -height))
         }
         
-        var totalVector: [CGPoint] = pairVector + evenVector
+        var totalVector: [CGPoint] = evenVector + pairVector
         for row in (1..<vertical) {
             let dist = CGFloat(row) * 2*height
             totalVector += evenVector.map { $0 + .p(0, dist) }
@@ -48,8 +46,12 @@ extension HiveDistributor {
             totalVector += pairVector.map { $0 + .p(0, dist) }
             totalVector += pairVector.map { $0 + .p(0, -dist) }
         }
-        
-        positionGroups = (0...vertical + 1).map { radius in
+
+        positionGroups = (0...vertical).map { radius in
+            if radius == 0 {
+                return [.zero]
+            }
+
             let lowerBound = Double(radius) - 0.5
             let upperBound = Double(radius) + 0.5
             return totalVector.filter { vector in
