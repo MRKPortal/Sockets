@@ -32,13 +32,6 @@ struct MessageView: View {
 }
 
 private extension MessageView {
-    
-    var tintColor: Color {
-        UI.Messages.colors [
-            message.sender.number % UI.Messages.colors.count
-        ]
-    }
-    
     @ViewBuilder
     func avatarArea(_ value: Bool) -> some View {
         if isMine == value {
@@ -57,7 +50,7 @@ private extension MessageView {
         VStack(alignment: .leading) {
             if isFirst && !isMine {
                 Text(message.alias)
-                    .applyTextStyle(.h4, tint: tintColor)
+                    .applyTextStyle(.h4, tint: UI.Colors.options[message.id])
             }
             
             Text(message.message)

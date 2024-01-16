@@ -21,10 +21,15 @@ struct RoomsSceneView<P: RoomsScenePresenterProtocol>: View {
         ZStack {
             GeometryReader { reader in
                 HiveView { index, pos in
-                    RoomCellView(presenter.rooms[secured: index])
+                    let room = presenter.rooms[secured: index]
+                    RoomCellView(room)
                         .frame(size: .s(reader.size.width/4))
+                        .allowsHitTesting(room != nil)
                         .onTapGesture {
-                            generator.impactOccurred()
+                            if let room {
+                                generator.impactOccurred()
+                                presenter.didTap(room: room)
+                            }
                         }
                 }
                 
@@ -32,7 +37,7 @@ struct RoomsSceneView<P: RoomsScenePresenterProtocol>: View {
                     Color.clear
                     IconCircularAppButton(.iconsPlus, action: presenter.didTapAdd)
                         .frame(size: .s(56))
-                        .padding(32)
+                        .padding(.trailing, 32)
                 }
             }
         }

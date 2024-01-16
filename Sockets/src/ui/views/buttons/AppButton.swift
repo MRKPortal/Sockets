@@ -42,7 +42,7 @@ struct AppButton: View {
             ZStack {
                 background
                 Text(title)
-                    .applyTextStyle(.h1, tint: .base1)
+                    .applyTextStyle(.h1, tint: .base2)
             }
             .transition(.opacity)
             .animation(.easeIn(duration: 0.25), value: isEnabled)

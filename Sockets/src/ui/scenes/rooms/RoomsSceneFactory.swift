@@ -7,17 +7,12 @@
 
 import SwiftUI
 
-final class RoomsSceneFactory {
+final class RoomsSceneFactory: Factory {
 
-    private let injector: ServicesInjectorProtocol
-
-    private lazy var presenter = RoomsScenePresenter()
+    private lazy var router = RoomsSceneRouter(injector: injector, coordinator: coordinator)
+    private lazy var presenter = RoomsScenePresenter(router: router)
     
-    init(_ injector: ServicesInjectorProtocol) {
-        self.injector = injector
-    }
-    
-    func build() -> some View {
+    override func build() -> AnyView {
         AnyView(RoomsSceneView(presenter))
     }
 }

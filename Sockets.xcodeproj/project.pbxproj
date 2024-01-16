@@ -36,6 +36,12 @@
 		067724B12B51E89B00E3A41B /* IconCircularAppButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067724B02B51E89B00E3A41B /* IconCircularAppButton.swift */; };
 		068393FD2B53FE98003A67F8 /* Date+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068393FC2B53FE98003A67F8 /* Date+String.swift */; };
 		068393FF2B540084003A67F8 /* ChatHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068393FE2B540084003A67F8 /* ChatHeaderView.swift */; };
+		06863D9A2B5740A0000F55EF /* Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06863D992B5740A0000F55EF /* Factory.swift */; };
+		06863D9C2B5740B1000F55EF /* NavigationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06863D9B2B5740B1000F55EF /* NavigationCoordinator.swift */; };
+		06863D9F2B5740D4000F55EF /* NavigationWrapperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06863D9E2B5740D4000F55EF /* NavigationWrapperView.swift */; };
+		06863DA12B574315000F55EF /* AccessSceneRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06863DA02B574315000F55EF /* AccessSceneRouter.swift */; };
+		06863DA32B5745DE000F55EF /* RoomsSceneRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06863DA22B5745DE000F55EF /* RoomsSceneRouter.swift */; };
+		06863DA52B574709000F55EF /* ChatSceneRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06863DA42B574709000F55EF /* ChatSceneRouter.swift */; };
 		068983FA2B55D67B007C8CA7 /* RoomsSceneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068983F92B55D67B007C8CA7 /* RoomsSceneView.swift */; };
 		068983FC2B55D6AD007C8CA7 /* RoomsScenePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068983FB2B55D6AC007C8CA7 /* RoomsScenePresenter.swift */; };
 		068983FE2B55D6F0007C8CA7 /* RoomsSceneFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068983FD2B55D6F0007C8CA7 /* RoomsSceneFactory.swift */; };
@@ -64,7 +70,7 @@
 		06B41A272B52FE4E00211751 /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 06B41A262B52FE4E00211751 /* KeychainSwift */; };
 		06B41A292B52FE9900211751 /* SessionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B41A282B52FE9900211751 /* SessionModel.swift */; };
 		06B41A2B2B530AEA00211751 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B41A2A2B530AEA00211751 /* MessageView.swift */; };
-		06B41A2E2B530CBE00211751 /* Array+Secure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B41A2D2B530CBE00211751 /* Array+Secure.swift */; };
+		06B41A2E2B530CBE00211751 /* Array+Subscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B41A2D2B530CBE00211751 /* Array+Subscript.swift */; };
 		06B41A322B53145600211751 /* String+Number.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B41A312B53145600211751 /* String+Number.swift */; };
 		06B41A362B5314D000211751 /* StringExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B41A352B5314D000211751 /* StringExtensionsTests.swift */; };
 		06B41A392B53169E00211751 /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B41A382B53169E00211751 /* UIConstants.swift */; };
@@ -114,6 +120,12 @@
 		067724B02B51E89B00E3A41B /* IconCircularAppButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconCircularAppButton.swift; sourceTree = "<group>"; };
 		068393FC2B53FE98003A67F8 /* Date+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+String.swift"; sourceTree = "<group>"; };
 		068393FE2B540084003A67F8 /* ChatHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatHeaderView.swift; sourceTree = "<group>"; };
+		06863D992B5740A0000F55EF /* Factory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Factory.swift; sourceTree = "<group>"; };
+		06863D9B2B5740B1000F55EF /* NavigationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationCoordinator.swift; sourceTree = "<group>"; };
+		06863D9E2B5740D4000F55EF /* NavigationWrapperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationWrapperView.swift; sourceTree = "<group>"; };
+		06863DA02B574315000F55EF /* AccessSceneRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessSceneRouter.swift; sourceTree = "<group>"; };
+		06863DA22B5745DE000F55EF /* RoomsSceneRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsSceneRouter.swift; sourceTree = "<group>"; };
+		06863DA42B574709000F55EF /* ChatSceneRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatSceneRouter.swift; sourceTree = "<group>"; };
 		068983F92B55D67B007C8CA7 /* RoomsSceneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsSceneView.swift; sourceTree = "<group>"; };
 		068983FB2B55D6AC007C8CA7 /* RoomsScenePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsScenePresenter.swift; sourceTree = "<group>"; };
 		068983FD2B55D6F0007C8CA7 /* RoomsSceneFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsSceneFactory.swift; sourceTree = "<group>"; };
@@ -141,7 +153,7 @@
 		06B41A232B52FAA800211751 /* AppButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppButton.swift; sourceTree = "<group>"; };
 		06B41A282B52FE9900211751 /* SessionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionModel.swift; sourceTree = "<group>"; };
 		06B41A2A2B530AEA00211751 /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
-		06B41A2D2B530CBE00211751 /* Array+Secure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Secure.swift"; sourceTree = "<group>"; };
+		06B41A2D2B530CBE00211751 /* Array+Subscript.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Subscript.swift"; sourceTree = "<group>"; };
 		06B41A2F2B53139700211751 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		06B41A312B53145600211751 /* String+Number.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Number.swift"; sourceTree = "<group>"; };
 		06B41A352B5314D000211751 /* StringExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensionsTests.swift; sourceTree = "<group>"; };
@@ -273,6 +285,7 @@
 			isa = PBXGroup;
 			children = (
 				0677245B2B51BBB900E3A41B /* SocketsApp.swift */,
+				06863D982B57408B000F55EF /* navigation */,
 				068983FF2B55DB36007C8CA7 /* distributor */,
 				06B41A0C2B52B88900211751 /* shapes */,
 				067724712B51BC4C00E3A41B /* scenes */,
@@ -285,8 +298,8 @@
 		067724712B51BC4C00E3A41B /* scenes */ = {
 			isa = PBXGroup;
 			children = (
-				068983F82B55D63B007C8CA7 /* rooms */,
 				06B419F32B52B0AC00211751 /* access */,
+				068983F82B55D63B007C8CA7 /* rooms */,
 				0677248A2B51DAD000E3A41B /* chat */,
 			);
 			path = scenes;
@@ -413,6 +426,7 @@
 				0677248B2B51DADD00E3A41B /* ChatSceneView.swift */,
 				0677248F2B51DB1800E3A41B /* ChatSceneInteractor.swift */,
 				0677248D2B51DAFB00E3A41B /* ChatScenePresenter.swift */,
+				06863DA42B574709000F55EF /* ChatSceneRouter.swift */,
 				067724912B51DB3700E3A41B /* ChatSceneFactory.swift */,
 			);
 			path = chat;
@@ -471,6 +485,16 @@
 			path = date;
 			sourceTree = "<group>";
 		};
+		06863D982B57408B000F55EF /* navigation */ = {
+			isa = PBXGroup;
+			children = (
+				06863D992B5740A0000F55EF /* Factory.swift */,
+				06863D9B2B5740B1000F55EF /* NavigationCoordinator.swift */,
+				06863D9E2B5740D4000F55EF /* NavigationWrapperView.swift */,
+			);
+			path = navigation;
+			sourceTree = "<group>";
+		};
 		068983F82B55D63B007C8CA7 /* rooms */ = {
 			isa = PBXGroup;
 			children = (
@@ -478,6 +502,7 @@
 				068983F92B55D67B007C8CA7 /* RoomsSceneView.swift */,
 				068983FB2B55D6AC007C8CA7 /* RoomsScenePresenter.swift */,
 				068983FD2B55D6F0007C8CA7 /* RoomsSceneFactory.swift */,
+				06863DA22B5745DE000F55EF /* RoomsSceneRouter.swift */,
 			);
 			path = rooms;
 			sourceTree = "<group>";
@@ -508,6 +533,7 @@
 				06B419F82B52B17300211751 /* AccessSceneInteractor.swift */,
 				06B419F62B52B16A00211751 /* AccessScenePresenter.swift */,
 				06B419FA2B52B18200211751 /* AccessSceneFactory.swift */,
+				06863DA02B574315000F55EF /* AccessSceneRouter.swift */,
 			);
 			path = access;
 			sourceTree = "<group>";
@@ -574,7 +600,7 @@
 		06B41A2C2B530CB300211751 /* array */ = {
 			isa = PBXGroup;
 			children = (
-				06B41A2D2B530CBE00211751 /* Array+Secure.swift */,
+				06B41A2D2B530CBE00211751 /* Array+Subscript.swift */,
 			);
 			path = array;
 			sourceTree = "<group>";
@@ -809,11 +835,13 @@
 				06B41A242B52FAA800211751 /* AppButton.swift in Sources */,
 				068393FD2B53FE98003A67F8 /* Date+String.swift in Sources */,
 				06B41A1E2B52F18B00211751 /* TextStyle.swift in Sources */,
+				06863DA52B574709000F55EF /* ChatSceneRouter.swift in Sources */,
 				067724AB2B51E7DA00E3A41B /* Icons.swift in Sources */,
 				067724B12B51E89B00E3A41B /* IconCircularAppButton.swift in Sources */,
+				06863DA12B574315000F55EF /* AccessSceneRouter.swift in Sources */,
 				0677249C2B51E14600E3A41B /* KeyboardPushedModifier.swift in Sources */,
 				06C713142B5200D800FE2715 /* Callbacks+Aliases.swift in Sources */,
-				06B41A2E2B530CBE00211751 /* Array+Secure.swift in Sources */,
+				06B41A2E2B530CBE00211751 /* Array+Subscript.swift in Sources */,
 				067724A82B51E32800E3A41B /* InputView.swift in Sources */,
 				068984012B55DB4B007C8CA7 /* DistributorProtocol.swift in Sources */,
 				067724892B51DA7100E3A41B /* EncryptionService.swift in Sources */,
@@ -822,6 +850,7 @@
 				0677248E2B51DAFB00E3A41B /* ChatScenePresenter.swift in Sources */,
 				06B41A222B52F3DF00211751 /* FieldView.swift in Sources */,
 				06B41A162B52BB6800211751 /* View+Frame.swift in Sources */,
+				06863D9F2B5740D4000F55EF /* NavigationWrapperView.swift in Sources */,
 				06B41A392B53169E00211751 /* UIConstants.swift in Sources */,
 				061994A52B5417B700DD19EE /* RoomModel.swift in Sources */,
 				06B41A1A2B52F15E00211751 /* Fonts.swift in Sources */,
@@ -830,6 +859,7 @@
 				067724812B51D20A00E3A41B /* Encodable+Dict.swift in Sources */,
 				068984052B55DBDA007C8CA7 /* HiveView.swift in Sources */,
 				06B419FE2B52B2FB00211751 /* StorageService.swift in Sources */,
+				06863D9A2B5740A0000F55EF /* Factory.swift in Sources */,
 				06B41A202B52F1C900211751 /* View+TextStyle.swift in Sources */,
 				0677245C2B51BBB900E3A41B /* SocketsApp.swift in Sources */,
 				067724AF2B51E86100E3A41B /* BouncingButtonStyle.swift in Sources */,
@@ -839,8 +869,10 @@
 				06B41A2B2B530AEA00211751 /* MessageView.swift in Sources */,
 				067724922B51DB3700E3A41B /* ChatSceneFactory.swift in Sources */,
 				06B41A0B2B52B87100211751 /* LogoView.swift in Sources */,
+				06863D9C2B5740B1000F55EF /* NavigationCoordinator.swift in Sources */,
 				068983FE2B55D6F0007C8CA7 /* RoomsSceneFactory.swift in Sources */,
 				067724902B51DB1800E3A41B /* ChatSceneInteractor.swift in Sources */,
+				06863DA32B5745DE000F55EF /* RoomsSceneRouter.swift in Sources */,
 				068983FC2B55D6AD007C8CA7 /* RoomsScenePresenter.swift in Sources */,
 				06B419F92B52B17300211751 /* AccessSceneInteractor.swift in Sources */,
 				067724962B51DBE100E3A41B /* SocketsService.swift in Sources */,

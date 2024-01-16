@@ -26,7 +26,7 @@ struct FieldView: View {
                     .focused($focused)
                     .autocorrectionDisabled(true)
             }
-            (focused || !value.isEmpty ? Color.base2 : .gray3)
+            (focused || !value.isEmpty ? Color.base1 : .gray3)
                 .frame(height: 1)
                 .animation(.bouncy(duration: 1), value: focused)
         }

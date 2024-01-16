@@ -23,7 +23,7 @@ struct LogoView: View {
                 )
                 
                 Color
-                    .base1
+                    .base2
                     .clipShape(shape)
                     .padding(3)
                 

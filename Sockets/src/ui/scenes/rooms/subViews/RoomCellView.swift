@@ -12,28 +12,34 @@ struct RoomCellView: View {
     
     private let shape = NgonShape(points: 6)
     private let session: RoomModel?
+    private let color: Color
     
     init(_ session: RoomModel?) {
         self.session = session
+        if let id = session?.id {
+            color = UI.Colors.options[id]
+        } else {
+            color = .gray6
+        }
     }
     
     var body: some View {
         GeometryReader { reader in
             ZStack {
                 AngularGradient(
-                    colors: colors,
+                    colors: [color, .clear, .clear, color],
                     center: .center,
                     angle: .degrees(degrees)
                 )
                 
                 Color
-                    .base1
+                    .base2
                     .clipShape(shape)
-                    .padding(6)
+                    .padding(3)
                 
                 if let name = session?.name {
                     Text(name)
-                        .applyTextStyle(.h4, tint: .green5)
+                        .applyTextStyle(.h4, tint: color)
                         .multilineTextAlignment(.center)
                         .padding(8)
                 }
@@ -46,12 +52,5 @@ struct RoomCellView: View {
                 }
             }
         }
-    }
-}
-
-private extension RoomCellView {
-    var colors: [Color] {
-        let color: Color = session == nil ? .gray6 : .green5
-        return [color, .clear, .clear, color]
     }
 }

@@ -25,6 +25,7 @@ protocol ChatScenePresenterProtocol: ObservableObject {
 final class ChatScenePresenter: ChatScenePresenterProtocol {
 
     private let interactor: ChatSceneInteractorProtocol
+    private let router: ChatSceneRouterProtocol
     private let feedback: FeedbackSystemProtocol
 
     let userId: String
@@ -36,8 +37,9 @@ final class ChatScenePresenter: ChatScenePresenterProtocol {
         feedback.messagePublisher
     }
     
-    init(interactor: ChatSceneInteractorProtocol, feedback: FeedbackSystemProtocol) {
+    init(interactor: ChatSceneInteractorProtocol, router: ChatSceneRouterProtocol, feedback: FeedbackSystemProtocol) {
         self.interactor = interactor
+        self.router = router
         self.feedback = feedback
         self.userId = interactor.session.id
         self.title = interactor.room.name
@@ -46,9 +48,11 @@ final class ChatScenePresenter: ChatScenePresenterProtocol {
     //MARK: - ChatScenePresenterProtocol
     
     func connect() {
-        try! interactor.connect { messages in
-            DispatchQueue.main.async {
-                self.messages = messages
+        Task {
+            await interactor.connect { messages in
+                DispatchQueue.main.async {
+                    self.messages = messages
+                }
             }
         }
     }
@@ -62,7 +66,7 @@ final class ChatScenePresenter: ChatScenePresenterProtocol {
     }
     
     func didTapBack() {
-        print("return to home")
+        router.pop()
     }
     
     func didTapCopyPrivate() {

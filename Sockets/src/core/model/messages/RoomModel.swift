@@ -8,9 +8,13 @@
 import Foundation
 
 struct RoomModel: Codable, Identifiable, Equatable {
-    var id: String {
-        name
-    }
+    let id: String
     let name: String
     let key: String
+    
+    init(name: String, key: String) {
+        self.id = UUID().uuidString
+        self.name = name
+        self.key = key
+    }
 }

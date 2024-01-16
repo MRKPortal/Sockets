@@ -17,17 +17,15 @@ enum UI {
         )
     }
 
-    enum Messages {
-        static let colors: [Color] = [
+    enum Colors {
+        static let options: [Color] = [
             .red5,
             .green5,
             .blue3,
             .green2,
             .orange2,
-            .orange2,
             .red2,
             .sky5,
-            .sky3,
             .yellow5,
             .yellow3
         ]

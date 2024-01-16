@@ -1,5 +1,5 @@
 //
-//  Array+Secure.swift
+//  Array+Subscript.swift
 //  Sockets
 //
 //  Created by Marc Flores on 13/1/24.
@@ -13,5 +13,9 @@ extension Array {
             return nil
         }
         return self[index]
+    }
+    
+    subscript(_ text: String) -> Element {
+        return self[text.number % count]
     }
 }

@@ -9,31 +9,48 @@ import SwiftUI
 
 @main
 struct SocketsApp: App {
-    
-    private let injector = ServicesInjector()
-    
     var body: some Scene {
         WindowGroup {
-            ContentView(injector: injector)
+            ContentView()
         }
     }
 }
 
 private struct ContentView: View {
-
-    private let factory: RoomsSceneFactory
-    
-    init(injector: ServicesInjectorProtocol) {
-        factory = RoomsSceneFactory(injector)
-    }
+    private let injector = ServicesInjector()
+    private var navCoordinator = NavigationCoordinator()
     
     var body: some View {
-        ZStack {
-            Color
-                .base1
-                .ignoresSafeArea()
-            factory
-                .build()
+        NavigationWrapperView(coordinator: navCoordinator)
+            .background {
+                Color
+                    .base2
+                    .ignoresSafeArea()
+            }
+            .onAppear {
+                navCoordinator.path = initialPath
+            }
+    }
+}
+
+extension ContentView {
+    var initialPath: [Factory] {
+        var path: [Factory] = [
+            AccessSceneFactory(
+                coordinator: navCoordinator,
+                injector: injector
+            )
+        ]
+        
+        if (try? injector.storage.getSession()) != nil {
+            path.append(
+                RoomsSceneFactory(
+                    coordinator: navCoordinator,
+                    injector: injector
+                )
+            )
         }
+
+        return path
     }
 }

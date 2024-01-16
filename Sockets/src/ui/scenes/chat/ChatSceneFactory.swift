@@ -7,18 +7,20 @@
 
 import SwiftUI
 
-final class ChatSceneFactory {
+final class ChatSceneFactory: Factory {
 
-    private let injector: ServicesInjectorProtocol
+    private let room: RoomModel
     private let feedback = FeedbackSystem()
-    private lazy var interactor = ChatSceneInteractor(injector, room: .init(name: "Room#1", key: "<roomName>"))
-    private lazy var presenter = ChatScenePresenter(interactor: interactor, feedback: feedback)
+    private lazy var interactor = ChatSceneInteractor(injector, room: room)
+    private lazy var router = ChatSceneRouter(coordinator: coordinator)
+    private lazy var presenter = ChatScenePresenter(interactor: interactor, router: router, feedback: feedback)
     
-    init(_ injector: ServicesInjectorProtocol) {
-        self.injector = injector
+    init(room: RoomModel, coordinator: NavigationCoordinator, injector: ServicesInjectorProtocol) {
+        self.room = room
+        super.init(coordinator: coordinator, injector: injector)
     }
     
-    func build() -> some View {
+    override func build() -> AnyView {
         AnyView(ChatSceneView(presenter))
     }
 }

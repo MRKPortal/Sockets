@@ -11,7 +11,7 @@ protocol ChatSceneInteractorProtocol {
     var session: SessionModel { get }
     var room: RoomModel { get }
 
-    func connect(_ observer: @escaping MessagesCallback) throws
+    func connect(_ observer: @escaping MessagesCallback) async -> Bool
     func sendMessage(_ message: String) throws
 }
 
@@ -35,11 +35,18 @@ final class ChatSceneInteractor: ChatSceneInteractorProtocol {
         self.room = room
     }
 
-    func connect(_ observer: @escaping MessagesCallback) throws {
-        try self.encryption.configureKey(room.key)
-        self.observer = observer
-        sockets.connect(url: try storage.getSession().url) { [weak self] in
-            self?.decrypt($0)
+    func connect(_ observer: @escaping MessagesCallback) async -> Bool {
+        await withCheckedContinuation { completion in
+            do {
+                try self.encryption.configureKey(room.key)
+            } catch {
+                
+            }
+//            self.observer = observer
+//            sockets.connect(url: try storage.getSession().url) { [weak self] in
+//                self?.decrypt($0)
+//            }
+            completion.resume(returning: true)
         }
     }
     

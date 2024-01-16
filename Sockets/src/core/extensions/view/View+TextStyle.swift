@@ -8,7 +8,7 @@
 import SwiftUI
 
 extension View {
-    func applyTextStyle(_ style: TextStyle, tint: Color = .base2) -> some View {
+    func applyTextStyle(_ style: TextStyle, tint: Color = .base1) -> some View {
         font(style.font)
             .foregroundColor(tint)
             .lineSpacing(style.lineSpacing)
