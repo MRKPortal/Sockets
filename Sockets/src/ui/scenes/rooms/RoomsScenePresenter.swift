@@ -18,16 +18,20 @@ final class RoomsScenePresenter: RoomsScenePresenterProtocol {
     
     private let router: RoomsSceneRouterProtocol
     private let feedback: FeedbackSystemProtocol
-    
+    private let interactor: RoomsSceneInteractorProtocol
+
     var feedbackPublisher: FeedbackPublisher {
         feedback.feedbackPublisher
     }
     
-    @Published var rooms: [RoomModel] = [.init(name: "Lokitas", key: "---")]
+    @Published var rooms: [RoomModel] = []
     
-    init(router: RoomsSceneRouterProtocol, feedback: FeedbackSystemProtocol) {
+    init(interactor: RoomsSceneInteractorProtocol, router: RoomsSceneRouterProtocol, feedback: FeedbackSystemProtocol) {
+        self.interactor = interactor
         self.router = router
         self.feedback = feedback
+
+        rooms = (try? interactor.getRooms()) ?? []
     }
     
     func didTapAdd() {
@@ -47,6 +51,11 @@ final class RoomsScenePresenter: RoomsScenePresenterProtocol {
 
 private extension RoomsScenePresenter {
     func createRoom(name: String, key: String) {
-        rooms.append(.init(name: name, key: key))
+        do {
+            try interactor.addRoom(name: name, key: key)
+            rooms = try interactor.getRooms()
+        } catch {
+            //
+        }
     }
 }

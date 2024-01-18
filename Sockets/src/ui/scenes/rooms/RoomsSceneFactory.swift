@@ -11,7 +11,8 @@ final class RoomsSceneFactory: Factory {
 
     private lazy var feedback = FeedbackSystem()
     private lazy var router = RoomsSceneRouter(injector: injector, coordinator: coordinator)
-    private lazy var presenter = RoomsScenePresenter(router: router, feedback: feedback)
+    private lazy var interactor = RoomsSceneInteractor(injector)
+    private lazy var presenter = RoomsScenePresenter(interactor: interactor, router: router, feedback: feedback)
     
     override func build() -> AnyView {
         AnyView(RoomsSceneView(presenter))

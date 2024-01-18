@@ -45,6 +45,8 @@
 		06890F532B59B99A005FE523 /* CreateRoomAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06890F522B59B99A005FE523 /* CreateRoomAlertView.swift */; };
 		06890F562B59BAFA005FE523 /* AnimatedBorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06890F552B59BAFA005FE523 /* AnimatedBorderView.swift */; };
 		06890F582B59BD11005FE523 /* LogoutAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06890F572B59BD11005FE523 /* LogoutAlertView.swift */; };
+		06890F5A2B59C4B2005FE523 /* RoomsSceneInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06890F592B59C4B2005FE523 /* RoomsSceneInteractor.swift */; };
+		06890F5C2B59C63A005FE523 /* StorageError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06890F5B2B59C63A005FE523 /* StorageError.swift */; };
 		068983FA2B55D67B007C8CA7 /* RoomsSceneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068983F92B55D67B007C8CA7 /* RoomsSceneView.swift */; };
 		068983FC2B55D6AD007C8CA7 /* RoomsScenePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068983FB2B55D6AC007C8CA7 /* RoomsScenePresenter.swift */; };
 		068983FE2B55D6F0007C8CA7 /* RoomsSceneFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068983FD2B55D6F0007C8CA7 /* RoomsSceneFactory.swift */; };
@@ -132,6 +134,8 @@
 		06890F522B59B99A005FE523 /* CreateRoomAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRoomAlertView.swift; sourceTree = "<group>"; };
 		06890F552B59BAFA005FE523 /* AnimatedBorderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedBorderView.swift; sourceTree = "<group>"; };
 		06890F572B59BD11005FE523 /* LogoutAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutAlertView.swift; sourceTree = "<group>"; };
+		06890F592B59C4B2005FE523 /* RoomsSceneInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsSceneInteractor.swift; sourceTree = "<group>"; };
+		06890F5B2B59C63A005FE523 /* StorageError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageError.swift; sourceTree = "<group>"; };
 		068983F92B55D67B007C8CA7 /* RoomsSceneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsSceneView.swift; sourceTree = "<group>"; };
 		068983FB2B55D6AC007C8CA7 /* RoomsScenePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsScenePresenter.swift; sourceTree = "<group>"; };
 		068983FD2B55D6F0007C8CA7 /* RoomsSceneFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsSceneFactory.swift; sourceTree = "<group>"; };
@@ -515,6 +519,7 @@
 		06890F542B59BAEE005FE523 /* generic */ = {
 			isa = PBXGroup;
 			children = (
+				06B41A212B52F3DF00211751 /* FieldView.swift */,
 				06890F552B59BAFA005FE523 /* AnimatedBorderView.swift */,
 			);
 			path = generic;
@@ -525,6 +530,7 @@
 			children = (
 				068984062B55DBED007C8CA7 /* subViews */,
 				068983F92B55D67B007C8CA7 /* RoomsSceneView.swift */,
+				06890F592B59C4B2005FE523 /* RoomsSceneInteractor.swift */,
 				068983FB2B55D6AC007C8CA7 /* RoomsScenePresenter.swift */,
 				068983FD2B55D6F0007C8CA7 /* RoomsSceneFactory.swift */,
 				06863DA22B5745DE000F55EF /* RoomsSceneRouter.swift */,
@@ -567,6 +573,7 @@
 			isa = PBXGroup;
 			children = (
 				06B419FD2B52B2FB00211751 /* StorageService.swift */,
+				06890F5B2B59C63A005FE523 /* StorageError.swift */,
 			);
 			path = storage;
 			sourceTree = "<group>";
@@ -575,7 +582,6 @@
 			isa = PBXGroup;
 			children = (
 				06B41A0A2B52B87100211751 /* LogoView.swift */,
-				06B41A212B52F3DF00211751 /* FieldView.swift */,
 			);
 			path = subViews;
 			sourceTree = "<group>";
@@ -871,6 +877,8 @@
 				068984012B55DB4B007C8CA7 /* DistributorProtocol.swift in Sources */,
 				067724892B51DA7100E3A41B /* EncryptionService.swift in Sources */,
 				06B419F72B52B16A00211751 /* AccessScenePresenter.swift in Sources */,
+				06890F5A2B59C4B2005FE523 /* RoomsSceneInteractor.swift in Sources */,
+				06890F5C2B59C63A005FE523 /* StorageError.swift in Sources */,
 				061994A32B5416C700DD19EE /* BannerView.swift in Sources */,
 				0677248E2B51DAFB00E3A41B /* ChatScenePresenter.swift in Sources */,
 				06B41A222B52F3DF00211751 /* FieldView.swift in Sources */,

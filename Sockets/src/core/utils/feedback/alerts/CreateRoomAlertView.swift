@@ -9,11 +9,56 @@ import SwiftUI
 
 struct CreateRoomAlertView: View {
     
+    @State private var name: String = ""
+    @State private var password: String = ""
+    
+    private let outputCallback: DoubleStringCallback
+    private let dismissCallback: VoidCallback
+
+    init(outputCallback: @escaping DoubleStringCallback, dismissCallback: @escaping VoidCallback) {
+        self.outputCallback = outputCallback
+        self.dismissCallback = dismissCallback
+    }
+    
     var body: some View {
-        AnimatedBorderView(
-            color: .green5,
-            shape: RoundedRectangle(cornerSize: .s(16))
-        )        
-        .frame(size: .s(200))
+        VStack(spacing: 16) {
+
+            Text(Ls.alertEnterTitle)
+                .applyTextStyle(.h2)
+            
+            Text(Ls.alertEnterDescription)
+                .applyTextStyle(.body, tint: .gray5)
+                .multilineTextAlignment(.center)
+
+            FieldView(
+                placeholder: Ls.createRoomPlaceholder,
+                value: $name
+            )
+
+            FieldView(
+                placeholder: Ls.createPasswordPlaceholder,
+                value: $password
+            )
+
+            AppButton(
+                Ls.actionEnter.uppercased(),
+                action: didTapCreate
+            )
+            .disabled(name.isEmpty || password.isEmpty)
+        }
+        .padding(24)
+        .background {
+            AnimatedBorderView(
+                color: .green5,
+                shape: RoundedRectangle(cornerSize: .s(16))
+            )
+        }
+    }
+}
+
+private extension CreateRoomAlertView {
+    func didTapCreate() {
+        outputCallback(name, password)
+        dismissCallback()
     }
 }

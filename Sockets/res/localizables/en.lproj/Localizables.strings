@@ -16,7 +16,16 @@
 "access_server_placeholder" = "Server";
 
 /* */
+"create_room_placeholder" = "Room Name";
+
+/* */
+"create_password_placeholder" = "Password";
+
+/* */
 "action_connect" = "Connect";
+
+/* */
+"action_enter" = "Enter";
 
 /* */
 "chat_banner_encryption" = "All messages are encrypted";
@@ -26,3 +35,9 @@
 
 /* */
 "chat_feedback_key_copied" = "Private key copied to clipboard!";
+
+/* */
+"alert_enter_title" = "Enter to a room";
+
+/* */
+"alert_enter_description" = "Set an alias for the room.\nProtect it with your password.\nShare it with your friends";

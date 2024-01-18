@@ -17,6 +17,12 @@ public enum Ls {
   /// 
   public static let actionConnect = Ls.tr("Localizables", "action_connect", fallback: "Connect")
   /// 
+  public static let actionEnter = Ls.tr("Localizables", "action_enter", fallback: "Enter")
+  /// 
+  public static let alertEnterDescription = Ls.tr("Localizables", "alert_enter_description", fallback: "Set an alias for the room.\nProtect it with your password.\nShare it with your friends")
+  /// 
+  public static let alertEnterTitle = Ls.tr("Localizables", "alert_enter_title", fallback: "Enter to a room")
+  /// 
   public static let appName = Ls.tr("Localizables", "app_name", fallback: "Sockets")
   /// 
   public static let chatBannerEncryption = Ls.tr("Localizables", "chat_banner_encryption", fallback: "All messages are encrypted")
@@ -24,6 +30,10 @@ public enum Ls {
   public static let chatBannerInvite = Ls.tr("Localizables", "chat_banner_invite", fallback: "Hold on the group name to copy the invitation key and share it.")
   /// 
   public static let chatFeedbackKeyCopied = Ls.tr("Localizables", "chat_feedback_key_copied", fallback: "Private key copied to clipboard!")
+  /// 
+  public static let createPasswordPlaceholder = Ls.tr("Localizables", "create_password_placeholder", fallback: "Password")
+  /// 
+  public static let createRoomPlaceholder = Ls.tr("Localizables", "create_room_placeholder", fallback: "Room Name")
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:enable nesting type_body_length type_name vertical_whitespace_opening_braces

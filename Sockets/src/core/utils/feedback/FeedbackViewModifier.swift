@@ -29,20 +29,22 @@ private struct FeedbackViewModifier: ViewModifier {
                     .opacity(alert == nil ? 0 : 0.7)
                     .animation(.bouncy.delay(0.25), value: alert == nil)
                     .zIndex(1)
-                    .onTapGesture {
-                        self.alert = nil
-                    }
+                    .onTapGesture(perform: dismiss)
                 
                 if let alert {
                     Group {
                         switch alert {
-                        case .createRoom(let doubleStringCallback):
-                            CreateRoomAlertView()
+                        case .createRoom(let action):
+                            CreateRoomAlertView(
+                                outputCallback: action,
+                                dismissCallback: dismiss
+                            )
                         case .logOut(let voidCallback):
                             LogoutAlertView()
                         }
                     }
                     .zIndex(2)
+                    .padding(32)
                     .transition(
                         .push(from: .top)
                         .animation(.bouncy)
@@ -67,11 +69,12 @@ private struct FeedbackViewModifier: ViewModifier {
                         )
                         .padding(.bottom, 64)
                         .task {
-                            try? await Task.sleep(nanoseconds: 5_000_000_000)
+                            try? await Task.sleep(nanoseconds: 3_000_000_000)
                             self.toast = nil
                         }
                 }
             }
+            .zIndex(3)
             .transition(.push(from: .bottom))
             .animation(.easeIn,  value: toast)
         }
@@ -83,6 +86,12 @@ private struct FeedbackViewModifier: ViewModifier {
                 self.alert = alert
             }
         }
+    }
+}
+
+private extension FeedbackViewModifier {
+    func dismiss() {
+        self.alert = nil
     }
 }
 
