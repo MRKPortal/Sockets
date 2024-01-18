@@ -9,8 +9,9 @@ import SwiftUI
 
 final class RoomsSceneFactory: Factory {
 
+    private lazy var feedback = FeedbackSystem()
     private lazy var router = RoomsSceneRouter(injector: injector, coordinator: coordinator)
-    private lazy var presenter = RoomsScenePresenter(router: router)
+    private lazy var presenter = RoomsScenePresenter(router: router, feedback: feedback)
     
     override func build() -> AnyView {
         AnyView(RoomsSceneView(presenter))

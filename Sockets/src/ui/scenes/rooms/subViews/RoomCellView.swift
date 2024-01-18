@@ -8,9 +8,7 @@
 import SwiftUI
 
 struct RoomCellView: View {
-    @State private var degrees: Double = 0
-    
-    private let shape = NgonShape(points: 6)
+
     private let session: RoomModel?
     private let color: Color
     
@@ -24,32 +22,17 @@ struct RoomCellView: View {
     }
     
     var body: some View {
-        GeometryReader { reader in
-            ZStack {
-                AngularGradient(
-                    colors: [color, .clear, .clear, color],
-                    center: .center,
-                    angle: .degrees(degrees)
-                )
-                
-                Color
-                    .base2
-                    .clipShape(shape)
-                    .padding(3)
-                
-                if let name = session?.name {
-                    Text(name)
-                        .applyTextStyle(.h4, tint: color)
-                        .multilineTextAlignment(.center)
-                        .padding(8)
-                }
-            }
-            .clipShape(shape)
-            .onAppear {
-                withAnimation(.linear(duration: 2)
-                    .repeatForever(autoreverses: false)) {
-                    degrees = 360
-                }
+        ZStack {
+            AnimatedBorderView(
+                color: color,
+                shape: NgonShape(points: 6)
+            )
+            
+            if let name = session?.name {
+                Text(name)
+                    .applyTextStyle(.h4, tint: color)
+                    .multilineTextAlignment(.center)
+                    .padding(8)
             }
         }
     }

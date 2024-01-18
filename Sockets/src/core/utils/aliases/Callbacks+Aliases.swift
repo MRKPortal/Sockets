@@ -8,5 +8,6 @@
 import Foundation
 
 typealias VoidCallback = () -> Void
+typealias DoubleStringCallback = (String, String) -> Void
 typealias MessagesCallback = ([MessageModel]) -> Void
 typealias DataCallback = (Data) -> Void

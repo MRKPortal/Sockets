@@ -10,7 +10,7 @@ import SwiftUI
 
 protocol ChatScenePresenterProtocol: ObservableObject {
     
-    var feedbackPublisher: StringPublisher { get }
+    var feedbackPublisher: FeedbackPublisher { get }
     
     var title: String { get }
     var userId: String { get }
@@ -33,8 +33,8 @@ final class ChatScenePresenter: ChatScenePresenterProtocol {
 
     @Published var messages: [MessageModel] = []
     
-    var feedbackPublisher: StringPublisher {
-        feedback.messagePublisher
+    var feedbackPublisher: FeedbackPublisher {
+        feedback.feedbackPublisher
     }
     
     init(interactor: ChatSceneInteractorProtocol, router: ChatSceneRouterProtocol, feedback: FeedbackSystemProtocol) {
@@ -71,6 +71,8 @@ final class ChatScenePresenter: ChatScenePresenterProtocol {
     
     func didTapCopyPrivate() {
         UIPasteboard.general.string = interactor.room.key
-        feedback.displayToast(message: Ls.chatFeedbackKeyCopied)
+        feedback.display(
+            feedback: .toast(Ls.chatFeedbackKeyCopied)
+        )
     }
 }

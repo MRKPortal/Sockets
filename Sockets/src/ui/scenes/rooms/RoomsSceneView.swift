@@ -41,5 +41,6 @@ struct RoomsSceneView<P: RoomsScenePresenterProtocol>: View {
                 }
             }
         }
+        .feedbackSystem(presenter.feedbackPublisher)
     }
 }

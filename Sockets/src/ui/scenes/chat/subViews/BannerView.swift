@@ -21,7 +21,7 @@ struct BannerView: View {
             .padding(.horizontal, 8)
             .padding(.vertical, 4)
             .background(
-                Color.blue5
+                Color.blue0
                     .clipShape(
                         RoundedRectangle(cornerSize: .s(8))
                     )

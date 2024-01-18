@@ -42,6 +42,9 @@
 		06863DA12B574315000F55EF /* AccessSceneRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06863DA02B574315000F55EF /* AccessSceneRouter.swift */; };
 		06863DA32B5745DE000F55EF /* RoomsSceneRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06863DA22B5745DE000F55EF /* RoomsSceneRouter.swift */; };
 		06863DA52B574709000F55EF /* ChatSceneRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06863DA42B574709000F55EF /* ChatSceneRouter.swift */; };
+		06890F532B59B99A005FE523 /* CreateRoomAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06890F522B59B99A005FE523 /* CreateRoomAlertView.swift */; };
+		06890F562B59BAFA005FE523 /* AnimatedBorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06890F552B59BAFA005FE523 /* AnimatedBorderView.swift */; };
+		06890F582B59BD11005FE523 /* LogoutAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06890F572B59BD11005FE523 /* LogoutAlertView.swift */; };
 		068983FA2B55D67B007C8CA7 /* RoomsSceneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068983F92B55D67B007C8CA7 /* RoomsSceneView.swift */; };
 		068983FC2B55D6AD007C8CA7 /* RoomsScenePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068983FB2B55D6AC007C8CA7 /* RoomsScenePresenter.swift */; };
 		068983FE2B55D6F0007C8CA7 /* RoomsSceneFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068983FD2B55D6F0007C8CA7 /* RoomsSceneFactory.swift */; };
@@ -126,6 +129,9 @@
 		06863DA02B574315000F55EF /* AccessSceneRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessSceneRouter.swift; sourceTree = "<group>"; };
 		06863DA22B5745DE000F55EF /* RoomsSceneRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsSceneRouter.swift; sourceTree = "<group>"; };
 		06863DA42B574709000F55EF /* ChatSceneRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatSceneRouter.swift; sourceTree = "<group>"; };
+		06890F522B59B99A005FE523 /* CreateRoomAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRoomAlertView.swift; sourceTree = "<group>"; };
+		06890F552B59BAFA005FE523 /* AnimatedBorderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedBorderView.swift; sourceTree = "<group>"; };
+		06890F572B59BD11005FE523 /* LogoutAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutAlertView.swift; sourceTree = "<group>"; };
 		068983F92B55D67B007C8CA7 /* RoomsSceneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsSceneView.swift; sourceTree = "<group>"; };
 		068983FB2B55D6AC007C8CA7 /* RoomsScenePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsScenePresenter.swift; sourceTree = "<group>"; };
 		068983FD2B55D6F0007C8CA7 /* RoomsSceneFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsSceneFactory.swift; sourceTree = "<group>"; };
@@ -189,6 +195,7 @@
 		061994A62B541D1800DD19EE /* feedback */ = {
 			isa = PBXGroup;
 			children = (
+				06890F512B59B990005FE523 /* alerts */,
 				061994A72B541D2500DD19EE /* FeedbackViewModifier.swift */,
 				061994AB2B54246D00DD19EE /* FeedbackSystem.swift */,
 			);
@@ -316,6 +323,7 @@
 		067724732B51BC4C00E3A41B /* views */ = {
 			isa = PBXGroup;
 			children = (
+				06890F542B59BAEE005FE523 /* generic */,
 				06B41A3A2B53209700211751 /* images */,
 				067724AD2B51E84B00E3A41B /* buttons */,
 			);
@@ -493,6 +501,23 @@
 				06863D9E2B5740D4000F55EF /* NavigationWrapperView.swift */,
 			);
 			path = navigation;
+			sourceTree = "<group>";
+		};
+		06890F512B59B990005FE523 /* alerts */ = {
+			isa = PBXGroup;
+			children = (
+				06890F522B59B99A005FE523 /* CreateRoomAlertView.swift */,
+				06890F572B59BD11005FE523 /* LogoutAlertView.swift */,
+			);
+			path = alerts;
+			sourceTree = "<group>";
+		};
+		06890F542B59BAEE005FE523 /* generic */ = {
+			isa = PBXGroup;
+			children = (
+				06890F552B59BAFA005FE523 /* AnimatedBorderView.swift */,
+			);
+			path = generic;
 			sourceTree = "<group>";
 		};
 		068983F82B55D63B007C8CA7 /* rooms */ = {
@@ -857,7 +882,10 @@
 				068984032B55DB62007C8CA7 /* HiveDistributor.swift in Sources */,
 				061994AC2B54246D00DD19EE /* FeedbackSystem.swift in Sources */,
 				067724812B51D20A00E3A41B /* Encodable+Dict.swift in Sources */,
+				06890F532B59B99A005FE523 /* CreateRoomAlertView.swift in Sources */,
 				068984052B55DBDA007C8CA7 /* HiveView.swift in Sources */,
+				06890F582B59BD11005FE523 /* LogoutAlertView.swift in Sources */,
+				06890F562B59BAFA005FE523 /* AnimatedBorderView.swift in Sources */,
 				06B419FE2B52B2FB00211751 /* StorageService.swift in Sources */,
 				06863D9A2B5740A0000F55EF /* Factory.swift in Sources */,
 				06B41A202B52F1C900211751 /* View+TextStyle.swift in Sources */,

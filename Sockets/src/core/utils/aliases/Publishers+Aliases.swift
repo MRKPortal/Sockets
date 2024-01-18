@@ -9,3 +9,5 @@ import Combine
 
 typealias StringPublisher = AnyPublisher<String, Never>
 typealias StringSubject = PassthroughSubject<String, Never>
+typealias FeedbackPublisher = AnyPublisher<FeedbackType, Never>
+typealias FeedbackSubject = PassthroughSubject<FeedbackType, Never>
