@@ -4,6 +4,7 @@ import SwiftUI
 
 public extension Image {
       static let iconsLeft = Self.init("left")
+      static let iconsLogout = Self.init("logout")
       static let iconsPlus = Self.init("plus")
       static let iconsSend = Self.init("send")
       static let iconsSocket = Self.init("socket")

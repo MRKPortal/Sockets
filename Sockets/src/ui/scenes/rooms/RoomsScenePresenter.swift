@@ -9,9 +9,12 @@ import SwiftUI
 
 protocol RoomsScenePresenterProtocol: ObservableObject {
     var rooms: [RoomModel] { get }
+    var server: String { get }
     var feedbackPublisher: FeedbackPublisher { get }
+
     func didTapAdd()
     func didTap(room: RoomModel)
+    func didTapLogout()
 }
 
 final class RoomsScenePresenter: RoomsScenePresenterProtocol {
@@ -22,6 +25,10 @@ final class RoomsScenePresenter: RoomsScenePresenterProtocol {
 
     var feedbackPublisher: FeedbackPublisher {
         feedback.feedbackPublisher
+    }
+    
+    var server: String {
+        (try? interactor.getSession())?.url ?? ""
     }
     
     @Published var rooms: [RoomModel] = []
@@ -46,6 +53,10 @@ final class RoomsScenePresenter: RoomsScenePresenterProtocol {
         router.openChat(
             room: room
         )
+    }
+    
+    func didTapLogout() {
+        router.pop()
     }
 }
 

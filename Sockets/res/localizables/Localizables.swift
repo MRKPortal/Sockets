@@ -34,6 +34,10 @@ public enum Ls {
   public static let createPasswordPlaceholder = Ls.tr("Localizables", "create_password_placeholder", fallback: "Password")
   /// 
   public static let createRoomPlaceholder = Ls.tr("Localizables", "create_room_placeholder", fallback: "Room Name")
+  /// 
+  public static func genericConnectedTo(_ p1: Any) -> String {
+    return Ls.tr("Localizables", "generic_connected_to", String(describing: p1), fallback: "Connected to:\n%@")
+  }
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:enable nesting type_body_length type_name vertical_whitespace_opening_braces

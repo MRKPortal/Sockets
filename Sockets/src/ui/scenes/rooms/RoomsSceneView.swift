@@ -19,6 +19,7 @@ struct RoomsSceneView<P: RoomsScenePresenterProtocol>: View {
     
     var body: some View {
         ZStack {
+            //HIVE
             GeometryReader { reader in
                 HiveView { index, pos in
                     let room = presenter.rooms[secured: index]
@@ -32,12 +33,50 @@ struct RoomsSceneView<P: RoomsScenePresenterProtocol>: View {
                             }
                         }
                 }
-                
-                ZStack(alignment: .bottomTrailing) {
-                    Color.clear
-                    IconCircularAppButton(.iconsPlus, action: presenter.didTapAdd)
-                        .frame(size: .s(56))
-                        .padding(.trailing, 32)
+            }
+            //SERVER LABEL
+            ZStack {
+                Color.clear
+                VStack {
+                    BannerView(Ls.genericConnectedTo(presenter.server))
+                        .multilineTextAlignment(.center)
+                        .lineLimit(2)
+                    Spacer()
+                }
+                .transition(
+                    .push(from: .top)
+                    .combined(with: .opacity)
+                )
+                .padding(8)
+                .padding(.top, 32)
+            }
+
+            //RETURN
+            ZStack(alignment: .topLeading) {
+                Color.clear
+                VStack(alignment: .leading, spacing: 8) {
+                    //HEADER
+                    IconCircularAppButton(
+                        .iconsLeft,
+                        style: .destructive,
+                        padding: 0,
+                        action: presenter.didTapLogout
+                    )
+                    .frame(size: .s(56))
+                }
+            }
+            
+            //BUTTONS
+            ZStack(alignment: .bottomTrailing) {
+                Color.clear
+                HStack {
+                    IconCircularAppButton(
+                        .iconsPlus,
+                        style: .normal,
+                        action: presenter.didTapAdd
+                    )
+                    .frame(size: .s(64))
+                    .padding(.horizontal, 32)
                 }
             }
         }

@@ -31,9 +31,13 @@ struct InputView: View {
                         inputFocus = true
                     }
                 
-                IconCircularAppButton(.iconsSend, action: sendAction)
-                    .disabled(value.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
-                    .frame(size: .s(32))
+                IconCircularAppButton(
+                    .iconsSend,
+                    style: .normal,
+                    action: sendAction
+                )
+                .disabled(value.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
+                .frame(size: .s(32))
                 
             }
             .padding(.horizontal, 16)

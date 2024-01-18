@@ -8,6 +8,7 @@
 import Foundation
 
 protocol RoomsSceneInteractorProtocol {
+    func getSession() throws -> SessionModel
     func getRooms() throws -> [RoomModel]
     func addRoom(name: String, key: String) throws
 }
@@ -21,6 +22,10 @@ final class RoomsSceneInteractor: RoomsSceneInteractorProtocol {
     }
     
     //MARK: RoomsSceneInteractorProtocol
+    
+    func getSession() throws -> SessionModel {
+        try storage.getSession()
+    }
     
     func getRooms() throws -> [RoomModel] {
         try storage.getRooms()

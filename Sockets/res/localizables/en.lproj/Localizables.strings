@@ -10,6 +10,9 @@
 "app_name" = "Sockets";
 
 /* */
+"generic_connected_to" = "Connected to:\n%@";
+
+/* */
 "access_username_placeholder" = "Username";
 
 /* */

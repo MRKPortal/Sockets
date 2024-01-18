@@ -9,12 +9,12 @@ import SwiftUI
 
 struct ChatHeaderView: View {
     @State private var pressing: Bool = false
-
+    
     private let impact = UIImpactFeedbackGenerator(style: .heavy)
     private let title: String
     private let leftAction: VoidCallback
     private let holdAction: VoidCallback
-
+    
     init(title: String, leftAction: @escaping VoidCallback, holdAction: @escaping VoidCallback) {
         self.title = title
         self.leftAction = leftAction
@@ -24,9 +24,16 @@ struct ChatHeaderView: View {
     var body: some View {
         ZStack {
             HStack {
-                IconCircularAppButton(.iconsLeft, padding: 0, action: leftAction)
-                    .frame(size: .s(40))
+                IconCircularAppButton(
+                    .iconsLeft,
+                    style: .normal,
+                    padding: 0,
+                    action: leftAction
+                )
+                .frame(size: .s(40))
+                
                 Spacer()
+
                 Text(title)
                     .applyTextStyle(.body)
                     .scaleEffect(pressing ? 0.9 : 1)
