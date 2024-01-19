@@ -8,7 +8,10 @@
 import Foundation
 
 protocol ChatSceneInteractorProtocol {
-    func connect(_ observer: @escaping MessagesCallback) throws
+    var session: SessionModel { get }
+    var room: RoomModel { get }
+    var messagesPublisher: MessagePublisher { get }
+    
     func sendMessage(_ message: String) throws
 }
 
@@ -18,44 +21,47 @@ final class ChatSceneInteractor: ChatSceneInteractorProtocol {
     private let encryption: EncryptionServiceProtocol
     private let storage: StorageServiceProtocol
     
+    let session: SessionModel
+    let room: RoomModel
     
-    private var observer: MessagesCallback?
-    private var messages: [MessageModel] = []
+    var messagesPublisher: MessagePublisher {
+        sockets.eventsPublisher.compactMap { [weak self] in
+            switch $0 {
+            case .message(let data):
+                return self?.decrypt(data)
+            default:
+                return nil
+            }
+        }
+        .eraseToAnyPublisher()
+    }
     
-    init(_ injector: ServicesInjectorProtocol) {
+    init(_ injector: ServicesInjectorProtocol, room: RoomModel) {
         self.sockets = injector.sockets
         self.encryption = injector.encryption
         self.storage = injector.storage
-    }
-
-    func connect(_ observer: @escaping MessagesCallback) throws {
-        try self.encryption.configureKey("<roomName>")
-        self.observer = observer
-        sockets.connect(url: try storage.getSession().url) { [weak self] in
-            self?.decrypt($0)
-        }
+        self.session = (try? injector.storage.getSession()) ?? .init(username: "", url: "")
+        self.room = room
     }
     
     func sendMessage(_ message: String) throws {
-        let session = try storage.getSession()
         let model: MessageModel = .init(sender: session.id, alias: session.username, message: message)
         let modelData = try JSONEncoder().encode(model)
-        let encryptedModelData = try encryption.encrypt(data: modelData)
+        let encryptedModelData = try encryption.encrypt(data: modelData, key: room.key)
         sockets.send(encryptedModelData)
     }
-    
+
     func disconnect() {
         sockets.disconnect()
     }
 }
 
 private extension ChatSceneInteractor {
-    func decrypt(_ data: Data) {
-        guard let decrypted = try? encryption.decrypt(encrypted: data),
+    func decrypt(_ data: Data) -> MessageModel? {
+        guard let decrypted = try? encryption.decrypt(encrypted: data, key: room.key),
               let parsed = try? JSONDecoder().decode(MessageModel.self, from: decrypted) else {
-            return
+            return nil
         }
-        messages.append(parsed)
-        observer?(messages)
+        return parsed
     }
 }

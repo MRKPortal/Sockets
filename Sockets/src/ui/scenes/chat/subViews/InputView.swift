@@ -8,20 +8,18 @@
 import SwiftUI
 
 struct InputView: View {
-    
+    @FocusState private var inputFocus: Bool
     @Binding var value: String
     let sendAction: () -> Void
-
-    @FocusState private var focused: Bool
     
     var body: some View {
         VStack(spacing: 0) {
-            Color.base1.frame(height: 1)
+            Color.base0.frame(height: 1)
             HStack {
-                TextField("", text: $value)
-                    .focused($focused)
+                TextField("  ", text: $value)
+                    .frame(minHeight: 32)
+                    .focused($inputFocus)
                     .foregroundColor(.base3)
-                    .frame(minHeight: 48)
                     .padding(.horizontal, 8)
                     .padding(.vertical, 4)
                     .background {
@@ -29,13 +27,17 @@ struct InputView: View {
                             .cornerRadius(16)
                     }
                     .padding(.vertical, 8)
+                    .onTapGesture {
+                        inputFocus = true
+                    }
                 
-                IconCircularAppButton(.iconsSend) {
-                    focused = false
-                    sendAction()
-                }
-                .disabled(value.isEmpty)
-                .frame(width: 48, height: 48)
+                IconCircularAppButton(
+                    .iconsSend,
+                    style: .normal,
+                    action: sendAction
+                )
+                .disabled(value.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
+                .frame(size: .s(32))
                 
             }
             .padding(.horizontal, 16)

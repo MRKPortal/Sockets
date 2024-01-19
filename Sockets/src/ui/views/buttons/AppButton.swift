@@ -9,11 +9,12 @@ import SwiftUI
 
 enum AppButtonStyle {
 
-    case confirm, delete
+    case confirm, delete, normal
     
     var backgroundColor: Color {
         switch self {
         case .delete: .red5
+        case .normal: .base1
         default: .green3
         }
     }
@@ -42,7 +43,7 @@ struct AppButton: View {
             ZStack {
                 background
                 Text(title)
-                    .applyTextStyle(.h1, tint: .base1)
+                    .applyTextStyle(.body, tint: .base2)
             }
             .transition(.opacity)
             .animation(.easeIn(duration: 0.25), value: isEnabled)

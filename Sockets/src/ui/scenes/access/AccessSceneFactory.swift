@@ -7,18 +7,12 @@
 
 import SwiftUI
 
-final class AccessSceneFactory {
-
-    private let injector: ServicesInjectorProtocol
-    
+final class AccessSceneFactory: Factory {
+    private lazy var router = AccessSceneRouter(injector: injector, coordinator: coordinator)
     private lazy var interactor = AccessSceneInteractor(injector: injector)
-    private lazy var presenter = AccessScenePresenter(interactor: interactor)
+    private lazy var presenter = AccessScenePresenter(interactor: interactor, router: router)
     
-    init(_ injector: ServicesInjectorProtocol) {
-        self.injector = injector
-    }
-    
-    func build() -> some View {
+    override func build() -> AnyView {
         AnyView(AccessSceneView(presenter))
     }
 }
