@@ -10,15 +10,17 @@ import Foundation
 protocol RoomsSceneInteractorProtocol {
     func getSession() throws -> SessionModel
     func getRooms() throws -> [RoomModel]
-    func addRoom(name: String, key: String) throws
+    func addRoom(name: String, password: String) throws
 }
 
 final class RoomsSceneInteractor: RoomsSceneInteractorProtocol {
     
     private let storage: StorageServiceProtocol
-    
+    private let encryption: EncryptionServiceProtocol
+
     init(_ injector: ServicesInjectorProtocol) {
         self.storage = injector.storage
+        self.encryption = injector.encryption
     }
     
     //MARK: RoomsSceneInteractorProtocol
@@ -31,10 +33,15 @@ final class RoomsSceneInteractor: RoomsSceneInteractorProtocol {
         try storage.getRooms()
     }
     
-    func addRoom(name: String, key: String) throws {
+    func addRoom(name: String, password: String) throws {
         var rooms = (try? storage.getRooms()) ?? []
+        let key = try encryption.createKey(password)
         rooms.append(
-            RoomModel(name: name, key: key)
+            RoomModel(
+                name: name,
+                password: password,
+                key: key
+            )
         )
         try storage.setRooms(rooms)
     }

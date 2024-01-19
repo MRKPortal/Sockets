@@ -63,7 +63,7 @@ final class RoomsScenePresenter: RoomsScenePresenterProtocol {
 private extension RoomsScenePresenter {
     func createRoom(name: String, key: String) {
         do {
-            try interactor.addRoom(name: name, key: key)
+            try interactor.addRoom(name: name, password: key)
             rooms = try interactor.getRooms()
         } catch {
             //

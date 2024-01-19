@@ -15,7 +15,7 @@ protocol ChatScenePresenterProtocol: ObservableObject {
     var title: String { get }
     var userId: String { get }
     var messages: [MessageModel] { get }
-
+    
     func connect()
     func send(_ message: String)
     func didTapBack()
@@ -23,14 +23,14 @@ protocol ChatScenePresenterProtocol: ObservableObject {
 }
 
 final class ChatScenePresenter: ChatScenePresenterProtocol {
-
+    
     private let interactor: ChatSceneInteractorProtocol
     private let router: ChatSceneRouterProtocol
     private let feedback: FeedbackSystemProtocol
-
+    
     let userId: String
     let title: String
-
+    
     @Published var messages: [MessageModel] = []
     
     var feedbackPublisher: FeedbackPublisher {
@@ -48,11 +48,9 @@ final class ChatScenePresenter: ChatScenePresenterProtocol {
     //MARK: - ChatScenePresenterProtocol
     
     func connect() {
-        Task {
-            await interactor.connect { messages in
-                DispatchQueue.main.async {
-                    self.messages = messages
-                }
+        try? interactor.connect { messages in
+            DispatchQueue.main.async {
+                self.messages = messages
             }
         }
     }
@@ -70,7 +68,7 @@ final class ChatScenePresenter: ChatScenePresenterProtocol {
     }
     
     func didTapCopyPrivate() {
-        UIPasteboard.general.string = interactor.room.key
+        UIPasteboard.general.string = interactor.room.password
         feedback.display(
             feedback: .toast(Ls.chatFeedbackKeyCopied)
         )

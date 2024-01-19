@@ -10,11 +10,13 @@ import Foundation
 struct RoomModel: Codable, Identifiable, Equatable {
     let id: String
     let name: String
-    let key: String
+    let password: String
+    let key: Array<UInt8>
     
-    init(name: String, key: String) {
+    init(name: String, password: String, key: Array<UInt8>) {
         self.id = UUID().uuidString
         self.name = name
+        self.password = password
         self.key = key
     }
 }

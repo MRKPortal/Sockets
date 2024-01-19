@@ -10,8 +10,8 @@ import Foundation
 protocol ChatSceneInteractorProtocol {
     var session: SessionModel { get }
     var room: RoomModel { get }
-
-    func connect(_ observer: @escaping MessagesCallback) async -> Bool
+    
+    func connect(_ observer: @escaping MessagesCallback) throws
     func sendMessage(_ message: String) throws
 }
 
@@ -34,27 +34,20 @@ final class ChatSceneInteractor: ChatSceneInteractorProtocol {
         self.session = (try? injector.storage.getSession()) ?? .init(username: "", url: "")
         self.room = room
     }
-
-    func connect(_ observer: @escaping MessagesCallback) async -> Bool {
-        await withCheckedContinuation { completion in
-            do {
-                try self.encryption.configureKey(room.key)
-            } catch {
-                
-            }
-//            self.observer = observer
-//            sockets.connect(url: try storage.getSession().url) { [weak self] in
-//                self?.decrypt($0)
-//            }
-            completion.resume(returning: true)
-        }
-    }
     
     func sendMessage(_ message: String) throws {
         let model: MessageModel = .init(sender: session.id, alias: session.username, message: message)
         let modelData = try JSONEncoder().encode(model)
-        let encryptedModelData = try encryption.encrypt(data: modelData)
+        let encryptedModelData = try encryption.encrypt(data: modelData, key: room.key)
         sockets.send(encryptedModelData)
+    }
+    
+    func connect(_ observer: @escaping MessagesCallback) throws {
+        self.observer = observer
+        print(try storage.getSession().url)
+        sockets.connect(url: try storage.getSession().url) { [weak self] in
+            self?.decrypt($0)
+        }
     }
     
     func disconnect() {
@@ -64,7 +57,7 @@ final class ChatSceneInteractor: ChatSceneInteractorProtocol {
 
 private extension ChatSceneInteractor {
     func decrypt(_ data: Data) {
-        guard let decrypted = try? encryption.decrypt(encrypted: data),
+        guard let decrypted = try? encryption.decrypt(encrypted: data, key: room.key),
               let parsed = try? JSONDecoder().decode(MessageModel.self, from: decrypted) else {
             return
         }

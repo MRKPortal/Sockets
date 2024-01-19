@@ -9,9 +9,9 @@ import Foundation
 import CryptoSwift
 
 protocol EncryptionServiceProtocol {
-    func configureKey(_ salt: String) throws
-    func encrypt(data: Data) throws -> Data
-    func decrypt(encrypted: Data) throws -> Data
+    func createKey(_ salt: String) throws -> Array<UInt8>
+    func encrypt(data: Data, key: Array<UInt8>) throws -> Data
+    func decrypt(encrypted: Data, key: Array<UInt8>) throws -> Data
 }
 
 final class EncryptionService: EncryptionServiceProtocol {
@@ -19,10 +19,8 @@ final class EncryptionService: EncryptionServiceProtocol {
     private let iv: Array<UInt8> = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     private let pass = "<change-it-on-release>"
     
-    private var key: Array<UInt8> = []
-    
-    func configureKey(_ salt: String) throws {
-        key = try PKCS5.PBKDF2(
+    func createKey(_ salt: String) throws -> Array<UInt8> {
+        try PKCS5.PBKDF2(
             password: pass.bytes,
             salt: salt.bytes,
             iterations: 1024,
@@ -31,12 +29,12 @@ final class EncryptionService: EncryptionServiceProtocol {
         .calculate()
     }
     
-    func encrypt(data: Data) throws -> Data {
+    func encrypt(data: Data, key: Array<UInt8>) throws -> Data {
         let aes = try AES(key: key, blockMode: CBC(iv: iv))
         return Data(try aes.encrypt(data.bytes))
     }
     
-    func decrypt(encrypted: Data) throws -> Data {
+    func decrypt(encrypted: Data, key: Array<UInt8>) throws -> Data {
         let aes = try AES(key: key, blockMode: CBC(iv: iv))
         return Data(try aes.decrypt(encrypted.bytes))
     }
