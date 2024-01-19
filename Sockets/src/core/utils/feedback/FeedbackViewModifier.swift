@@ -39,8 +39,11 @@ private struct FeedbackViewModifier: ViewModifier {
                                 outputCallback: action,
                                 dismissCallback: dismiss
                             )
-                        case .logOut(let voidCallback):
-                            LogoutAlertView()
+                        case .logOut(let action):
+                            LogoutAlertView(
+                                action: action,
+                                dismiss: dismiss
+                            )
                         }
                     }
                     .zIndex(2)

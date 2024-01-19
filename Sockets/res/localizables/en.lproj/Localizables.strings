@@ -13,6 +13,12 @@
 "generic_connected_to" = "Connected to:\n%@";
 
 /* */
+"generic_cancel" = "Cancel";
+
+/* */
+"generic_yes" = "Yes";
+
+/* */
 "access_username_placeholder" = "Username";
 
 /* */
@@ -44,3 +50,9 @@
 
 /* */
 "alert_enter_description" = "Set an alias for the room.\nProtect it with your password.\nShare it with your friends";
+
+/* */
+"logout_title" = "Close session";
+
+/* */
+"logout_description" = "Are you sure you want to leave?";

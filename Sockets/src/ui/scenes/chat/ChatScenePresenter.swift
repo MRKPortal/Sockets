@@ -5,7 +5,7 @@
 //  Created by Marc Flores on 12/1/24.
 //
 
-import Foundation
+import Combine
 import SwiftUI
 
 protocol ChatScenePresenterProtocol: ObservableObject {
@@ -16,13 +16,14 @@ protocol ChatScenePresenterProtocol: ObservableObject {
     var userId: String { get }
     var messages: [MessageModel] { get }
     
-    func connect()
     func send(_ message: String)
     func didTapBack()
     func didTapCopyPrivate()
 }
 
 final class ChatScenePresenter: ChatScenePresenterProtocol {
+    
+    private var cancellable: AnyCancellable?
     
     private let interactor: ChatSceneInteractorProtocol
     private let router: ChatSceneRouterProtocol
@@ -43,18 +44,10 @@ final class ChatScenePresenter: ChatScenePresenterProtocol {
         self.feedback = feedback
         self.userId = interactor.session.id
         self.title = interactor.room.name
+        bind()
     }
     
     //MARK: - ChatScenePresenterProtocol
-    
-    func connect() {
-        try? interactor.connect { messages in
-            DispatchQueue.main.async {
-                self.messages = messages
-            }
-        }
-    }
-    
     func send(_ message: String) {
         Task {
             try! interactor.sendMessage(
@@ -72,5 +65,16 @@ final class ChatScenePresenter: ChatScenePresenterProtocol {
         feedback.display(
             feedback: .toast(Ls.chatFeedbackKeyCopied)
         )
+    }
+}
+
+private extension ChatScenePresenter {
+    func bind() {
+        cancellable = interactor
+            .messagesPublisher
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] message in
+                self?.messages += [message]
+            }
     }
 }

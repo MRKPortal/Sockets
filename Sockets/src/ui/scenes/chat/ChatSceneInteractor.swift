@@ -10,8 +10,8 @@ import Foundation
 protocol ChatSceneInteractorProtocol {
     var session: SessionModel { get }
     var room: RoomModel { get }
+    var messagesPublisher: MessagePublisher { get }
     
-    func connect(_ observer: @escaping MessagesCallback) throws
     func sendMessage(_ message: String) throws
 }
 
@@ -21,11 +21,20 @@ final class ChatSceneInteractor: ChatSceneInteractorProtocol {
     private let encryption: EncryptionServiceProtocol
     private let storage: StorageServiceProtocol
     
-    private var observer: MessagesCallback?
-    private var messages: [MessageModel] = []
-    
     let session: SessionModel
     let room: RoomModel
+    
+    var messagesPublisher: MessagePublisher {
+        sockets.eventsPublisher.compactMap { [weak self] in
+            switch $0 {
+            case .message(let data):
+                return self?.decrypt(data)
+            default:
+                return nil
+            }
+        }
+        .eraseToAnyPublisher()
+    }
     
     init(_ injector: ServicesInjectorProtocol, room: RoomModel) {
         self.sockets = injector.sockets
@@ -41,27 +50,18 @@ final class ChatSceneInteractor: ChatSceneInteractorProtocol {
         let encryptedModelData = try encryption.encrypt(data: modelData, key: room.key)
         sockets.send(encryptedModelData)
     }
-    
-    func connect(_ observer: @escaping MessagesCallback) throws {
-        self.observer = observer
-        print(try storage.getSession().url)
-        sockets.connect(url: try storage.getSession().url) { [weak self] in
-            self?.decrypt($0)
-        }
-    }
-    
+
     func disconnect() {
         sockets.disconnect()
     }
 }
 
 private extension ChatSceneInteractor {
-    func decrypt(_ data: Data) {
+    func decrypt(_ data: Data) -> MessageModel? {
         guard let decrypted = try? encryption.decrypt(encrypted: data, key: room.key),
               let parsed = try? JSONDecoder().decode(MessageModel.self, from: decrypted) else {
-            return
+            return nil
         }
-        messages.append(parsed)
-        observer?(messages)
+        return parsed
     }
 }

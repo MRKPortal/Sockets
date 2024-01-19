@@ -35,9 +35,17 @@ public enum Ls {
   /// 
   public static let createRoomPlaceholder = Ls.tr("Localizables", "create_room_placeholder", fallback: "Room Name")
   /// 
+  public static let genericCancel = Ls.tr("Localizables", "generic_cancel", fallback: "Cancel")
+  /// 
   public static func genericConnectedTo(_ p1: Any) -> String {
     return Ls.tr("Localizables", "generic_connected_to", String(describing: p1), fallback: "Connected to:\n%@")
   }
+  /// 
+  public static let genericYes = Ls.tr("Localizables", "generic_yes", fallback: "Yes")
+  /// 
+  public static let logoutDescription = Ls.tr("Localizables", "logout_description", fallback: "Are you sure you want to leave?")
+  /// 
+  public static let logoutTitle = Ls.tr("Localizables", "logout_title", fallback: "Close session")
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:enable nesting type_body_length type_name vertical_whitespace_opening_braces

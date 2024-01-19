@@ -12,7 +12,6 @@ struct ChatSceneView<P: ChatScenePresenterProtocol>: View {
     private let banners = [Ls.chatBannerEncryption, Ls.chatBannerInvite]
     
     @State private var text: String = ""
-    @State private var userId: String = ""
     
     @ObservedObject private var presenter: P
     @Namespace private var bottom
@@ -45,7 +44,7 @@ struct ChatSceneView<P: ChatScenePresenterProtocol>: View {
                     ForEach(presenter.messages) { message in
                         HStack {
                             let id = presenter.messages.firstIndex(of: message) ?? -2
-                            let isMine = message.sender == userId
+                            let isMine = message.sender == presenter.userId
                             let lastMessage = presenter.messages.last == message
                             MessageView(
                                 message: message,
@@ -72,9 +71,5 @@ struct ChatSceneView<P: ChatScenePresenterProtocol>: View {
             }
         }
         .feedbackSystem(presenter.feedbackPublisher)
-        .onAppear {
-            userId = presenter.userId
-            presenter.connect()
-        }
     }
 }

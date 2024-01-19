@@ -50,12 +50,11 @@ struct RoomsSceneView<P: RoomsScenePresenterProtocol>: View {
                 .padding(8)
                 .padding(.top, 32)
             }
-
-            //RETURN
-            ZStack(alignment: .topLeading) {
-                Color.clear
-                VStack(alignment: .leading, spacing: 8) {
-                    //HEADER
+            
+            //BUTTONS
+            VStack {
+                Spacer()
+                HStack {
                     IconCircularAppButton(
                         .iconsLeft,
                         style: .destructive,
@@ -63,23 +62,20 @@ struct RoomsSceneView<P: RoomsScenePresenterProtocol>: View {
                         action: presenter.didTapLogout
                     )
                     .frame(size: .s(56))
-                }
-            }
-            
-            //BUTTONS
-            ZStack(alignment: .bottomTrailing) {
-                Color.clear
-                HStack {
+
+                    Spacer()
+
                     IconCircularAppButton(
                         .iconsPlus,
                         style: .normal,
                         action: presenter.didTapAdd
                     )
                     .frame(size: .s(64))
-                    .padding(.horizontal, 32)
                 }
+                .padding(.horizontal, 32)
             }
         }
         .feedbackSystem(presenter.feedbackPublisher)
+        .onAppear(perform: presenter.connect)
     }
 }

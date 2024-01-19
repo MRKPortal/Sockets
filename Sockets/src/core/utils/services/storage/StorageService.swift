@@ -14,6 +14,8 @@ protocol StorageServiceProtocol {
     
     func setRooms(_ rooms: [RoomModel]) throws
     func getRooms() throws -> [RoomModel]
+    
+    func clear()
 }
 
 final class StorageService: StorageServiceProtocol {
@@ -46,5 +48,9 @@ final class StorageService: StorageServiceProtocol {
             throw StorageError.notFound
         }
         return try JSONDecoder().decode([RoomModel].self, from: data)
+    }
+    
+    func clear() {
+        keychain.clear()
     }
 }

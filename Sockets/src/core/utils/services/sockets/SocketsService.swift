@@ -9,7 +9,10 @@ import Foundation
 import Starscream
 
 protocol SocketsServiceProtocol {
-    func connect(url: String, action: @escaping DataCallback)
+
+    var eventsPublisher: EventPublisher { get }
+
+    func connect(url: String)
     func disconnect()
     func send(_ data: Data)
 }
@@ -17,11 +20,15 @@ protocol SocketsServiceProtocol {
 final class SocketsService: SocketsServiceProtocol, WebSocketDelegate {
 
     private var socket: WebSocket?
-    private var action: DataCallback?
     
-    func connect(url: String, action: @escaping DataCallback) {
+    private let subject = EventSubject()
+    
+    var eventsPublisher: EventPublisher {
+        subject.eraseToAnyPublisher()
+    }
+    
+    func connect(url: String) {
         let request = URLRequest(url: URL(string: url)!)
-        self.action = action
         socket = WebSocket(request: request)
         socket?.delegate = self
         socket?.connect()
@@ -29,19 +36,21 @@ final class SocketsService: SocketsServiceProtocol, WebSocketDelegate {
     
     func didReceive(event: Starscream.WebSocketEvent, client: Starscream.WebSocketClient) {
         switch event {
+        case .connected:
+            subject.send(.connected)
         case .disconnected, .peerClosed, .cancelled:
+            subject.send(.disconnect)
             socket?.connect()
         case .binary(let data):
-            action?(data)
+            subject.send(.message(data))
         default:
             print(event)
         }
     }
 
     func send(_ data: Data) {
-        socket?.write(data: data) {
-            self.action?(data)
-        }
+        socket?.write(data: data)
+        subject.send(.message(data))
     }
     
     func disconnect() {

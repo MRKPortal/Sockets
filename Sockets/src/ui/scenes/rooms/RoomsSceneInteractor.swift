@@ -11,16 +11,21 @@ protocol RoomsSceneInteractorProtocol {
     func getSession() throws -> SessionModel
     func getRooms() throws -> [RoomModel]
     func addRoom(name: String, password: String) throws
+
+    func connect() throws
+    func logout()
 }
 
 final class RoomsSceneInteractor: RoomsSceneInteractorProtocol {
     
     private let storage: StorageServiceProtocol
     private let encryption: EncryptionServiceProtocol
+    private let sockets: SocketsServiceProtocol
 
     init(_ injector: ServicesInjectorProtocol) {
         self.storage = injector.storage
         self.encryption = injector.encryption
+        self.sockets = injector.sockets
     }
     
     //MARK: RoomsSceneInteractorProtocol
@@ -45,5 +50,14 @@ final class RoomsSceneInteractor: RoomsSceneInteractorProtocol {
         )
         try storage.setRooms(rooms)
     }
+
+    func connect() throws {
+        let url = try storage.getSession().url
+        sockets.connect(url: url)
+    }
     
+    func logout() {
+        sockets.disconnect()
+        storage.clear()
+    }
 }

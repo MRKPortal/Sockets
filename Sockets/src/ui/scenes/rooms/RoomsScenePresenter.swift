@@ -12,6 +12,7 @@ protocol RoomsScenePresenterProtocol: ObservableObject {
     var server: String { get }
     var feedbackPublisher: FeedbackPublisher { get }
 
+    func connect()
     func didTapAdd()
     func didTap(room: RoomModel)
     func didTapLogout()
@@ -41,11 +42,15 @@ final class RoomsScenePresenter: RoomsScenePresenterProtocol {
         rooms = (try? interactor.getRooms()) ?? []
     }
     
+    func connect() {
+        try? interactor.connect()
+    }
+    
     func didTapAdd() {
-        feedback.display(feedback: 
-                .alert(
-                    .createRoom(createRoom)
-                )
+        feedback.display(
+            feedback: .alert(
+                .createRoom(createRoom)
+            )
         )
     }
     
@@ -56,11 +61,21 @@ final class RoomsScenePresenter: RoomsScenePresenterProtocol {
     }
     
     func didTapLogout() {
-        router.pop()
+        feedback.display(
+            feedback: .alert(
+                .logOut(logout)
+            )
+        )
     }
 }
 
 private extension RoomsScenePresenter {
+    
+    func logout() {
+        interactor.logout()
+        router.pop()
+    }
+    
     func createRoom(name: String, key: String) {
         do {
             try interactor.addRoom(name: name, password: key)
