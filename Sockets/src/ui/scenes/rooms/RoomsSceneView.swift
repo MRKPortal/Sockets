@@ -10,7 +10,8 @@ import SwiftUI
 struct RoomsSceneView<P: RoomsScenePresenterProtocol>: View {
     
     private let generator = UIImpactFeedbackGenerator(style: .light)
-    
+    @State private var state: ConnectionState?
+    @State private var animate: Bool = false
     @ObservedObject private var presenter: P
     
     init(_ presenter: P) {
@@ -35,21 +36,16 @@ struct RoomsSceneView<P: RoomsScenePresenterProtocol>: View {
                 }
             }
             //SERVER LABEL
-            ZStack {
+            ZStack(alignment: .topTrailing) {
                 Color.clear
-                VStack {
-                    BannerView(Ls.genericConnectedTo(presenter.server))
-                        .multilineTextAlignment(.center)
-                        .lineLimit(2)
-                    Spacer()
-                }
-                .transition(
-                    .push(from: .top)
-                    .combined(with: .opacity)
+                ConnectionView(
+                    publisher: presenter.connectionPublisher,
+                    url: presenter.server
                 )
-                .padding(8)
-                .padding(.top, 32)
             }
+            .padding(16)
+            .offset(x: animate ? 0 : -100)
+            .opacity(animate ? 1 : 0)
             
             //BUTTONS
             VStack {
@@ -62,20 +58,29 @@ struct RoomsSceneView<P: RoomsScenePresenterProtocol>: View {
                         action: presenter.didTapLogout
                     )
                     .frame(size: .s(56))
-
+                    .offset(x: animate ? 0 : -100)
+                    .opacity(animate ? 1 : 0)
+                    
                     Spacer()
-
+                    
                     IconCircularAppButton(
                         .iconsPlus,
                         style: .normal,
                         action: presenter.didTapAdd
                     )
                     .frame(size: .s(64))
+                    .offset(x: animate ? 0 : 100)
+                    .opacity(animate ? 1 : 0)
                 }
                 .padding(.horizontal, 32)
             }
         }
         .feedbackSystem(presenter.feedbackPublisher)
-        .onAppear(perform: presenter.connect)
+        .onAppear {
+            presenter.connect()
+            withAnimation(.bouncy(duration: 1, extraBounce: 0.25).delay(1.75)) {
+                animate.toggle()
+            }
+        }
     }
 }

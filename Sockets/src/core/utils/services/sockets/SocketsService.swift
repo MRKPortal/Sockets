@@ -42,7 +42,6 @@ final class SocketsService: SocketsServiceProtocol, WebSocketDelegate {
     }
     
     func didReceive(event: Starscream.WebSocketEvent, client: Starscream.WebSocketClient) {
-        print(event)
         switch event {
         case .pong, 
                 .connected:
@@ -52,6 +51,11 @@ final class SocketsService: SocketsServiceProtocol, WebSocketDelegate {
                 .cancelled,
                 .error:
             connectionSubject.send(.disconnected)
+        case .reconnectSuggested(let value):
+            connectionSubject.send(value ? .connecting : .disconnected)
+            if value {
+                socket?.connect()
+            }
         case .binary(let data):
             dataSubject.send(data)
         default:

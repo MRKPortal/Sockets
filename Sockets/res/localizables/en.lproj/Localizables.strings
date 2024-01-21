@@ -13,6 +13,12 @@
 "generic_connected_to" = "Connected to:\n%@";
 
 /* */
+"generic_connecting" = "Connecting...";
+
+/* */
+"generic_disconnected" = "Disconnected";
+
+/* */
 "generic_cancel" = "Cancel";
 
 /* */

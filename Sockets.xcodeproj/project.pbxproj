@@ -85,6 +85,8 @@
 		06C713142B5200D800FE2715 /* Callbacks+Aliases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C713132B5200D800FE2715 /* Callbacks+Aliases.swift */; };
 		06C713272B52083400FE2715 /* EncryptionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C713262B52083400FE2715 /* EncryptionTests.swift */; };
 		06D62AF92B5D371C00409C33 /* SocketsServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D62AF82B5D371C00409C33 /* SocketsServiceTests.swift */; };
+		06D62AFD2B5D43F900409C33 /* ConnectionState+Representation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D62AFB2B5D43F300409C33 /* ConnectionState+Representation.swift */; };
+		06D62AFF2B5D4AD100409C33 /* ConnectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D62AFE2B5D4AD100409C33 /* ConnectionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -177,6 +179,8 @@
 		06C713192B5207F900FE2715 /* SocketsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SocketsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		06C713262B52083400FE2715 /* EncryptionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncryptionTests.swift; sourceTree = "<group>"; };
 		06D62AF82B5D371C00409C33 /* SocketsServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketsServiceTests.swift; sourceTree = "<group>"; };
+		06D62AFB2B5D43F300409C33 /* ConnectionState+Representation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConnectionState+Representation.swift"; sourceTree = "<group>"; };
+		06D62AFE2B5D4AD100409C33 /* ConnectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -341,19 +345,11 @@
 		067724742B51BC4C00E3A41B /* core */ = {
 			isa = PBXGroup;
 			children = (
-				067724752B51BC4C00E3A41B /* network */,
 				067724762B51BC4C00E3A41B /* utils */,
 				067724782B51BC4C00E3A41B /* extensions */,
 				067724792B51BC4C00E3A41B /* model */,
 			);
 			path = core;
-			sourceTree = "<group>";
-		};
-		067724752B51BC4C00E3A41B /* network */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = network;
 			sourceTree = "<group>";
 		};
 		067724762B51BC4C00E3A41B /* utils */ = {
@@ -557,6 +553,7 @@
 			children = (
 				068984042B55DBDA007C8CA7 /* HiveView.swift */,
 				068984072B55DC33007C8CA7 /* RoomCellView.swift */,
+				06D62AFE2B5D4AD100409C33 /* ConnectionView.swift */,
 			);
 			path = subViews;
 			sourceTree = "<group>";
@@ -652,6 +649,7 @@
 		06B41A332B5314B800211751 /* extensions */ = {
 			isa = PBXGroup;
 			children = (
+				06D62AFA2B5D43DD00409C33 /* representations */,
 				06B41A342B5314BF00211751 /* strings */,
 			);
 			path = extensions;
@@ -739,6 +737,14 @@
 				06D62AF82B5D371C00409C33 /* SocketsServiceTests.swift */,
 			);
 			path = sockets;
+			sourceTree = "<group>";
+		};
+		06D62AFA2B5D43DD00409C33 /* representations */ = {
+			isa = PBXGroup;
+			children = (
+				06D62AFB2B5D43F300409C33 /* ConnectionState+Representation.swift */,
+			);
+			path = representations;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -877,11 +883,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06D62AFD2B5D43F900409C33 /* ConnectionState+Representation.swift in Sources */,
 				06B41A242B52FAA800211751 /* AppButton.swift in Sources */,
 				068393FD2B53FE98003A67F8 /* Date+String.swift in Sources */,
 				06B41A1E2B52F18B00211751 /* TextStyle.swift in Sources */,
 				06863DA52B574709000F55EF /* ChatSceneRouter.swift in Sources */,
 				067724AB2B51E7DA00E3A41B /* Icons.swift in Sources */,
+				06D62AFF2B5D4AD100409C33 /* ConnectionView.swift in Sources */,
 				067724B12B51E89B00E3A41B /* IconCircularAppButton.swift in Sources */,
 				06863DA12B574315000F55EF /* AccessSceneRouter.swift in Sources */,
 				0677249C2B51E14600E3A41B /* KeyboardPushedModifier.swift in Sources */,

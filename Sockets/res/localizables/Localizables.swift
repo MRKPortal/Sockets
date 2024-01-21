@@ -41,6 +41,10 @@ public enum Ls {
     return Ls.tr("Localizables", "generic_connected_to", String(describing: p1), fallback: "Connected to:\n%@")
   }
   /// 
+  public static let genericConnecting = Ls.tr("Localizables", "generic_connecting", fallback: "Connecting...")
+  /// 
+  public static let genericDisconnected = Ls.tr("Localizables", "generic_disconnected", fallback: "Disconnected")
+  /// 
   public static let genericYes = Ls.tr("Localizables", "generic_yes", fallback: "Yes")
   /// 
   public static let logoutDescription = Ls.tr("Localizables", "logout_description", fallback: "Are you sure you want to leave?")

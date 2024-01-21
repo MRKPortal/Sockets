@@ -40,7 +40,7 @@ final class SocketsServiceTests: XCTestCase {
 
     func testCorrectConnectingState() {
         let sockets = SocketsService()
-        sockets.connect(url: "wss://socketsbay.com/wss/v2/1/demo/")
+        sockets.connect(url: "wss://ws.postman-echo.com/raw")
         let exp = expectation(description: "Successfully connected")
         cancellable = sockets.connectionPublisher.sink { state in
             if case .connected = state {

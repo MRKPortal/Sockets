@@ -7,6 +7,6 @@
 
 import Foundation
 
-enum ConnectionState {
+enum ConnectionState: Int {
     case connected, connecting, disconnected
 }

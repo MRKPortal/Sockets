@@ -8,6 +8,8 @@
 import Foundation
 
 protocol RoomsSceneInteractorProtocol {
+    var connectionPublisher: ConnectionPublisher { get }
+    
     func getSession() throws -> SessionModel
     func getRooms() throws -> [RoomModel]
     func addRoom(name: String, password: String) throws
@@ -26,6 +28,12 @@ final class RoomsSceneInteractor: RoomsSceneInteractorProtocol {
         self.storage = injector.storage
         self.encryption = injector.encryption
         self.sockets = injector.sockets
+    }
+    
+    var connectionPublisher: ConnectionPublisher {
+        sockets.connectionPublisher
+            .removeDuplicates()
+            .eraseToAnyPublisher()
     }
     
     //MARK: RoomsSceneInteractorProtocol

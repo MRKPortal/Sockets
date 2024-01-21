@@ -11,6 +11,7 @@ protocol RoomsScenePresenterProtocol: ObservableObject {
     var rooms: [RoomModel] { get }
     var server: String { get }
     var feedbackPublisher: FeedbackPublisher { get }
+    var connectionPublisher: ConnectionPublisher { get }
 
     func connect()
     func didTapAdd()
@@ -30,6 +31,12 @@ final class RoomsScenePresenter: RoomsScenePresenterProtocol {
     
     var server: String {
         (try? interactor.getSession())?.url ?? ""
+    }
+    
+    var connectionPublisher: ConnectionPublisher {
+        interactor.connectionPublisher
+            .receive(on: DispatchQueue.main)
+            .eraseToAnyPublisher()
     }
     
     @Published var rooms: [RoomModel] = []

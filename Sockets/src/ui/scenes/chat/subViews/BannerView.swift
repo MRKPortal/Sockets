@@ -10,9 +10,11 @@ import SwiftUI
 struct BannerView: View {
     
     private let message: String
-    
-    init(_ message: String) {
+    private let color: Color
+
+    init(_ message: String, color: Color = .blue0) {
         self.message = message
+        self.color = color
     }
     
     var body: some View {
@@ -21,7 +23,7 @@ struct BannerView: View {
             .padding(.horizontal, 8)
             .padding(.vertical, 4)
             .background(
-                Color.blue0
+                color
                     .clipShape(
                         RoundedRectangle(cornerSize: .s(8))
                     )
