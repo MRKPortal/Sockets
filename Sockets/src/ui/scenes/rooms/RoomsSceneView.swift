@@ -9,7 +9,6 @@ import SwiftUI
 
 struct RoomsSceneView<P: RoomsScenePresenterProtocol>: View {
     
-    private let generator = UIImpactFeedbackGenerator(style: .light)
     @State private var state: ConnectionState?
     @State private var animate: Bool = false
     @ObservedObject private var presenter: P
@@ -29,7 +28,7 @@ struct RoomsSceneView<P: RoomsScenePresenterProtocol>: View {
                         .allowsHitTesting(room != nil)
                         .onTapGesture {
                             if let room {
-                                generator.impactOccurred()
+                                UI.Feedback.buttonHaptic.impactOccurred()
                                 presenter.didTap(room: room)
                             }
                         }

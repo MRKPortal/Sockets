@@ -46,9 +46,8 @@ struct ChatHeaderView: View {
                         }
                     }
                 Spacer()
-                Spacer()
-                    .frame(size: .s(40))
             }
+            .padding(.trailing, 40)
             .ignoresSafeArea(edges: .top)
             .frame(height: 48)
             .background(Color.green3)

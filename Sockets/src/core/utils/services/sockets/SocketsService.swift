@@ -15,14 +15,15 @@ protocol SocketsServiceProtocol {
     
     func connect(url: String)
     func disconnect()
-    func send(_ data: Data)
+    func send(_ data: Data) throws
 }
 
 final class SocketsService: SocketsServiceProtocol, WebSocketDelegate {
     
     private var socket: WebSocket?
     
-    private let connectionSubject = ConnectionSubject(.disconnected)
+    @Published private var connectionState: ConnectionState = .disconnected
+
     private let dataSubject = DataSubject()
     
     var dataPublisher: DataPublisher {
@@ -30,13 +31,18 @@ final class SocketsService: SocketsServiceProtocol, WebSocketDelegate {
     }
     
     var connectionPublisher: ConnectionPublisher {
-        connectionSubject.eraseToAnyPublisher()
+        $connectionState
+            .eraseToAnyPublisher()
     }
     
     func connect(url: String) {
-        let request = URLRequest(url: URL(string: url)!)
+        guard let url = URL(string: url) else {
+            return
+        }
+        
+        let request = URLRequest(url: url)
         socket = WebSocket(request: request)
-        connectionSubject.send(.connecting)
+        connectionState = .connecting
         socket?.delegate = self
         socket?.connect()
     }
@@ -45,14 +51,14 @@ final class SocketsService: SocketsServiceProtocol, WebSocketDelegate {
         switch event {
         case .pong, 
                 .connected:
-            connectionSubject.send(.connected)
-        case .disconnected, 
+            connectionState = .connected
+        case .disconnected,
                 .peerClosed,
                 .cancelled,
                 .error:
-            connectionSubject.send(.disconnected)
+            connectionState = .disconnected
         case .reconnectSuggested(let value):
-            connectionSubject.send(value ? .connecting : .disconnected)
+            connectionState = value ? .connecting : .disconnected
             if value {
                 socket?.connect()
             }
@@ -63,7 +69,11 @@ final class SocketsService: SocketsServiceProtocol, WebSocketDelegate {
         }
     }
     
-    func send(_ data: Data) {
+    func send(_ data: Data) throws {
+        guard connectionState == .connected else {
+            throw SocketsError.notConnected
+        }
+
         socket?.write(data: data)
         dataSubject.send(data)
     }

@@ -11,8 +11,6 @@ struct ChatSceneView<P: ChatScenePresenterProtocol>: View {
     
     private let banners = [Ls.chatBannerEncryption, Ls.chatBannerInvite]
     
-    @State private var text: String = ""
-    
     @ObservedObject private var presenter: P
     @Namespace private var bottom
     @Namespace private var cell
@@ -65,10 +63,12 @@ struct ChatSceneView<P: ChatScenePresenterProtocol>: View {
             }
             .padding(.horizontal, 16)
             
-            InputView(value: $text) {
-                presenter.send(text)
-                text = ""
-            }
+            InputView(
+                value: $presenter.message,
+                state: presenter.state,
+                sendAction: presenter.send
+            )
+            .animation(.bouncy, value: presenter.state)
         }
         .feedbackSystem(presenter.feedbackPublisher)
     }
