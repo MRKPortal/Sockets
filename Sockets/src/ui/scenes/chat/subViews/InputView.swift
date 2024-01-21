@@ -10,6 +10,8 @@ import SwiftUI
 struct InputView: View {
     @FocusState private var inputFocus: Bool
     @Binding var value: String
+
+    let state: ConnectionState
     let sendAction: () -> Void
     
     var body: some View {
@@ -30,10 +32,8 @@ struct InputView: View {
                     .onTapGesture {
                         inputFocus = true
                     }
-                
-                IconCircularAppButton(
-                    .iconsSend,
-                    style: .normal,
+                SendButton(
+                    state: state,
                     action: sendAction
                 )
                 .disabled(value.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)

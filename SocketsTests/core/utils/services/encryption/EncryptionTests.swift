@@ -12,26 +12,26 @@ final class SocketsTests: XCTestCase {
 
     func testEncryption() throws {
         let encryption = EncryptionService()
-        try encryption.configureKey(UUID().uuidString)
+        let key = try encryption.createKey(UUID().uuidString)
         let testingValue = UUID().uuidString
         let testingData = Data(testingValue.bytes)
-        let encrypted = try encryption.encrypt(data: testingData)
-        let decrypted = try encryption.decrypt(encrypted: encrypted)
+        let encrypted = try encryption.encrypt(data: testingData, key: key)
+        let decrypted = try encryption.decrypt(encrypted: encrypted, key: key)
         XCTAssertEqual(testingData, decrypted)
     }
     
     func testEncryptionDifferentSalts() throws {
         let encryption1 = EncryptionService()
-        try encryption1.configureKey(UUID().uuidString)
+        let key1 = try encryption1.createKey(UUID().uuidString)
 
         let encryption2 = EncryptionService()
-        try encryption2.configureKey(UUID().uuidString)
+        let key2 = try encryption2.createKey(UUID().uuidString)
         
         let testingValue = UUID().uuidString
         let testingData = Data(testingValue.bytes)
         
-        let encrypted1 = try encryption1.encrypt(data: testingData)
-        let encrypted2 = try encryption2.encrypt(data: testingData)
+        let encrypted1 = try encryption1.encrypt(data: testingData, key: key1)
+        let encrypted2 = try encryption2.encrypt(data: testingData, key: key2)
 
         XCTAssertNotEqual(encrypted1, encrypted2)
     }
@@ -39,16 +39,16 @@ final class SocketsTests: XCTestCase {
     func testEncryptionEqualSalts() throws {
         let salt = UUID().uuidString
         let encryption1 = EncryptionService()
-        try encryption1.configureKey(salt)
+        let key1 = try encryption1.createKey(salt)
 
         let encryption2 = EncryptionService()
-        try encryption2.configureKey(salt)
+        let key2 = try encryption2.createKey(salt)
         
         let testingValue = UUID().uuidString
         let testingData = Data(testingValue.bytes)
         
-        let encrypted1 = try encryption1.encrypt(data: testingData)
-        let encrypted2 = try encryption2.encrypt(data: testingData)
+        let encrypted1 = try encryption1.encrypt(data: testingData, key: key1)
+        let encrypted2 = try encryption2.encrypt(data: testingData, key: key2)
 
         XCTAssertEqual(encrypted1, encrypted2)
     }

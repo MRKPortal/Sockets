@@ -33,7 +33,6 @@ struct IconCircularAppButton: View {
     private let icon: Image
     private let style: Self.Style
     private let padding: CGFloat
-    private let generator = UIImpactFeedbackGenerator(style: .light)
 
     init(_ icon: Image, style: Self.Style, padding: CGFloat = 8, action: @escaping () -> Void) {
         self.icon = icon
@@ -44,7 +43,7 @@ struct IconCircularAppButton: View {
     
     var body: some View {
         Button {
-            generator.impactOccurred()
+            UI.Feedback.buttonHaptic.impactOccurred()
             action()
         } label: {
             GeometryReader { reader in

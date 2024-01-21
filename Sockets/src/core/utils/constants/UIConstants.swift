@@ -17,17 +17,21 @@ enum UI {
         )
     }
 
+    enum Feedback {
+        static let buttonHaptic = UIImpactFeedbackGenerator(style: .light)
+    }
+    
     enum Colors {
         static let options: [Color] = [
             .red5,
-            .green5,
+            .yellow3,
             .blue3,
-            .green2,
+            .green5,
             .orange2,
-            .red2,
-            .sky5,
             .yellow5,
-            .yellow3
+            .red2,
+            .green2,
+            .sky5
         ]
     }
 }

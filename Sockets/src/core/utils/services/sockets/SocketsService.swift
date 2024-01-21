@@ -9,48 +9,73 @@ import Foundation
 import Starscream
 
 protocol SocketsServiceProtocol {
-
-    var eventsPublisher: EventPublisher { get }
-
+    
+    var connectionPublisher: ConnectionPublisher { get }
+    var dataPublisher: DataPublisher { get }
+    
     func connect(url: String)
     func disconnect()
-    func send(_ data: Data)
+    func send(_ data: Data) throws
 }
 
 final class SocketsService: SocketsServiceProtocol, WebSocketDelegate {
-
+    
     private var socket: WebSocket?
     
-    private let subject = EventSubject()
+    @Published private var connectionState: ConnectionState = .disconnected
+
+    private let dataSubject = DataSubject()
     
-    var eventsPublisher: EventPublisher {
-        subject.eraseToAnyPublisher()
+    var dataPublisher: DataPublisher {
+        dataSubject.eraseToAnyPublisher()
+    }
+    
+    var connectionPublisher: ConnectionPublisher {
+        $connectionState
+            .eraseToAnyPublisher()
     }
     
     func connect(url: String) {
-        let request = URLRequest(url: URL(string: url)!)
+        guard let url = URL(string: url) else {
+            return
+        }
+        
+        let request = URLRequest(url: url)
         socket = WebSocket(request: request)
+        connectionState = .connecting
         socket?.delegate = self
         socket?.connect()
     }
     
     func didReceive(event: Starscream.WebSocketEvent, client: Starscream.WebSocketClient) {
         switch event {
-        case .connected:
-            subject.send(.connected)
-        case .disconnected, .peerClosed, .cancelled:
-            subject.send(.disconnect)
-            socket?.connect()
+        case .pong, 
+                .connected:
+            connectionState = .connected
+        case .disconnected,
+                .peerClosed,
+                .cancelled,
+                .error:
+            connectionState = .disconnected
+        case .reconnectSuggested(let value):
+            connectionState = value ? .connecting : .disconnected
+            if value {
+                socket?.connect()
+            }
         case .binary(let data):
-            subject.send(.message(data))
+            dataSubject.send(data)
         default:
-            print(event)
+            break
         }
     }
+    
+    func send(_ data: Data) throws {
+        guard connectionState == .connected else {
+            throw SocketsError.notConnected
+        }
 
-    func send(_ data: Data) {
         socket?.write(data: data)
-        subject.send(.message(data))
+        dataSubject.send(data)
     }
     
     func disconnect() {

@@ -27,7 +27,6 @@ struct AppButton: View {
     private let title: String
     private let action: VoidCallback?
     private let style: AppButtonStyle
-    private let generator = UIImpactFeedbackGenerator(style: .light)
 
     init(_ title: String, style: AppButtonStyle = .confirm, action: VoidCallback?) {
         self.title = title
@@ -37,7 +36,7 @@ struct AppButton: View {
     
     var body: some View {
         Button {
-            generator.impactOccurred()
+            UI.Feedback.buttonHaptic.impactOccurred()
             action?()
         } label: {
             ZStack {

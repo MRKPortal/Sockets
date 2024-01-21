@@ -60,17 +60,7 @@ private struct FeedbackViewModifier: ViewModifier {
             VStack {
                 Spacer()
                 if let toast {
-                    Text(toast)
-                        .applyTextStyle(.body, tint: .white)
-                        .padding(.horizontal, 8)
-                        .padding(.vertical, 4)
-                        .background(
-                            Color.gray2
-                                .clipShape(
-                                    RoundedRectangle(cornerSize: .s(8))
-                                )
-                        )
-                        .padding(.bottom, 64)
+                    GenericToastView(message: toast)
                         .task {
                             try? await Task.sleep(nanoseconds: 3_000_000_000)
                             self.toast = nil

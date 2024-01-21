@@ -1,32 +1,32 @@
 //
-//  BannerView.swift
+//  GenericToastView.swift
 //  Sockets
 //
-//  Created by Marc Flores on 14/1/24.
+//  Created by Marc Flores on 21/1/24.
 //
 
 import SwiftUI
 
-struct BannerView: View {
+struct GenericToastView: View {
     
     private let message: String
-    private let color: Color
-
-    init(_ message: String, color: Color = .blue0) {
+    
+    init(message: String) {
         self.message = message
-        self.color = color
     }
     
     var body: some View {
         Text(message)
-            .applyTextStyle(.body)
+            .applyTextStyle(.body, tint: .white)
             .padding(.horizontal, 8)
             .padding(.vertical, 4)
+            .multilineTextAlignment(.center)
             .background(
-                color
+                Color.gray2
                     .clipShape(
                         RoundedRectangle(cornerSize: .s(8))
                     )
             )
+            .padding(.bottom, 64)
     }
 }

@@ -35,11 +35,17 @@ public enum Ls {
   /// 
   public static let createRoomPlaceholder = Ls.tr("Localizables", "create_room_placeholder", fallback: "Room Name")
   /// 
+  public static let errorMessageNotSend = Ls.tr("Localizables", "error_message_not_send", fallback: "This message couldn't be send because you are not connected")
+  /// 
   public static let genericCancel = Ls.tr("Localizables", "generic_cancel", fallback: "Cancel")
   /// 
   public static func genericConnectedTo(_ p1: Any) -> String {
     return Ls.tr("Localizables", "generic_connected_to", String(describing: p1), fallback: "Connected to:\n%@")
   }
+  /// 
+  public static let genericConnecting = Ls.tr("Localizables", "generic_connecting", fallback: "Connecting...")
+  /// 
+  public static let genericDisconnected = Ls.tr("Localizables", "generic_disconnected", fallback: "Disconnected")
   /// 
   public static let genericYes = Ls.tr("Localizables", "generic_yes", fallback: "Yes")
   /// 

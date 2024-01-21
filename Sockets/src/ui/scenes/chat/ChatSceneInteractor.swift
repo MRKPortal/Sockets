@@ -11,7 +11,7 @@ protocol ChatSceneInteractorProtocol {
     var session: SessionModel { get }
     var room: RoomModel { get }
     var messagesPublisher: MessagePublisher { get }
-    
+    var statePublisher: ConnectionPublisher { get }
     func sendMessage(_ message: String) throws
 }
 
@@ -24,16 +24,17 @@ final class ChatSceneInteractor: ChatSceneInteractorProtocol {
     let session: SessionModel
     let room: RoomModel
     
+    var statePublisher: ConnectionPublisher {
+        sockets.connectionPublisher
+            .eraseToAnyPublisher()
+    }
+    
     var messagesPublisher: MessagePublisher {
-        sockets.eventsPublisher.compactMap { [weak self] in
-            switch $0 {
-            case .message(let data):
-                return self?.decrypt(data)
-            default:
-                return nil
+        sockets.dataPublisher
+            .compactMap { [weak self] in
+                self?.decrypt($0)
             }
-        }
-        .eraseToAnyPublisher()
+            .eraseToAnyPublisher()
     }
     
     init(_ injector: ServicesInjectorProtocol, room: RoomModel) {
@@ -48,11 +49,7 @@ final class ChatSceneInteractor: ChatSceneInteractorProtocol {
         let model: MessageModel = .init(sender: session.id, alias: session.username, message: message)
         let modelData = try JSONEncoder().encode(model)
         let encryptedModelData = try encryption.encrypt(data: modelData, key: room.key)
-        sockets.send(encryptedModelData)
-    }
-
-    func disconnect() {
-        sockets.disconnect()
+        try sockets.send(encryptedModelData)
     }
 }
 

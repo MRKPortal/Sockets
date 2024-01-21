@@ -6,6 +6,7 @@
 //
 
 import Combine
+import Foundation
 
 enum CustomAlert {
     case createRoom(DoubleStringCallback)
@@ -26,7 +27,8 @@ protocol FeedbackSystemProtocol {
 final class FeedbackSystem: FeedbackSystemProtocol {
 
     var feedbackPublisher: FeedbackPublisher {
-        subject.eraseToAnyPublisher()
+        subject.receive(on: DispatchQueue.main)
+            .eraseToAnyPublisher()
     }
     
     private let subject = FeedbackSubject()

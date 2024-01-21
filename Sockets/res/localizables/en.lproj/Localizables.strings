@@ -13,6 +13,12 @@
 "generic_connected_to" = "Connected to:\n%@";
 
 /* */
+"generic_connecting" = "Connecting...";
+
+/* */
+"generic_disconnected" = "Disconnected";
+
+/* */
 "generic_cancel" = "Cancel";
 
 /* */
@@ -56,3 +62,6 @@
 
 /* */
 "logout_description" = "Are you sure you want to leave?";
+
+/* */
+"error_message_not_send" = "This message couldn't be send because you are not connected";

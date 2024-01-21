@@ -11,19 +11,20 @@ import SwiftUI
 protocol ChatScenePresenterProtocol: ObservableObject {
     
     var feedbackPublisher: FeedbackPublisher { get }
-    
     var title: String { get }
     var userId: String { get }
+    var state: ConnectionState { get }
+    var message: String { get set }
     var messages: [MessageModel] { get }
     
-    func send(_ message: String)
+    func send()
     func didTapBack()
     func didTapCopyPrivate()
 }
 
 final class ChatScenePresenter: ChatScenePresenterProtocol {
     
-    private var cancellable: AnyCancellable?
+    private var cancellables = Set<AnyCancellable>()
     
     private let interactor: ChatSceneInteractorProtocol
     private let router: ChatSceneRouterProtocol
@@ -33,7 +34,9 @@ final class ChatScenePresenter: ChatScenePresenterProtocol {
     let title: String
     
     @Published var messages: [MessageModel] = []
-    
+    @Published var message: String = ""
+    @Published var state: ConnectionState = .disconnected
+
     var feedbackPublisher: FeedbackPublisher {
         feedback.feedbackPublisher
     }
@@ -48,11 +51,16 @@ final class ChatScenePresenter: ChatScenePresenterProtocol {
     }
     
     //MARK: - ChatScenePresenterProtocol
-    func send(_ message: String) {
-        Task {
-            try! interactor.sendMessage(
-                message.trimmingCharacters(in: .whitespacesAndNewlines)
-            )
+    func send() {
+        Task { @MainActor in
+            do {
+                try interactor.sendMessage(
+                    message.trimmingCharacters(in: .whitespacesAndNewlines)
+                )
+                message = ""
+            } catch {
+                feedback.display(feedback: .toast(error.localizedDescription))
+            }
         }
     }
     
@@ -70,11 +78,17 @@ final class ChatScenePresenter: ChatScenePresenterProtocol {
 
 private extension ChatScenePresenter {
     func bind() {
-        cancellable = interactor
+        interactor
             .messagesPublisher
             .receive(on: DispatchQueue.main)
             .sink { [weak self] message in
                 self?.messages += [message]
             }
+            .store(in: &cancellables)
+
+        interactor.statePublisher
+            .receive(on: DispatchQueue.main)
+            .assign(to: \.state, onWeak: self)
+            .store(in: &cancellables)
     }
 }
