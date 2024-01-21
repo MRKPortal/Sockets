@@ -9,48 +9,59 @@ import Foundation
 import Starscream
 
 protocol SocketsServiceProtocol {
-
-    var eventsPublisher: EventPublisher { get }
-
+    
+    var connectionPublisher: ConnectionPublisher { get }
+    var dataPublisher: DataPublisher { get }
+    
     func connect(url: String)
     func disconnect()
     func send(_ data: Data)
 }
 
 final class SocketsService: SocketsServiceProtocol, WebSocketDelegate {
-
+    
     private var socket: WebSocket?
     
-    private let subject = EventSubject()
+    private let connectionSubject = ConnectionSubject(.disconnected)
+    private let dataSubject = DataSubject()
     
-    var eventsPublisher: EventPublisher {
-        subject.eraseToAnyPublisher()
+    var dataPublisher: DataPublisher {
+        dataSubject.eraseToAnyPublisher()
+    }
+    
+    var connectionPublisher: ConnectionPublisher {
+        connectionSubject.eraseToAnyPublisher()
     }
     
     func connect(url: String) {
         let request = URLRequest(url: URL(string: url)!)
         socket = WebSocket(request: request)
+        connectionSubject.send(.connecting)
         socket?.delegate = self
         socket?.connect()
     }
     
     func didReceive(event: Starscream.WebSocketEvent, client: Starscream.WebSocketClient) {
+        print(event)
         switch event {
-        case .connected:
-            subject.send(.connected)
-        case .disconnected, .peerClosed, .cancelled:
-            subject.send(.disconnect)
-            socket?.connect()
+        case .pong, 
+                .connected:
+            connectionSubject.send(.connected)
+        case .disconnected, 
+                .peerClosed,
+                .cancelled,
+                .error:
+            connectionSubject.send(.disconnected)
         case .binary(let data):
-            subject.send(.message(data))
+            dataSubject.send(data)
         default:
-            print(event)
+            break
         }
     }
-
+    
     func send(_ data: Data) {
         socket?.write(data: data)
-        subject.send(.message(data))
+        dataSubject.send(data)
     }
     
     func disconnect() {

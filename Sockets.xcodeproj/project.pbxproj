@@ -81,9 +81,10 @@
 		06B41A392B53169E00211751 /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B41A382B53169E00211751 /* UIConstants.swift */; };
 		06B41A3C2B5320A100211751 /* CacheAsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B41A3B2B5320A100211751 /* CacheAsyncImage.swift */; };
 		06B41A3E2B5320D300211751 /* GravatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B41A3D2B5320D300211751 /* GravatarView.swift */; };
-		06BC2FAF2B5AD7820076F6CA /* SocketEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BC2FAE2B5AD7820076F6CA /* SocketEvent.swift */; };
+		06BC2FAF2B5AD7820076F6CA /* ConnectionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BC2FAE2B5AD7820076F6CA /* ConnectionState.swift */; };
 		06C713142B5200D800FE2715 /* Callbacks+Aliases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C713132B5200D800FE2715 /* Callbacks+Aliases.swift */; };
 		06C713272B52083400FE2715 /* EncryptionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C713262B52083400FE2715 /* EncryptionTests.swift */; };
+		06D62AF92B5D371C00409C33 /* SocketsServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D62AF82B5D371C00409C33 /* SocketsServiceTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -171,10 +172,11 @@
 		06B41A382B53169E00211751 /* UIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIConstants.swift; sourceTree = "<group>"; };
 		06B41A3B2B5320A100211751 /* CacheAsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheAsyncImage.swift; sourceTree = "<group>"; };
 		06B41A3D2B5320D300211751 /* GravatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GravatarView.swift; sourceTree = "<group>"; };
-		06BC2FAE2B5AD7820076F6CA /* SocketEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketEvent.swift; sourceTree = "<group>"; };
+		06BC2FAE2B5AD7820076F6CA /* ConnectionState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionState.swift; sourceTree = "<group>"; };
 		06C713132B5200D800FE2715 /* Callbacks+Aliases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Callbacks+Aliases.swift"; sourceTree = "<group>"; };
 		06C713192B5207F900FE2715 /* SocketsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SocketsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		06C713262B52083400FE2715 /* EncryptionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncryptionTests.swift; sourceTree = "<group>"; };
+		06D62AF82B5D371C00409C33 /* SocketsServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketsServiceTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -411,7 +413,7 @@
 			isa = PBXGroup;
 			children = (
 				067724952B51DBE100E3A41B /* SocketsService.swift */,
-				06BC2FAE2B5AD7820076F6CA /* SocketEvent.swift */,
+				06BC2FAE2B5AD7820076F6CA /* ConnectionState.swift */,
 			);
 			path = sockets;
 			sourceTree = "<group>";
@@ -717,6 +719,7 @@
 		06C713242B52081400FE2715 /* services */ = {
 			isa = PBXGroup;
 			children = (
+				06D62AF72B5D370600409C33 /* sockets */,
 				06C713252B52082500FE2715 /* encryption */,
 			);
 			path = services;
@@ -728,6 +731,14 @@
 				06C713262B52083400FE2715 /* EncryptionTests.swift */,
 			);
 			path = encryption;
+			sourceTree = "<group>";
+		};
+		06D62AF72B5D370600409C33 /* sockets */ = {
+			isa = PBXGroup;
+			children = (
+				06D62AF82B5D371C00409C33 /* SocketsServiceTests.swift */,
+			);
+			path = sockets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -891,7 +902,7 @@
 				061994A52B5417B700DD19EE /* RoomModel.swift in Sources */,
 				06B41A1A2B52F15E00211751 /* Fonts.swift in Sources */,
 				068984032B55DB62007C8CA7 /* HiveDistributor.swift in Sources */,
-				06BC2FAF2B5AD7820076F6CA /* SocketEvent.swift in Sources */,
+				06BC2FAF2B5AD7820076F6CA /* ConnectionState.swift in Sources */,
 				061994AC2B54246D00DD19EE /* FeedbackSystem.swift in Sources */,
 				067724812B51D20A00E3A41B /* Encodable+Dict.swift in Sources */,
 				06890F532B59B99A005FE523 /* CreateRoomAlertView.swift in Sources */,
@@ -940,6 +951,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				06B41A362B5314D000211751 /* StringExtensionsTests.swift in Sources */,
+				06D62AF92B5D371C00409C33 /* SocketsServiceTests.swift in Sources */,
 				06C713272B52083400FE2715 /* EncryptionTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
