@@ -15,7 +15,7 @@ enum Identifiers {
     }
     
     enum Rooms {
-        static let addBtn = ""
+        static let addBtn = "rooms.scene.add.btn"
         static let logoutBtn = "rooms.scene.logout.btn"
         static func roomCell(_ index: Int?) -> String {
             var id = "rooms.scene.room.cell"
@@ -30,5 +30,9 @@ enum Identifiers {
     
     enum Alerts {
         static let logoutConfirmBtn = "dialog.logout.confirm.btn"
+        
+        static let createRoomNameLbl = "dialog.create.room.name.lbl"
+        static let createRoomKeyLbl = "dialog.create.room.key.lbl"
+        static let createRoomBtn = "dialog.create.room.btn"
     }
 }
