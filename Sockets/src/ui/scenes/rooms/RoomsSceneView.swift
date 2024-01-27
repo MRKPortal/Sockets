@@ -26,6 +26,7 @@ struct RoomsSceneView<P: RoomsScenePresenterProtocol>: View {
                     RoomCellView(room)
                         .frame(size: .s(reader.size.width/4))
                         .allowsHitTesting(room != nil)
+                        .accessibilityIdentifier(Identifiers.Rooms.roomCell(index))
                         .onTapGesture {
                             if let room {
                                 UI.Feedback.buttonHaptic.impactOccurred()
@@ -56,6 +57,7 @@ struct RoomsSceneView<P: RoomsScenePresenterProtocol>: View {
                         padding: 0,
                         action: presenter.didTapLogout
                     )
+                    .accessibilityIdentifier(Identifiers.Rooms.logoutBtn)
                     .frame(size: .s(56))
                     .offset(x: animate ? 0 : -100)
                     .opacity(animate ? 1 : 0)
@@ -67,6 +69,7 @@ struct RoomsSceneView<P: RoomsScenePresenterProtocol>: View {
                         style: .normal,
                         action: presenter.didTapAdd
                     )
+                    .accessibilityIdentifier(Identifiers.Rooms.addBtn)
                     .frame(size: .s(64))
                     .offset(x: animate ? 0 : 100)
                     .opacity(animate ? 1 : 0)
