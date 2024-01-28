@@ -31,12 +31,14 @@ struct ChatHeaderView: View {
                     action: leftAction
                 )
                 .frame(size: .s(40))
+                .accessibilityIdentifier(Identifiers.Chat.backBtn)
                 
                 Spacer()
 
                 Text(title)
                     .applyTextStyle(.body)
                     .scaleEffect(pressing ? 0.9 : 1)
+                    .accessibilityIdentifier(Identifiers.Chat.titleLbl)
                     .onLongPressGesture(minimumDuration: 0.5) {
                         impact.impactOccurred()
                         holdAction()

@@ -40,6 +40,7 @@ struct LogoutAlertView: View {
                     action()
                     dismiss()
                 }
+                .accessibilityIdentifier(Identifiers.Alerts.logoutConfirmBtn)
             }
         }
         .padding(24)

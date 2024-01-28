@@ -34,17 +34,20 @@ struct CreateRoomAlertView: View {
                 placeholder: Ls.createRoomPlaceholder,
                 value: $name
             )
+            .accessibilityIdentifier(Identifiers.Alerts.createRoomNameTF)
 
             FieldView(
                 placeholder: Ls.createPasswordPlaceholder,
                 value: $password
             )
+            .accessibilityIdentifier(Identifiers.Alerts.createRoomKeyTF)
 
             AppButton(
                 Ls.actionEnter.uppercased(),
                 action: didTapCreate
             )
             .disabled(name.isEmpty || password.isEmpty)
+            .accessibilityIdentifier(Identifiers.Alerts.createRoomBtn)
         }
         .padding(24)
         .background {

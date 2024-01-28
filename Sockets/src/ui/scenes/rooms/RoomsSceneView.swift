@@ -32,6 +32,7 @@ struct RoomsSceneView<P: RoomsScenePresenterProtocol>: View {
                                 presenter.didTap(room: room)
                             }
                         }
+                        .accessibilityIdentifier(Identifiers.Rooms.roomCell(index))
                 }
             }
             //SERVER LABEL
@@ -56,6 +57,7 @@ struct RoomsSceneView<P: RoomsScenePresenterProtocol>: View {
                         padding: 0,
                         action: presenter.didTapLogout
                     )
+                    .accessibilityIdentifier(Identifiers.Rooms.logoutBtn)
                     .frame(size: .s(56))
                     .offset(x: animate ? 0 : -100)
                     .opacity(animate ? 1 : 0)
@@ -67,6 +69,7 @@ struct RoomsSceneView<P: RoomsScenePresenterProtocol>: View {
                         style: .normal,
                         action: presenter.didTapAdd
                     )
+                    .accessibilityIdentifier(Identifiers.Rooms.addBtn)
                     .frame(size: .s(64))
                     .offset(x: animate ? 0 : 100)
                     .opacity(animate ? 1 : 0)

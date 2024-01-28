@@ -51,6 +51,7 @@ struct ChatSceneView<P: ChatScenePresenterProtocol>: View {
                                 isMine: isMine
                             )
                             .id(lastMessage ? bottom : cell)
+                            .accessibilityIdentifier(Identifiers.Chat.messageContentLbl)
                         }
                     }
                     .onChange(of: presenter.messages.count) { _, value in
@@ -59,7 +60,6 @@ struct ChatSceneView<P: ChatScenePresenterProtocol>: View {
                         }
                     }
                 }
-                .scrollDismissesKeyboard(.interactively)
             }
             .padding(.horizontal, 16)
             

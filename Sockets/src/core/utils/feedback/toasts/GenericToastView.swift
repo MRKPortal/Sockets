@@ -28,5 +28,6 @@ struct GenericToastView: View {
                     )
             )
             .padding(.bottom, 64)
+            .accessibilityIdentifier(Identifiers.Alerts.toastLbl)
     }
 }
