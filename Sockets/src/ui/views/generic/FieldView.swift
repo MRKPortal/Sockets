@@ -23,8 +23,9 @@ struct FieldView: View {
                 }
                 TextField("", text: $value)
                     .applyTextStyle(.h4)
+                    .keyboardType(.alphabet)
+                    .disableAutocorrection(true)
                     .focused($focused)
-                    .autocorrectionDisabled(true)
             }
             (focused || !value.isEmpty ? Color.base1 : .gray3)
                 .frame(height: 1)

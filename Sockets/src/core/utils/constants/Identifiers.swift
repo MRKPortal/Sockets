@@ -10,8 +10,8 @@ import Foundation
 enum Identifiers {
     enum Access {
         static let connectBtn = "access.scene.connect.btn"
-        static let serverLbl = "access.scene.server.lbl"
-        static let nameLbl = "access.scene.name.lbl"
+        static let serverTF = "access.scene.server.tf"
+        static let nameTF = "access.scene.name.tf"
     }
     
     enum Rooms {
@@ -25,14 +25,19 @@ enum Identifiers {
     }
     
     enum Chat {
-        
+        static let sendBtn = "chat.scene.send.btn"
+        static let inputTF = "chat.scene.input.tf"
+        static let titleLbl = "chat.scene.title.lbl"
+        static let messageContentLbl = "chat.scene.message.content.lbl"
+        static let backBtn = "chat.scene.back.btn"
     }
     
     enum Alerts {
-        static let logoutConfirmBtn = "dialog.logout.confirm.btn"
+        static let logoutConfirmBtn = "alert.logout.confirm.btn"
         
-        static let createRoomNameLbl = "dialog.create.room.name.lbl"
-        static let createRoomKeyLbl = "dialog.create.room.key.lbl"
-        static let createRoomBtn = "dialog.create.room.btn"
+        static let createRoomNameTF = "alert.create.room.name.tf"
+        static let createRoomKeyTF = "alert.create.room.key.tf"
+        static let createRoomBtn = "alert.create.room.btn"
+        static let toastLbl = "alert.toast.message.lbl"
     }
 }

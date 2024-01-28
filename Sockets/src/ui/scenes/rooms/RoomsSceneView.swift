@@ -26,13 +26,13 @@ struct RoomsSceneView<P: RoomsScenePresenterProtocol>: View {
                     RoomCellView(room)
                         .frame(size: .s(reader.size.width/4))
                         .allowsHitTesting(room != nil)
-                        .accessibilityIdentifier(Identifiers.Rooms.roomCell(index))
                         .onTapGesture {
                             if let room {
                                 UI.Feedback.buttonHaptic.impactOccurred()
                                 presenter.didTap(room: room)
                             }
                         }
+                        .accessibilityIdentifier(Identifiers.Rooms.roomCell(index))
                 }
             }
             //SERVER LABEL

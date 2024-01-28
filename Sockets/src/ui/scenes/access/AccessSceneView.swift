@@ -28,13 +28,13 @@ struct AccessSceneView<P: AccessScenePresenterProtocol>: View {
                     placeholder: Ls.accessUsernamePlaceholder,
                     value: $presenter.username
                 )
-                .accessibilityIdentifier(Identifiers.Access.nameLbl)
+                .accessibilityIdentifier(Identifiers.Access.nameTF)
 
                 FieldView(
                     placeholder: Ls.accessServerPlaceholder,
                     value: $presenter.url
                 )
-                .accessibilityIdentifier(Identifiers.Access.serverLbl)
+                .accessibilityIdentifier(Identifiers.Access.serverTF)
             }
             
             Spacer()
@@ -48,5 +48,6 @@ struct AccessSceneView<P: AccessScenePresenterProtocol>: View {
         }
         .animation(.bouncy, value: !presenter.url.isEmpty && !presenter.username.isEmpty)
         .padding(.horizontal, 32)
+        .padding(.bottom, 8)
     }
 }

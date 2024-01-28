@@ -16,9 +16,12 @@ struct InputView: View {
     
     var body: some View {
         VStack(spacing: 0) {
-            Color.base0.frame(height: 1)
+            Color
+                .base0
+                .frame(height: 1)
             HStack {
                 TextField("  ", text: $value)
+                    .accessibilityIdentifier(Identifiers.Chat.inputTF)
                     .frame(minHeight: 32)
                     .focused($inputFocus)
                     .foregroundColor(.base3)
@@ -36,7 +39,12 @@ struct InputView: View {
                     state: state,
                     action: sendAction
                 )
-                .disabled(value.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
+                .accessibilityIdentifier(Identifiers.Chat.sendBtn)
+                .disabled(
+                    value.trimmingCharacters(
+                        in: .whitespacesAndNewlines
+                    ).isEmpty
+                )
                 .frame(size: .s(32))
                 
             }
